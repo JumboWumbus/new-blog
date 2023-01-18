@@ -99,7 +99,11 @@ export default function Post({ post }: { post: MDXPost }) {
 				<div>
 					<div className={s.wrapper}>
 						<div className={s.blogContainer}>
-							<MDXRemote {...post.source} />
+							<MDXRemote
+								{...post.source}
+								//@ts-ignore
+								components={{ YouTube }}
+							/>
 						</div>
 
 						<TableOfContents headings={post.headings} />

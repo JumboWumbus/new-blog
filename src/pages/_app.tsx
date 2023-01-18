@@ -40,16 +40,16 @@ import localFont from '@next/font/local'
 const myFont = localFont({src:'/fonts/my-font.woff2})
 */
 
-const components = { YouTube };
+
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<main className={`${inter.className}`}>
 				<Navbar />
-				<MDXProvider components={components}>
+	
 					<Component {...pageProps} />
-				</MDXProvider>
+
 				<Footer />
 			</main>
 		</>
