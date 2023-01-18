@@ -23,8 +23,10 @@ import Breadcrumbs from "src/components/Breadcrumbs/Breadcrumbs";
 import { getOnlyUniqueValuesFromArray } from "src/utils";
 import Link from "next/link";
 import YouTube from "src/components/Youtube/Youtube";
-import CodeBlockTheme from "styles/E-Ink-color-theme.json";
+
 import * as fs from "fs";
+
+//JSON.stringify;
 
 interface MDXPost {
 	source: MDXRemoteSerializeResult;
@@ -33,12 +35,8 @@ interface MDXPost {
 	headings: Heading[];
 }
 
-const CodeBlockData = JSON.parse(
-	fs.readFileSync("styles/E-Ink-color-theme.json", "utf8")
-);
-
 const options = {
-	theme: JSON.parse(CodeBlockData),
+	theme: "one-dark-pro",
 
 	onVisitLine(node: any) {
 		// Prevent lines from collapsing in `display: grid` mode, and
