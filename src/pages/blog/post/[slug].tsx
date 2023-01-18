@@ -2,25 +2,15 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { getPostFromSlug, getSlugs } from "src/lib/lib";
 import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
-import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { PostMeta } from "src/types";
 
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeSectionHeadings from "rehype-section-headings";
-import rehypeHighlight from "rehype-highlight";
 import rehypePrettyCode from "rehype-pretty-code";
-import toc from "rehype-toc";
 
-import remarkParse from "remark-parse";
-import remarkMdx from "remark-mdx";
-import { unified } from "unified";
-import type { Root } from "mdast";
-import { visit } from "unist-util-visit";
-
-import YouTube from "src/components/Youtube/Youtube";
 import { use, useEffect } from "react";
 import PageViews from "src/components/PageViews/PageViews";
 
@@ -32,18 +22,18 @@ import TableOfContents, {
 import Breadcrumbs from "src/components/Breadcrumbs/Breadcrumbs";
 import { getOnlyUniqueValuesFromArray } from "src/utils";
 import Link from "next/link";
+import YouTube from "src/components/Youtube/Youtube";
 
 const fs = require("fs");
 
 interface MDXPost {
-	source: MDXRemoteSerializeResult<
-		Record<string, unknown>,
-		Record<string, string>
-	>;
+	source: MDXRemoteSerializeResult;
 	meta: PostMeta;
 
 	headings: Heading[];
 }
+
+const components = { YouTube };
 
 const options = {
 	theme: JSON.parse(
@@ -114,10 +104,7 @@ export default function Post({ post }: { post: MDXPost }) {
 				<div>
 					<div className={s.wrapper}>
 						<div className={s.blogContainer}>
-							<MDXRemote
-								{...post.source}
-								components={{ YouTube }}
-							/>
+							<MDXRemote {...post.source} />
 						</div>
 
 						<TableOfContents headings={post.headings} />

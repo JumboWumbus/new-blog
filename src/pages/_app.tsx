@@ -1,13 +1,25 @@
-import 'styles/globals.scss';
+import "styles/globals.scss";
 
-import type { AppProps } from 'next/app';
-import { Inter } from '@next/font/google';
-import Footer from 'src/components/Footer/Footer';
-import Navbar from 'src/components/Navbar/Navbar';
+import type { AppProps } from "next/app";
+import { Inter } from "@next/font/google";
+import Footer from "src/components/Footer/Footer";
+import Navbar from "src/components/Navbar/Navbar";
+import { MDXProvider } from "@mdx-js/react";
+import YouTube from "src/components/Youtube/Youtube";
 
 const inter = Inter({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+	subsets: ["latin"],
+	weight: [
+		"100",
+		"200",
+		"300",
+		"400",
+		"500",
+		"600",
+		"700",
+		"800",
+		"900",
+	],
 });
 
 /*
@@ -28,14 +40,18 @@ import localFont from '@next/font/local'
 const myFont = localFont({src:'/fonts/my-font.woff2})
 */
 
+const components = { YouTube };
+
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <main className={`${inter.className}`}>
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
-      </main>
-    </>
-  );
+	return (
+		<>
+			<main className={`${inter.className}`}>
+				<Navbar />
+				<MDXProvider components={components}>
+					<Component {...pageProps} />
+				</MDXProvider>
+				<Footer />
+			</main>
+		</>
+	);
 }
