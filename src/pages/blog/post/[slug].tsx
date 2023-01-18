@@ -150,9 +150,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const mdxSource = await serialize(content, {
 		mdxOptions: {
 			rehypePlugins: [
-				[rehypeSlug],
+				//@ts-ignore
+				rehypeSlug,
+				//@ts-ignore
 				[rehypeAutolinkHeadings, { behavior: "append" }],
+				//@ts-ignore
 				[rehypeSectionHeadings, { sectionDataAttribute: "data-id" }],
+				//@ts-ignore
 				[rehypeExternalLinks, { target: "_blank" }],
 
 				[rehypePrettyCode, options],
