@@ -119,22 +119,38 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { slug } = params as { slug: string };
 	const { content, meta } = getPostFromSlug(slug);
 
+	// let headings = Array.from(
+	// 	content.matchAll(/(?<flag>#{1,6})\s+(?<content>.+)/g)
+	// ).map(({ groups: { flag, content } }) => ({
+	// 	depth: flag.length,
+	// 	text: content
+	// 		.replace(/\s+/g, "-")
+	// 		.replace(/[^a-zA-Z0-9-]/g, "")
+	// 		.toLowerCase(),
+	// }));
+
 	let headings = Array.from(
-		content.matchAll(/(?<flag>#{1,6})\s+(?<content>.+)/g)
-	).map(({ groups: { flag, content } }) => ({
-		depth: flag.length,
-		text: content
-			.replace(/\s+/g, "-")
-			.replace(/[^a-zA-Z0-9-]/g, "")
-			.toLowerCase(),
-	}));
+		(function* () {
+			const regex = /(#{1,6})\s+(.+)/g;
+			let match;
+			while ((match = regex.exec(content))) {
+				yield {
+					depth: match[1].length,
+					text: match[2]
+						.replace(/\s+/g, "-")
+						.replace(/[^a-zA-Z0-9-]/g, "")
+						.toLowerCase(),
+				};
+			}
+		})()
+	);
 
 	console.log(headings);
 
 	const mdxSource = await serialize(content, {
 		mdxOptions: {
 			rehypePlugins: [
-				rehypeSlug,
+				[rehypeSlug],
 				[rehypeAutolinkHeadings, { behavior: "append" }],
 				[rehypeSectionHeadings, { sectionDataAttribute: "data-id" }],
 				[rehypeExternalLinks, { target: "_blank" }],
