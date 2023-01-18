@@ -3,8 +3,6 @@ import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 
-import { Compatible } from "vfile";
-import { sync } from "glob";
 import { PostMeta } from "src/types";
 
 const ARTICLES_DIRECTORY = path.join(process.cwd(), "articles");
@@ -51,7 +49,7 @@ export const getPostFromSlug = (slug: string): Post => {
 			excerpt: data.excerpt ?? "",
 			summary: data.summary ?? "",
 			title: data.title ?? slug,
-			author: data.author ?? "Ben",
+			author: data.author ?? "Ben Hammond",
 			tags: (data.tags ?? []).sort(),
 			category: data.category ?? "",
 			date: (data.date ?? new Date()).toString(),
