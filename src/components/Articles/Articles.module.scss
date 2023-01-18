@@ -1,0 +1,102 @@
+@import '/styles/colors.scss';
+@import '~rfs/scss';
+@import 'styles/utility.scss';
+
+.articles {
+
+    @include parentBoiler;
+    margin-block: 4rem;
+}
+
+
+.link {
+
+    all: unset;
+
+    .title {
+        @include font-size(2rem);
+
+        position: relative;
+        transition: 0.3s ease;
+
+
+        &::after {
+            background: none repeat scroll 0 0 transparent;
+            bottom: -5px;
+            content: "";
+            display: block;
+            height: 4px;
+            left: 50%;
+            position: absolute;
+            background: $secondary;
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            width: 0;
+
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: $secondary;
+
+            &::after {
+                width: 100%;
+                left: 0;
+            }
+        }
+    }
+}
+
+
+.headingSection {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+    color: $primary;
+}
+
+.articleList {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+}
+
+.articleItem {
+
+    flex: calc(50% - 1rem);
+
+}
+
+// .articles {
+//     font-size: 1rem;
+//     max-width: 100ch;
+//     margin: auto;
+//     margin-block: 4rem;
+// }
+
+// .heading {
+//     display: flex;
+//     align-items: flex-end;
+//     justify-content: space-between;
+//     margin-bottom: 0.5rem;
+// }
+
+// .articleList {
+//     list-style: none;
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+//     gap: 2rem;
+// }
+
+// .articleItem {
+
+//     flex: calc(50% - 1rem);
+
+// }

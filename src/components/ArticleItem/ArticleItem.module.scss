@@ -1,0 +1,232 @@
+@import '/styles/colors.scss';
+@import '~rfs/scss';
+
+
+$dark: #19191c;
+$lessDark: #303035;
+$gutter: 16px;
+$minWidth: 320px;
+$maxWidth: 1fr;
+
+
+.blogPostLink {
+    all: unset;
+}
+
+
+.article {
+    border: 2px solid $primary;
+    padding: 1rem;
+
+    margin: auto;
+    font-family: 'Inter';
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+    width: 100%;
+
+    transition: 0.3s ease;
+
+    &:hover {
+        box-shadow: 6px 6px 0px $primary;
+        cursor: pointer;
+
+        .title::after {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+
+
+
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     bottom: 0;
+    //     right: 0;
+    //     left: 0;
+    //     //z-index: 0;
+    // }
+
+}
+
+.articleList {}
+
+
+.postContainer {
+    display: inline;
+}
+
+.img {
+
+    overflow: hidden;
+
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.title {
+
+    all: unset;
+    cursor: pointer;
+    @include font-size(1.8rem);
+    font-weight: 800;
+    margin-top: 2rem;
+    position: relative;
+
+    color: $primary;
+
+
+    &::after {
+        background: none repeat scroll 0 0 transparent;
+        bottom: -4px;
+        content: "";
+        display: block;
+        height: 4px;
+        left: 50%;
+        position: absolute;
+        background: $primary;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+
+    }
+
+
+}
+
+.excerpt {
+    padding-top: 0.8rem;
+    padding-bottom: 1rem;
+    @include font-size(1rem);
+    color: $primary;
+}
+
+.postDetails {}
+
+.readArticle {
+
+    button {
+        padding: 0.7rem;
+        background-color: #ffffff;
+        color: $primary;
+        cursor: pointer;
+        border: 3px solid $primary;
+        //margin-top: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 2px;
+        font-weight: 700;
+        @include font-size(1rem);
+
+        transition: 0.3s ease;
+
+        &:hover {
+            border-color: $secondary;
+
+        }
+    }
+}
+
+
+
+.postMeta {
+    display: flex;
+    @include font-size(0.75rem);
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    font-style: italic;
+
+
+    .icon {
+        margin-right: 0.4rem;
+
+    }
+
+    .text {
+        margin-right: 1rem;
+        color: $primary;
+    }
+}
+
+.postBody {}
+
+
+.tags {
+    list-style: none;
+    display: flex;
+    gap: 1rem 0.75rem;
+    flex-wrap: wrap;
+    text-transform: lowercase;
+
+
+    .tagItem {
+
+        margin: 0;
+
+        @include font-size(0.8rem);
+        font-weight: 600;
+        font-style: italic;
+        //letter-spacing: 1px;
+        color: $primary;
+        text-decoration: none;
+        @include padding-top(0.3rem);
+        @include padding-bottom(0.3rem);
+        @include padding-left(0.5rem);
+        @include padding-right(0.5rem);
+
+        border: 1px solid $primary;
+
+        transition: 0.3s ease;
+
+
+        &::before {
+            content: '#';
+        }
+
+        &:hover {
+            border-color: $secondary;
+
+        }
+    }
+}
+
+.postDate {}
+
+.postRead {}
+
+.postReadTime {}
+
+@media screen and (min-width: 750px) {
+    .article {
+
+
+        overflow: hidden;
+
+
+    }
+
+    .postDetails {
+        //padding-left: 2rem;
+
+    }
+
+    .img {
+
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+
+}

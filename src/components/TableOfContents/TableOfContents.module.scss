@@ -1,0 +1,68 @@
+.TOC {}
+
+.wrapper {
+   position: sticky;
+   top: 6rem;
+}
+
+
+.depth-1 {
+   background-color: #777777;
+
+   &:has(>a.active) {
+      background-color: blue;
+   }
+
+   a {
+      .active {
+         background-color: blue;
+      }
+   }
+
+}
+
+.depth-2 {
+   background-color: #949494;
+
+   &:has(>a.active) {
+      background-color: blue;
+   }
+
+   a {
+      .active {
+         background-color: blue;
+      }
+   }
+}
+
+.depth-3 {
+   background-color: #949494;
+
+   &:has(>a.active) {
+      background-color: blue;
+   }
+
+   a {
+      .active {
+         background-color: blue;
+      }
+   }
+}
+
+.depth-4 {
+   background-color: #949494;
+
+   &:has(>a.active) {
+      background-color: blue;
+   }
+
+   a {
+      .active {
+         background-color: blue;
+      }
+   }
+}
+
+.active {
+   background-color: aqua;
+}

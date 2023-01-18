@@ -1,0 +1,13 @@
+@import '~rfs/scss';
+@import 'styles/utility.scss';
+
+.container {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.svg {
+   width: 20px;
+   height: 17px;
+}

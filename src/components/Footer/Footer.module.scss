@@ -1,0 +1,80 @@
+@import '~rfs/scss';
+@import 'styles/utility.scss';
+
+.footer {
+    @include parentBoiler;
+}
+
+.container {
+
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+}
+
+
+.sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.iconContainer {
+
+    display: flex;
+    justify-content: center;
+    order: 2;
+
+    .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: #161616;
+        margin-left: 1.5rem;
+    }
+
+    .noMargin {
+        margin-left: 0;
+    }
+
+
+}
+
+.trademarkContainer {
+    margin-top: 2rem;
+
+    p {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+}
+
+
+@media (min-width: 640px) {
+    .container {}
+
+}
+
+@media (min-width:768px) {
+    .trademarkContainer {
+        margin-top: 0;
+    }
+
+    .container {
+        display: flex;
+        justify-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {}
+}
