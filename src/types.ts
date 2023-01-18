@@ -1,5 +1,4 @@
 export interface PostMeta {
-	meta: any;
 	excerpt: string;
 	summary: string;
 	slug: string;
