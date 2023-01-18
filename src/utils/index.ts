@@ -12,15 +12,15 @@ export function slugify(title: string) {
 	return title
 		.toLowerCase()
 		.trim()
-		.replace(/[^\w ]+/g, '')
-		.replace(/ +/g, '-');
+		.replace(/[^\w ]+/g, "")
+		.replace(/ +/g, "-");
 }
 
 export function convertTime(time: string | number | Date) {
-	return new Date(time).toLocaleDateString('en-us', {
-		year: 'numeric',
-		month: 'short',
-		day: 'numeric'
+	return new Date(time).toLocaleDateString("en-us", {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
 	});
 }
 
@@ -40,8 +40,8 @@ export function getOnlyUniqueValuesFromArray(array: any[]) {
 
 export default function titleCaseString(title: string) {
 	var small =
-		'(a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|v[.]?|via|vs[.]?)';
-	var punct = '([!"#$%&\'()*+,./:;<=>?@[\\\\\\]^_`{|}~-]*)';
+		"(a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|v[.]?|via|vs[.]?)";
+	var punct = "([!\"#$%&'()*+,./:;<=>?@[\\\\\\]^_`{|}~-]*)";
 
 	var parts = [],
 		split = /[:.;?!] |(?: |^)["Ò]/g,
@@ -56,14 +56,14 @@ export default function titleCaseString(title: string) {
 				.replace(/\b([A-Za-z][a-z.'Õ]*)\b/g, function (all) {
 					return /[A-Za-z]\.[A-Za-z]/.test(all) ? all : upper(all);
 				})
-				.replace(RegExp('\\b' + small + '\\b', 'ig'), lower)
+				.replace(RegExp("\\b" + small + "\\b", "ig"), lower)
 				.replace(
-					RegExp('^' + punct + small + '\\b', 'ig'),
+					RegExp("^" + punct + small + "\\b", "ig"),
 					function (all, punct, word) {
 						return punct + upper(word);
 					}
 				)
-				.replace(RegExp('\\b' + small + punct + '$', 'ig'), upper)
+				.replace(RegExp("\\b" + small + punct + "$", "ig"), upper)
 		);
 
 		index = split.lastIndex;
@@ -73,9 +73,9 @@ export default function titleCaseString(title: string) {
 	}
 
 	return parts
-		.join('')
-		.replace(/ V(s?)\. /gi, ' v$1. ')
-		.replace(/(['Õ])S\b/gi, '$1s')
+		.join("")
+		.replace(/ V(s?)\. /gi, " v$1. ")
+		.replace(/(['Õ])S\b/gi, "$1s")
 		.replace(/\b(AT&T|Q&A)\b/gi, function (all) {
 			return all.toUpperCase();
 		});
@@ -92,21 +92,19 @@ function upper(word: string) {
 export async function getHeadings(source: string) {
 	// Get each line individually, and filter out anything that
 	// isn't a heading.
-	const headingLines = source.split('\n').filter(line => {
+	const headingLines = source.split("\n").filter((line) => {
 		return line.match(/^###*\s/);
 	});
 
 	// Transform the string '## Some text' into an object
 	// with the shape '{ text: 'Some text', level: 2 }'
-	return headingLines.map(raw => {
-		const text = raw.replace(/^###*\s/, '');
+	return headingLines.map((raw) => {
+		const text = raw.replace(/^###*\s/, "");
 		// I only care about h2 and h3.
 		// If I wanted more levels, I'd need to count the
 		// number of #s.
-		const level = raw.slice(0, 3) === '###' ? 3 : 2;
+		const level = raw.slice(0, 3) === "###" ? 3 : 2;
 
 		return { text, level };
 	});
-
-	return headingLines;
 }

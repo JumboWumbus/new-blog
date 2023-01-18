@@ -33,12 +33,10 @@ interface MDXPost {
 	headings: Heading[];
 }
 
-const components = { YouTube };
-
 const options = {
 	theme: JSON.parse(
 		fs.readFileSync(
-			require.resolve("styles/E-Ink-color-theme.json"),
+			require.resolve("src/styles/E-Ink-color-theme.json"),
 			"utf-8"
 		)
 	),
@@ -145,8 +143,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		})()
 	);
 
-	console.log(headings);
-
 	const mdxSource = await serialize(content, {
 		mdxOptions: {
 			rehypePlugins: [
@@ -163,8 +159,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			],
 		},
 	});
-
-	console.log(meta.summary);
 
 	return { props: { post: { source: mdxSource, meta, headings } } };
 };
