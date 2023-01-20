@@ -16,6 +16,14 @@ export default function Document() {
 					href="mailto:BenHammond404@gmail.com"
 					rel="me"
 				></a>
+				<link
+					rel="webmention"
+					href="https://webmention.io/bensden.xyz/webmention"
+				/>
+				<link
+					rel="pingback"
+					href="https://webmention.io/bensden.xyz/xmlrpc"
+				/>
 			</Head>
 			<body>
 				<Main />
