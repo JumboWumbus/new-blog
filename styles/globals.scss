@@ -1,38 +1,50 @@
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 html,
 body {
-  max-width: 100vw;
-  scroll-behavior: smooth;
+	max-width: 100vw;
+	scroll-behavior: smooth;
 }
 
-main {}
+main {
+}
 
 .highlighted {
-  background-color: #ffe84c80;
-  border-left-color: #777777 !important;
+	background-color: #ffe84c80;
+	border-left-color: #777777 !important;
 }
 
 .word {
-  background-color: #ffe119;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
+	background-color: #ffe119;
+	padding: 0.25rem;
+	border-radius: 0.25rem;
 }
 
 .line {
-  padding: 0 1.25rem;
-  border-left: 2px solid transparent;
+	padding: 0 1.25rem;
+	border-left: 2px solid transparent;
+}
 
-  &::before {
-    counter-increment: line;
-    content: counter(line);
-    display: inline-block;
-    width: 1rem;
-    margin-right: 2rem;
-    text-align: right;
-  }
+code {
+	counter-reset: line;
+}
+
+code[data-line-numbers] > .line::before {
+	counter-increment: line;
+	content: counter(line);
+
+	/* Other styling */
+	display: inline-block;
+	width: 1rem;
+	margin-right: 2rem;
+	text-align: right;
+	color: gray;
+}
+
+code[data-line-numbers-max-digits="3"] > .line::before {
+	width: 3rem;
 }

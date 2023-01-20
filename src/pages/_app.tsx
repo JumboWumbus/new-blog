@@ -40,15 +40,13 @@ import localFont from '@next/font/local'
 const myFont = localFont({src:'/fonts/my-font.woff2})
 */
 
-
-
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<main className={`${inter.className}`}>
 				<Navbar />
-	
-					<Component {...pageProps} />
+
+				<Component {...pageProps} />
 
 				<Footer />
 			</main>

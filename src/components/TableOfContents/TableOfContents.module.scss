@@ -1,68 +1,148 @@
-.TOC {}
+@import "/styles/colors.scss";
+@import "~rfs/scss";
+@import "styles/utility.scss";
 
-.wrapper {
-   position: sticky;
-   top: 6rem;
+$wrapper_padding-top: 1rem;
+$wrapper_padding-bottom: 1rem;
+$wrapper_padding-left: 1.5rem;
+$wrapper_padding-right: 1.5rem;
+
+$listItem_margin-top: 0.25rem;
+$listItem_margin-bottom: 0.25rem;
+$listItem_padding-right: 0.5rem;
+
+@mixin selectedBorder($currentPadding) {
+	background: none repeat scroll 0 0 transparent;
+	bottom: -2px;
+	content: "";
+	display: block;
+	height: 3px;
+	left: -$currentPadding;
+	position: relative;
+	background: $primary;
+	transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	width: 0;
 }
 
+@mixin animateBorder($currentPadding) {
+	width: calc(
+		100% + px($currentPadding) + px($listItem_padding-right)
+	);
+	left: -$currentPadding;
+}
+
+.TOC {
+}
+
+.wrapper {
+	position: sticky;
+	top: 6rem;
+
+	max-height: calc(100vh - 8rem);
+	overflow: auto;
+
+	@include padding-left($wrapper_padding-left);
+	@include padding-right($wrapper_padding-right);
+	@include padding-top($wrapper_padding-top);
+	@include padding-bottom($wrapper_padding-bottom);
+
+	border: 2px solid;
+
+	background-color: $tertiary;
+
+	ul {
+		list-style: none;
+
+		li {
+			@include margin-top($listItem_margin-top);
+			@include margin-bottom($listItem_margin-bottom);
+			@include padding-right($listItem_padding-right);
+			transition: color 0.3s, background-color 0.3s;
+
+			a {
+				text-decoration: none;
+				color: inherit;
+
+				transition: color 0.3s;
+
+				&:hover {
+					color: $secondary;
+				}
+			}
+		}
+	}
+}
 
 .depth-1 {
-   background-color: #777777;
+	font-weight: 600;
+	@include font-size(1.25rem);
 
-   &:has(>a.active) {
-      background-color: blue;
-   }
+	color: $primary;
 
-   a {
-      .active {
-         background-color: blue;
-      }
-   }
+	&:has(> a.active) {
+		background-color: darken($color: $tertiary, $amount: 10);
 
+		&::after {
+			@include animateBorder(0);
+		}
+	}
+
+	&::after {
+		@include selectedBorder(0);
+	}
 }
 
 .depth-2 {
-   background-color: #949494;
+	$padding: 1rem;
+	padding-left: $padding;
+	color: $primary;
 
-   &:has(>a.active) {
-      background-color: blue;
-   }
+	&:has(> a.active) {
+		background-color: darken($color: $tertiary, $amount: 10);
 
-   a {
-      .active {
-         background-color: blue;
-      }
-   }
+		&::after {
+			@include animateBorder($padding);
+		}
+	}
+
+	&::after {
+		@include selectedBorder($padding);
+	}
 }
 
 .depth-3 {
-   background-color: #949494;
+	$padding: 1.5rem;
+	padding-left: $padding;
+	color: $primary;
+	font-style: italic;
 
-   &:has(>a.active) {
-      background-color: blue;
-   }
+	&:has(> a.active) {
+		background-color: darken($color: $tertiary, $amount: 10);
 
-   a {
-      .active {
-         background-color: blue;
-      }
-   }
+		&::after {
+			@include animateBorder($padding);
+		}
+	}
+
+	&::after {
+		@include selectedBorder($padding);
+	}
 }
 
 .depth-4 {
-   background-color: #949494;
+	$padding: 2rem;
+	padding-left: $padding;
+	color: $primary;
 
-   &:has(>a.active) {
-      background-color: blue;
-   }
+	&:has(> a.active) {
+		background-color: darken($color: $tertiary, $amount: 10);
 
-   a {
-      .active {
-         background-color: blue;
-      }
-   }
-}
+		&::after {
+			@include animateBorder($padding);
+		}
+	}
 
-.active {
-   background-color: aqua;
+	&::after {
+		@include selectedBorder($padding);
+	}
 }

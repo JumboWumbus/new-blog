@@ -35,6 +35,22 @@ interface MDXPost {
 	headings: Heading[];
 }
 
+// TODO Add theme to codeblock
+
+// TODO Image placeholder and Image optimization: https://nextjs.org/docs/api-reference/next/image
+
+/* https://vscodethemes.com/e/stepanvanzuriak.mono/mono-white?language=javascript 
+
+https://vscodethemes.com/e/arthurwhite.white/white?language=javascript
+
+https://vscodethemes.com/e/u29dc.set/set-light?language=javascript
+
+https://vscodethemes.com/e/saahilclaypool.blind-themes/light-blind?language=javascript
+
+https://vscodethemes.com/e/mufanzaa.e-ink-theme-2/e-ink-2?language=javascript
+
+*/
+
 const options = {
 	theme: "one-dark-pro",
 
@@ -144,7 +160,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		})()
 	);
 
-	const mdxSource = await serialize(content, {
+	let tabWidth = "  ";
+
+	let codeTabs = content.replace(/\t/g, " ");
+
+	const mdxSource = await serialize(codeTabs, {
 		mdxOptions: {
 			rehypePlugins: [
 				//@ts-ignore
