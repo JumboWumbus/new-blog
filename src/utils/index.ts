@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export function sortByDate(
 	a: { frontmatter: { date: string | number | Date } },
 	b: { frontmatter: { date: string | number | Date } }
@@ -108,3 +110,54 @@ export async function getHeadings(source: string) {
 		return { text, level };
 	});
 }
+
+export type WebMentionsCollection = {
+	likes: any;
+	reposts: any;
+	mentions: any;
+};
+
+export const useWebMentions = (
+	url?: string
+): WebMentionsCollection => {
+	const [mentions, setMentions] = useState<
+		WebMentionsCollection | undefined
+	>(undefined);
+	useEffect(() => {
+		const wmUrl =
+			"https://webmention.io/api/mentions.jf2?bensden.xyz&token=gHoe7aABKHTcUEgBAOkFlw";
+
+		// Check if the url has been passed, if so use as the target url otherwise get all mentions
+		const target = url ? `${wmUrl}&target=${url}` : wmUrl;
+
+		fetch(target)
+			.then((response) => response.json())
+			.then((mentions) => {
+				if (mentions.children) {
+					const mentionsWithoutLikeOrReposts =
+						mentions.children.filter(
+							(mention: { [x: string]: string }) =>
+								mention["wm-property"] !== "like-of" &&
+								mention["wm-property"] !== "repost-of"
+						);
+					const totalLike = mentions.children.filter(
+						(mention: { [x: string]: string }) =>
+							mention["wm-property"] === "like-of"
+					);
+					const totalRepost = mentions.children.filter(
+						(mention: { [x: string]: string }) =>
+							mention["wm-property"] === "repost-of"
+					);
+
+					const webMentions: WebMentionsCollection = {
+						likes: totalLike,
+						reposts: totalRepost,
+						mentions: mentionsWithoutLikeOrReposts,
+					};
+					setMentions(webMentions);
+				}
+			});
+	}, []);
+	//@ts-ignore
+	return mentions;
+};

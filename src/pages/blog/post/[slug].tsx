@@ -20,7 +20,10 @@ import TableOfContents, {
 	Heading,
 } from "src/components/TableOfContents/TableOfContents";
 import Breadcrumbs from "src/components/Breadcrumbs/Breadcrumbs";
-import { getOnlyUniqueValuesFromArray } from "src/utils";
+import {
+	getOnlyUniqueValuesFromArray,
+	useWebMentions,
+} from "src/utils";
 import Link from "next/link";
 import YouTube from "src/components/Youtube/Youtube";
 

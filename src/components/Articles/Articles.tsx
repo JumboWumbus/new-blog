@@ -1,14 +1,14 @@
-import G from 'glob';
-import Link from 'next/link';
-import React from 'react';
-import { PostMeta } from 'src/types';
-import ArticleItem from '../ArticleItem/ArticleItem';
-import s from './Articles.module.scss';
+import G from "glob";
+import Link from "next/link";
+import React from "react";
+import { PostMeta } from "src/types";
+import ArticleItem from "../ArticleItem/ArticleItem";
+import s from "./Articles.module.scss";
 
 export default function Articles({
 	posts,
 	title,
-	headingLink
+	headingLink,
 }: {
 	posts: PostMeta[];
 	title: string;
@@ -17,15 +17,18 @@ export default function Articles({
 	return (
 		<div className={s.articles}>
 			<div className={s.headingSection}>
-				{typeof headingLink !== 'undefined' ? (
-					<Link className={s.link} href={headingLink}>
+				{typeof headingLink !== "undefined" ? (
+					<Link
+						className={s.link}
+						href={headingLink}
+					>
 						<h1 className={s.title}>{title}</h1>
 					</Link>
 				) : (
 					<h1 className={s.title}>{title}</h1>
 				)}
 
-				<h4>
+				<h4 className={s.articleCount}>
 					{posts.length == 1
 						? `${posts.length} Article`
 						: `${posts.length} Articles`}
@@ -33,8 +36,11 @@ export default function Articles({
 			</div>
 
 			<ul className={s.articleList}>
-				{posts.map(post => (
-					<li className={s.articleItem} key={post.slug}>
+				{posts.map((post) => (
+					<li
+						className={s.articleItem}
+						key={post.slug}
+					>
 						<ArticleItem post={post} />
 					</li>
 				))}

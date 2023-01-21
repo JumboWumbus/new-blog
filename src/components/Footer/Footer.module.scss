@@ -1,80 +1,133 @@
-@import '~rfs/scss';
-@import 'styles/utility.scss';
+@import "~rfs/scss";
+@import "styles/utility.scss";
+@import "/styles/colors.scss";
 
 .footer {
-    @include parentBoiler;
+	@include parentBoiler;
 }
 
 .container {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 80rem;
 
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 80rem;
+	display: flex;
+	justify-items: center;
+	align-items: center;
+	flex-direction: column-reverse;
 }
 
-
 .sr {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
 
 .iconContainer {
+	display: flex;
+	justify-content: center;
+	order: 2;
 
-    display: flex;
-    justify-content: center;
-    order: 2;
+	.icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		color: #161616;
+		margin-left: 1.5rem;
+	}
 
-    .icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        color: #161616;
-        margin-left: 1.5rem;
-    }
-
-    .noMargin {
-        margin-left: 0;
-    }
-
-
+	.noMargin {
+		margin-left: 0;
+	}
 }
 
-.trademarkContainer {
-    margin-top: 2rem;
+.bioContainer {
+	//margin-top: 2rem;
+	position: relative;
+	margin-top: 1.5rem;
 
-    p {
-        text-align: center;
-        font-size: 1rem;
-    }
+	p {
+		text-align: center;
+		font-size: 1rem;
+	}
 
+	.bio {
+	}
+
+	.textContainer {
+		padding: 10px;
+		width: 250px;
+	}
+
+	.image {
+		width: 4rem;
+		height: 4rem;
+		border-radius: 2rem;
+		shape-outside: circle(44%);
+		float: left;
+		margin-right: 0.75rem;
+		margin-top: 9px;
+	}
+
+	.name {
+		@include font-size(1.25rem);
+		font-weight: 700;
+		text-decoration: none;
+		color: $secondary;
+		display: block;
+	}
+
+	.email {
+		@include font-size(1rem);
+		font-weight: 600;
+		text-decoration: none;
+		color: $primary;
+		display: block;
+		margin-block: 0.1rem;
+	}
+
+	.city {
+		@include font-size(1rem);
+		font-weight: 700;
+		color: $primary;
+	}
+
+	.country {
+		@include font-size(1rem);
+		font-weight: 700;
+
+		color: #005eb8;
+	}
 }
-
 
 @media (min-width: 640px) {
-    .container {}
-
+	.container {
+	}
 }
 
-@media (min-width:768px) {
-    .trademarkContainer {
-        margin-top: 0;
-    }
+@media (min-width: 768px) {
+	.trademarkContainer {
+		margin-top: 0;
+	}
 
-    .container {
-        display: flex;
-        justify-items: center;
-        justify-content: space-between;
-    }
+	.container {
+		justify-content: space-between;
+		flex-direction: row;
+	}
+
+	.bioContainer {
+		margin-top: 0;
+	}
 }
 
 @media (min-width: 1024px) {
-    .container {}
+	.container {
+	}
 }
