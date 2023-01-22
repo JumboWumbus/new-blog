@@ -165,8 +165,9 @@ const Footer = () => {
 
                      <div className={s.from}>
                         <span className={`p-locality ${s.city}`}>
-                           Glasgow,{" "}
+                           Glasgow
                         </span>
+                        {', '}
                         <span className={`p-country-name ${s.country}`}>
                            Scotland
                         </span>
