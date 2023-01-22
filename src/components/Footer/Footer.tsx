@@ -133,7 +133,7 @@ const Footer = () => {
                         Ben Hammond
                      </Link>
 
-                     <div className={`p-role p-note`}>
+                     <div className={`p-role`}>
                         <span className={`p-category `}>
                            Developer
                         </span>
