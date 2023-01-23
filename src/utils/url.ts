@@ -17,10 +17,6 @@ export const relativeOgImageUrl = ({
    excerpt,
    date,
    readingTime
-}: OGImageParams) => {
+}: OGImageParams) => `/api/og-image?title=${title ?? ''}&excerpt=${excerpt ?? ''}&date=${date}&readingTime=${readingTime}`;
 
-   return (`/api/og-image?title=${title ?? ''}&excerpt=${excerpt ?? ''}&date=${date}&readingTime=${readingTime}`)
-
-};
-
-export const OgImageUrl = (imageParams: OGImageParams) => { `${mainUrl}/${relativeOgImageUrl(imageParams)}` }
+export const OgImageUrl = (imageParams: OGImageParams) => `${mainUrl}/${relativeOgImageUrl(imageParams)}`
