@@ -1,5 +1,5 @@
 import { FunctionalComponent } from "preact";
-import useFetchWebmentions from "src/pages/api/views/useWebMentions";
+import useFetchWebmentions from "src/pages/api/useWebMentions";
 import { Webmention } from "src/types";
 import CollapseList from "./CollapseList";
 import Interactions from "./Interactions";
@@ -58,12 +58,11 @@ const Webmentions: FunctionalComponent<{
 			</CollapseList>
 
 			<CollapseList
-				summary={`Interactions -  ${
-					likes.length +
+				summary={`Interactions -  ${likes.length +
 					reposts.length +
 					bookmarks.length +
 					mentions.length
-				}`}
+					}`}
 			>
 				<section>
 					{Boolean(reposts.length) && (
