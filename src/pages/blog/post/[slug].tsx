@@ -3,6 +3,7 @@ import Head from "next/head";
 import { getPostFromSlug, getSlugs } from "src/lib/lib";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { NextSeo } from 'next-seo';
 import { PostMeta } from "src/types";
 
 import rehypeSlug from "rehype-slug";
@@ -21,6 +22,7 @@ import TableOfContents, {
 } from "src/components/TableOfContents/TableOfContents";
 import Breadcrumbs from "src/components/Breadcrumbs/Breadcrumbs";
 import {
+	convertTime,
 	getOnlyUniqueValuesFromArray,
 	useWebMentions,
 } from "src/utils";
@@ -28,6 +30,8 @@ import Link from "next/link";
 import YouTube from "src/components/Youtube/Youtube";
 
 import * as fs from "fs";
+import { canonicalBlogPostUrl, OgImageUrl, relativeOgImageUrl } from "src/utils/url";
+import { oGImageHeight, oGImageWidth } from "src/utils/constants";
 
 //JSON.stringify;
 
@@ -84,11 +88,37 @@ export default function Post({ post }: { post: MDXPost }) {
 		}
 	}, [post.meta.slug]);
 
+	console.log(relativeOgImageUrl.toString());
+
 	return (
 		<>
 			<Head>
 				<title>{post.meta.title}</title>
 			</Head>
+
+			<NextSeo
+				title={post.meta.title}
+				description={post.meta.excerpt}
+				canonical={canonicalBlogPostUrl(post.meta.slug)}
+				openGraph={{
+					type: 'article',
+					images: [
+						{
+							height: oGImageHeight,
+							width: oGImageWidth,
+							url: OgImageUrl({
+								date: post.meta.date,
+								excerpt: post.meta.excerpt,
+								readingTime: post.meta.readingTime,
+								title: post.meta.title
+
+							})
+
+						}
+					]
+				}}
+
+			/>
 
 			<div>
 				<div className={s.headingContainer}>
@@ -183,6 +213,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			],
 		},
 	});
+
+
 
 	return { props: { post: { source: mdxSource, meta, headings } } };
 };

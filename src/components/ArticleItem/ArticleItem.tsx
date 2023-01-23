@@ -19,7 +19,6 @@ export default function ArticleItem({ post }: { post: PostMeta }) {
 	let uniqueTags = getOnlyUniqueValuesFromArray(tagList);
 
 	const handleChildClick = (event: React.MouseEvent<HTMLElement>) => {
-		console.log('Child element was clicked');
 		event.stopPropagation();
 	};
 

@@ -155,8 +155,8 @@ const Footer = () => {
                      </Link>
 
 
-                     <div>
-                        <p className={`p-note ${s.description}`}>
+                     <div className={s.description}>
+                        <p className={`p-note`}>
                            A funny code boy
                         </p>
                         <span> from</span>
@@ -172,8 +172,6 @@ const Footer = () => {
                            Scotland
                         </span>
                      </div>
-
-
                   </div>
                </div>
             </div>

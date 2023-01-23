@@ -95,9 +95,13 @@
    }
 
    .description {
-      display: block;
       font-weight: 300;
-      display: inline-block
+
+      p {
+         display: block;
+
+         display: inline-block
+      }
    }
 
    .name {
