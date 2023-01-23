@@ -63,14 +63,13 @@ export const OGImage = ({
    <html>
       <head>
          {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-         <script src="https://cdn.tailwindcss.com/3.1.3" />
          <link
             href="https://fonts.googleapis.com/css?family=Caveat&display=swap"
             rel="stylesheet"
          />
          {/* <style dangerouslySetInnerHTML={{ __html: style }} /> */}
       </head>
-      <body className="flex flex-col h-full justify-between p-12 bg-zinc-800 text-white text-2xl">
+      <body >
          {/* <Header date={date} readMinutes={readMinutes} />
          <Content title={title} description={description} />
          <Footer /> */}
