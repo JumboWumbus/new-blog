@@ -7,8 +7,8 @@ export const canonicalBlogPostUrl = (slug: string) => `${mainUrl}${relativeBlogP
 
 export interface OGImageParams {
    title?: string;
-   excerpt?: string;
    date?: string;
+   excerpt?: string;
    readingTime?: string;
 }
 
@@ -17,6 +17,6 @@ export const relativeOgImageUrl = ({
    excerpt,
    date,
    readingTime
-}: OGImageParams) => `/api/og-image?title=${title ?? ''}&excerpt=${excerpt ?? ''}&date=${date}&readingTime=${readingTime}`;
+}: OGImageParams) => `/api/og?title=${title ?? ''}&excerpt=${excerpt}&date=${date}&readingTime=${readingTime}`;
 
 export const OgImageUrl = (imageParams: OGImageParams) => `${mainUrl}/${relativeOgImageUrl(imageParams)}`

@@ -51,36 +51,28 @@ import { avatar, twitterHandle } from 'src/utils/constants';
 
 export const OGImage = ({
    title,
-   description,
    date,
+   excerpt,
    readMinutes,
 }: {
    title: string;
-   description: string;
    date: string;
+   excerpt: string;
    readMinutes: string;
 }) => (
-   <html>
-      <head>
-         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-         <link
-            href="https://fonts.googleapis.com/css?family=Caveat&display=swap"
-            rel="stylesheet"
-         />
-         {/* <style dangerouslySetInnerHTML={{ __html: style }} /> */}
-      </head>
-      <body >
-         {/* <Header date={date} readMinutes={readMinutes} />
+
+   <>
+      {/* <Header date={date} readMinutes={readMinutes} />
          <Content title={title} description={description} />
          <Footer /> */}
-         <h1>{title}</h1>
-         <p>{description}</p>
-         <time dateTime={new Date(date).toISOString()}>
-            {convertTime(date)}
-         </time>
-         <p>{readMinutes}</p>
-      </body>
-   </html>
+      <h1>{title}</h1>
+      <p>{excerpt}</p>
+      <time dateTime={new Date(date).toISOString()}>
+         {convertTime(date)}
+      </time>
+      <p>{readMinutes}</p>
+   </>
+
 );
 
 export default OGImage;

@@ -32,6 +32,7 @@ import YouTube from "src/components/Youtube/Youtube";
 import * as fs from "fs";
 import { canonicalBlogPostUrl, OgImageUrl, relativeOgImageUrl } from "src/utils/url";
 import { oGImageHeight, oGImageWidth } from "src/utils/constants";
+import OGImageGeneration from "src/pages/api/og";
 
 //JSON.stringify;
 
@@ -107,11 +108,10 @@ export default function Post({ post }: { post: MDXPost }) {
 							height: oGImageHeight,
 							width: oGImageWidth,
 							url: OgImageUrl({
-								date: post.meta.date,
+								title: post.meta.title,
 								excerpt: post.meta.excerpt,
-								readingTime: post.meta.readingTime,
-								title: post.meta.title
-
+								date: post.meta.date,
+								readingTime: post.meta.readingTime
 							})
 
 						}
