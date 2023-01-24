@@ -1,6 +1,8 @@
-import { FunctionComponent, PropsWithChildren } from 'react';
+
 import { convertTime } from 'src/utils';
-import { avatar, twitterHandle } from 'src/utils/constants';
+
+
+import s from "styles/test.module.scss";
 
 // const style = `
 //   .font-logo {
@@ -62,15 +64,17 @@ export const OGImage = ({
 }) => (
 
    <>
-      {/* <Header date={date} readMinutes={readMinutes} />
-         <Content title={title} description={description} />
-         <Footer /> */}
-      <h1>{title}</h1>
-      <p>{excerpt}</p>
-      <time dateTime={new Date(date).toISOString()}>
-         {convertTime(date)}
-      </time>
-      <p>{readMinutes}</p>
+      <div className={s.container}>
+         <div className={s.grid} />
+         <h1>{title}</h1>
+         <p>{excerpt}</p>
+         <time dateTime={new Date(date).toISOString()}>
+            {convertTime(date)}
+         </time>
+         <p>{readMinutes}</p>
+
+      </div>
+
    </>
 
 );

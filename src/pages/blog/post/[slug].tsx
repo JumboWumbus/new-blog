@@ -89,7 +89,7 @@ export default function Post({ post }: { post: MDXPost }) {
 		}
 	}, [post.meta.slug]);
 
-	console.log(relativeOgImageUrl.toString());
+
 
 	return (
 		<>

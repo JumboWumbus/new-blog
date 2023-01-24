@@ -24,9 +24,9 @@ export default async function handler(req: NextRequest) {
 
     const date = hasDate ? searchParams.get('date')?.slice(0, 100) : '2022-12-15';
 
-    console.log(date)
 
-    const readingTime = hasReadingTime ? searchParams.get('readingtime')?.slice(0, 100) : 'The time';
+
+    const readingTime = hasReadingTime ? searchParams.get('readingTime')?.slice(0, 100) : 'The time';
 
     return new ImageResponse(
       (

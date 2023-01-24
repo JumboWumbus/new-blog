@@ -121,7 +121,7 @@ const Footer = () => {
                <div className={`h-card ${s.bio}`}>
                   <img
                      className={`u-photo ${s.image}`}
-                     src="webImages/Me.webp"
+                     src="/webImages/Me.webp"
                      alt="The pretty creator"
                   />
 
