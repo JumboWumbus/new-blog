@@ -4,7 +4,7 @@
 export const mainUrl: string = 'https://bensden.xyz';
 
 export const oGImageWidth: number = 1200;
-export const oGImageHeight: number = 630;
+export const oGImageHeight: number = 600;
 
 export const firstName: string = 'Ben';
 export const lastName: string = 'Hammond';
