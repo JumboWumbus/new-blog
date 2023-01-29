@@ -113,8 +113,6 @@ export default function Post({ post }: { post: MDXPost }) {
 					type: 'article',
 					images: [
 						{
-							height: oGImageHeight,
-							width: oGImageWidth,
 							url: OgImageUrl({
 								title: post.meta.title,
 								excerpt: post.meta.excerpt,
