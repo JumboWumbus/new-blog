@@ -19,21 +19,11 @@ const bold = fetch(new URL('../../assets/fonts/Inter-Bold.woff', import.meta.url
   (res) => res.arrayBuffer(),
 );
 
-// Make sure the font exists in the specified path:
-const semiBold = fetch(new URL('../../assets/fonts/Inter-SemiBold.woff', import.meta.url)).then(
-  (res) => res.arrayBuffer(),
-);
-
-// Make sure the font exists in the specified path:
-const black = fetch(new URL('../../assets/fonts/Inter-Black.woff', import.meta.url)).then(
-  (res) => res.arrayBuffer(),
-);
 
 export default async function handler(req: NextRequest) {
   const interReg = await regular;
   const interBold = await bold;
-  const interBlack = await black;
-  const interSemi = await semiBold;
+
   try {
 
     const { searchParams } = new URL(req.url);
