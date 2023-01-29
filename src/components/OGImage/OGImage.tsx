@@ -138,13 +138,14 @@ export const OGImage = ({
       <div style={{
          position: 'relative',
          paddingInline: '4rem',
+         display: 'flex',
+         width: '100%',
+         height: '100%',
 
-         //REMOVE WHEN MOVING TO REAL THING
-         width: '1200px',
-         height: '630px',
       }}>
          <div style={{
             position: 'absolute',
+            display: 'flex',
             zIndex: -2,
             top: 0,
             bottom: 0,
@@ -157,6 +158,7 @@ export const OGImage = ({
          }}></div>
          <div style={{
             content: '',
+            display: 'flex',
             position: 'absolute',
             zIndex: -1,
             top: 0,
@@ -175,6 +177,7 @@ export const OGImage = ({
          }}>
             <h1 style={{
                fontSize: '5rem',
+               display: 'flex',
                fontWeight: 700,
             }}>{title}</h1>
             <p>{excerpt}</p>
@@ -182,10 +185,10 @@ export const OGImage = ({
 
          <div style={{
             position: 'absolute',
+            display: 'flex',
             bottom: 0,
             width: '100%',
             height: '100px',
-            display: 'flex',
             justifyContent: 'space-between',
             fontSize: '2rem',
             textTransform: 'uppercase',

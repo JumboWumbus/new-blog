@@ -89,6 +89,14 @@ export default function Post({ post }: { post: MDXPost }) {
 		}
 	}, [post.meta.slug]);
 
+	let egg = OgImageUrl({
+		title: post.meta.title,
+		excerpt: post.meta.excerpt,
+		date: post.meta.date,
+		readingTime: post.meta.readingTime
+	})
+
+	console.log(egg);
 
 
 	return (
@@ -110,7 +118,7 @@ export default function Post({ post }: { post: MDXPost }) {
 							url: OgImageUrl({
 								title: post.meta.title,
 								excerpt: post.meta.excerpt,
-								date: post.meta.date,
+								date: convertTime(post.meta.date),
 								readingTime: post.meta.readingTime
 							})
 
