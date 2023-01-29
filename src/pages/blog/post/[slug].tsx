@@ -24,15 +24,18 @@ import Breadcrumbs from "src/components/Breadcrumbs/Breadcrumbs";
 import {
 	convertTime,
 	getOnlyUniqueValuesFromArray,
+	slugify,
 	useWebMentions,
 } from "src/utils";
 import Link from "next/link";
 import YouTube from "src/components/Youtube/Youtube";
 
 import * as fs from "fs";
-import { canonicalBlogPostUrl, OgImageUrl, relativeOgImageUrl } from "src/utils/url";
-import { oGImageHeight, oGImageWidth } from "src/utils/constants";
+import { canonicalBlogPostUrl, objToUrlParams } from "src/utils/url";
+import { mainUrl, oGImageHeight, oGImageWidth } from "src/utils/constants";
 import OGImageGeneration from "src/pages/api/og";
+import { SEO } from "src/components/SEO/SEO";
+import { SEOBlogPost } from "src/components/SEO/BlogPost_SEO";
 
 //JSON.stringify;
 
@@ -89,15 +92,18 @@ export default function Post({ post }: { post: MDXPost }) {
 		}
 	}, [post.meta.slug]);
 
-	let egg = OgImageUrl({
-		title: post.meta.title,
-		excerpt: post.meta.excerpt,
-		date: post.meta.date,
-		readingTime: post.meta.readingTime
-	})
 
-	console.log(egg);
 
+	const previewImage = {
+		url: `${mainUrl}/api/og?${objToUrlParams({
+			header: `Blog ⟶ ${post.meta.category}`,
+			title: post.meta.title,
+			subtitle: `${convertTime(post.meta.date)} | ${post.meta.readingTime}`
+		})}`,
+		description: `Personal website and blog of Ben Hammond`
+	}
+
+	console.log(previewImage.url);
 
 	return (
 		<>
@@ -105,25 +111,10 @@ export default function Post({ post }: { post: MDXPost }) {
 				<title>{post.meta.title}</title>
 			</Head>
 
-			<NextSeo
-				title={post.meta.title}
-				description={post.meta.excerpt}
-				canonical={canonicalBlogPostUrl(post.meta.slug)}
-				openGraph={{
-					type: 'article',
-					images: [
-						{
-							url: OgImageUrl({
-								title: post.meta.title,
-								excerpt: post.meta.excerpt,
-								date: convertTime(post.meta.date),
-								readingTime: post.meta.readingTime
-							})
+			<SEOBlogPost authorName={post.meta.author} readingTime={post.meta.readingTime} date={post.meta.date} slug={post.meta.slug} title={post.meta.title} description={post.meta.excerpt} previewImage={previewImage} />
 
-						}
-					]
-				}}
-
+			<SEO
+				title={post.meta.title} description={post.meta.excerpt} slug={`/blog/${post.meta.slug}`} previewImage={previewImage}
 			/>
 
 			<div>
