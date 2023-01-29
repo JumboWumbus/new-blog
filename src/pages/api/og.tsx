@@ -150,24 +150,13 @@ export default async function handler(req: NextRequest) {
             style: 'normal',
             weight: 500
           },
-          {
-            name: 'Inter',
-            data: interSemi,
-            style: 'normal',
-            weight: 600
-          },
+
           {
             name: 'Inter',
             data: interBold,
             style: 'normal',
             weight: 700
           },
-          {
-            name: 'Inter',
-            data: interBlack,
-            style: 'normal',
-            weight: 800
-          }
         ]
       }
     )
