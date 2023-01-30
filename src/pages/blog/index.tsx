@@ -24,10 +24,11 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 		<>
 			<Head>
 				<title>{'BensDen | The worst place to be!'}</title>
-				<SEO
+				
+			</Head>
+			<SEO
 					title={`Blog page`} description={`Blog section of the website`} slug={`/blog`} previewImage={previewImage}
 				/>
-			</Head>
 			<div className={s.wrapper}>
 				<div className={s.content}>
 					<div>

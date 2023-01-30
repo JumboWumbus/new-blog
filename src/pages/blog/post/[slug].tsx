@@ -107,14 +107,13 @@ export default function Post({ post }: { post: MDXPost }) {
 		<>
 			<Head>
 				<title>{post.meta.title}</title>
-				<SEOBlogPost authorName={post.meta.author} readingTime={post.meta.readingTime} date={post.meta.date} slug={post.meta.slug} title={post.meta.title} description={post.meta.excerpt} previewImage={previewImage} />
 
-				<SEO
-					title={post.meta.title} description={post.meta.excerpt} slug={`/blog/${post.meta.slug}`} previewImage={previewImage}
-				/>
 			</Head>
 
-
+			<SEO
+					title={post.meta.title} description={post.meta.excerpt} slug={`/blog/${post.meta.slug}`} previewImage={previewImage}
+				/>
+				<SEOBlogPost authorName={post.meta.author} readingTime={post.meta.readingTime} date={post.meta.date} slug={post.meta.slug} title={post.meta.title} description={post.meta.excerpt} previewImage={previewImage} />
 
 			<div>
 				<div className={s.headingContainer}>

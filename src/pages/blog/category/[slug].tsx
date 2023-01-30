@@ -31,10 +31,11 @@ export default function TagPage({
     <>
       <Head>
         <title>{`Category: ${slug}`}</title>
-        <SEO
+        
+      </Head>
+      <SEO
           title={`Posts about ${slug}`} description={`Posts under the topic of ${slug}`} slug={`/blog/category/${slug}`} previewImage={previewImage}
         />
-      </Head>
       <div className={s.wrapper}>
         <aside className={s.side}>A sidebar</aside>
         <article className={s.content}>
