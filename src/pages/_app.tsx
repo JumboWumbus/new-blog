@@ -4,8 +4,6 @@ import type { AppProps } from "next/app";
 import { Inter } from "@next/font/google";
 import Footer from "src/components/Footer/Footer";
 import Navbar from "src/components/Navbar/Navbar";
-import { MDXProvider } from "@mdx-js/react";
-import YouTube from "src/components/Youtube/Youtube";
 
 const inter = Inter({
 	subsets: ["latin"],

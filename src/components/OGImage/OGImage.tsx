@@ -8,11 +8,6 @@ interface Props {
    subtitle?: string;
 }
 
-/* TODO
-
-Maybe add 3 sections: header, postinfo and footer and do a flex space between to equally seperate them and make it look epic???
-
- */
 export const OGImage = ({
    title,
    header,
