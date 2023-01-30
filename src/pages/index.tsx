@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google';
 import styles from 'styles/Home.module.scss';
 import { SEO } from 'src/components/SEO/SEO';
 import { mainUrl } from 'src/utils/constants';
+import { objToUrlParams } from 'src/utils/url';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,8 +12,14 @@ const inter = Inter({ subsets: ['latin'] });
 //TODO default SEO component for page titles and icon, etc...
 
 export default function Home() {
+
+  //For default OG image leave all url params blank
   const previewImage = {
-    url: `${mainUrl}/api/og?homepage`,
+    url: `${mainUrl}/api/og?${objToUrlParams({
+      header: ``,
+      title: '',
+      subtitle: ``
+    })}`,
     description: `Personal website of Ben Hammond`
   }
 
