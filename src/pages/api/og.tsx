@@ -31,46 +31,41 @@ export default async function handler(req: NextRequest) {
   const interReg = await regular;
   const interBold = await bold;
 
-  try {
 
-    const { searchParams } = new URL(req.url);
 
-    //If any of these search parameters don't exist, they will be replaced with a default, this is what I use to build the default og-image
-    const header = z.string().parse(searchParams.get('header'));
-    const title = searchParams.get('title');
-    const subtitle = searchParams.get('subtitle');
+  const { searchParams } = new URL(req.url);
 
-    return new ImageResponse(
-      (
-        <OGImage title={title!} header={header!} subtitle={subtitle!}/>
-        
-      ),
-      {
-        width: oGImageWidth,
-        height: oGImageHeight,
-        fonts: [
-          {
-            name: 'Inter',
-            data: interReg,
-            style: 'normal',
-            weight: 500
-          },
+  //If any of these search parameters don't exist, they will be replaced with a default, this is what I use to build the default og-image
+  const header = searchParams.get('header');
+  const title = searchParams.get('title');
+  const subtitle = searchParams.get('subtitle');
 
-          {
-            name: 'Inter',
-            data: interBold,
-            style: 'normal',
-            weight: 700
-          },
-        ]
-      }
-    )
-  }
-  catch (e) {
-    return new Response('Failed to generate og image :(', {
-      status: 500,
-    })
-  }
+  return new ImageResponse(
+    (
+      <OGImage title={title!} header={header!} subtitle={subtitle!} />
+    ),
+    {
+      width: oGImageWidth,
+      height: oGImageHeight,
+      fonts: [
+        {
+          name: 'Inter',
+          data: interReg,
+          style: 'normal',
+          weight: 500
+        },
+
+        {
+          name: 'Inter',
+          data: interBold,
+          style: 'normal',
+          weight: 700
+        },
+      ]
+    }
+  )
+
+
 }
 
 

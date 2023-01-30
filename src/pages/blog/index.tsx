@@ -11,10 +11,11 @@ import s from 'styles/Blog.module.scss';
 
 export default function Blog({ posts }: { posts: PostMeta[] }) {
 
+	//For default OG image leave all url params blank
 	const previewImage = {
-		url: `${mainUrl}/api/og?blogpage`,
+		url: `${mainUrl}/api/og`,
 		description: `Personal website of Ben Hammond`
-	}
+	 }
 
 	return (
 		<>

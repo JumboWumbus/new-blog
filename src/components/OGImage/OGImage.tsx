@@ -76,10 +76,10 @@ export const OGImage = ({
             {/*At the top of the image; the part of the website and the category/info, if not it's the website and my name*/}
             <h2
                style={{
-                  fontSize: 50,
+                  fontSize: 30,
                   margin: 0,
                }}
-            >{header ? header : 'BensDen ⟶ Ben Hammond'}</h2>
+            >{header ? header : `BensDen ⟶ Ben Hammond's fat website`}</h2>
 
 
             <div
@@ -90,18 +90,20 @@ export const OGImage = ({
                }}
             >
                <h1 style={{
-                  fontSize: 100,
-                  lineHeight: 1,
+                  fontSize: 70,
+                  lineHeight: 1.2,
                   fontWeight: 700,
                   margin: 0,
+                  whiteSpace:'pre-wrap'
                }}>
                   {/*Title of page or whatever you want to be the biggest in the OG-Image*/}
-                  {title ? title : 'Developing, Designing, screaming; all at a high level'}
+                  {title ? title : `Developing, Designing, screaming...\n                          all at a high level`}
                </h1>
                <p style={{
                   fontSize: 40,
                   lineHeight: 1,
                   fontWeight: 500,
+                  
                }}>
                   {/*The stuff under the title, could be date and read time, more description or nothing*/}
                   {subtitle ? subtitle : 'The most mediocre site in the world.'}
@@ -121,6 +123,7 @@ export const OGImage = ({
                      display: 'flex',
                      alignItems: 'center',
                      gap: 5,
+                
                   }}
                >
                   <svg
