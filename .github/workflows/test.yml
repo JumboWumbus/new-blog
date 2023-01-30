@@ -1,7 +1,9 @@
 name: Send a Tweet
 
 on:
-    [push]
+    push:
+        branches: ["main"]
+        paths: ["notes/*"]
 
 jobs:
   tweet:
