@@ -11,9 +11,12 @@ import s from 'styles/Blog.module.scss';
 
 export default function Blog({ posts }: { posts: PostMeta[] }) {
 
-	//For default OG image leave all url params blank
 	const previewImage = {
-		url: `${mainUrl}/api/og`,
+		url: `${mainUrl}/api/og?${objToUrlParams({
+		  header: `BensDen ⟶ Ben Hammond's website`,
+		  title: `Developing, Designing, screaming...\n                          all at a high level`,
+		  subtitle: `The most mediocre site in the world.`
+		})}`,
 		description: `Personal website of Ben Hammond`
 	 }
 

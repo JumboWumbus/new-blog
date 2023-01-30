@@ -13,13 +13,14 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
 
-  //For default OG image leave all url params blank
   const previewImage = {
-    url: `${mainUrl}/api/og?${objToUrlParams({
-			header: `BensDen ⟶ Ben Hammond's website`,
+		url: `${mainUrl}/api/og?${objToUrlParams({
+		  header: `BensDen ⟶ Ben Hammond's website`,
+		  title: `Developing, Designing, screaming...\n                          all at a high level`,
+		  subtitle: `The most mediocre site in the world.`
 		})}`,
-    description: `Personal website of Ben Hammond`
-  }
+		description: `Personal website of Ben Hammond`
+	 }
 
   return (
     <>

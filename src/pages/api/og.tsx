@@ -36,16 +36,15 @@ export default async function handler(req: NextRequest) {
     const { searchParams } = new URL(req.url);
 
     //If any of these search parameters don't exist, they will be replaced with a default, this is what I use to build the default og-image
-    const header = z.string().parse(searchParams.get('header'));
+    const header = searchParams.get('header');
     const title = searchParams.get('title');
     const subtitle = searchParams.get('subtitle');
-
-
+    
 
     return new ImageResponse(
       (
-        <OGImage title={title!} header={header!} subtitle={subtitle!} />
-
+        <OGImage title={title!} header={header!} subtitle={subtitle!}/>
+        
       ),
       {
         width: oGImageWidth,
