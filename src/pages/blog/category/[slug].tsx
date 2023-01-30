@@ -21,7 +21,7 @@ export default function TagPage({
   const previewImage = {
     url: `${mainUrl}/api/og?${objToUrlParams({
       header: `Blog ⟶ ${slug}`,
-      title: `Posts about ${slug} in BensDen; Come take a look!`,
+      title: `Posts about ${slug} in BensDen: Come take a look!`,
       subtitle: `I have ${posts.length} posts about ${slug} and counting!`
     })}`,
     description: `Personal website of Ben Hammond`
@@ -30,11 +30,10 @@ export default function TagPage({
   return (
     <>
       <Head>
-        <title>{`Category: ${slug}`}</title>
         
       </Head>
       <SEO
-          title={`Posts about ${slug}`} description={`Posts under the topic of ${slug}`} slug={`/blog/category/${slug}`} previewImage={previewImage}
+          title={`Posts about ${slug} on BensDen`} description={`Posts under the topic of ${slug} on BensDen. Hopefully interesting and not bad.`} slug={`/blog/category/${slug}`} previewImage={previewImage}
         />
       <div className={s.wrapper}>
         <aside className={s.side}>A sidebar</aside>

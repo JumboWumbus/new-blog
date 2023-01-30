@@ -18,6 +18,20 @@ interface Props {
 
 //TODO add type safety from previous versions of this code (check github history)
 
+/*
+DEFAULT TYPE EXAMPLE USE 
+
+  get content from query params
+  const title = searchParams.has('title')
+    ? searchParams.get('title')
+    : 'OG Image';
+
+  const description = searchParams.has('description')
+    ? searchParams.get('description')
+    : 'Add `title` and `description` to the URL as query params to populate the card with your own content.';
+
+*/
+
 
 // Make sure the font exists in the specified path:
 const regular = fetch(new URL('../../assets/fonts/Inter-Regular.woff', import.meta.url)).then(

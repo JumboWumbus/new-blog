@@ -19,7 +19,7 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 	const previewImage = {
 		url: `${mainUrl}/api/og?${objToUrlParams({
 			header: `Blog ⟶ Categories`,
-			title: `Posts about a multitude of topics; none of which I'm an expert in`,
+			title: `Posts about a multitude of topics. None of which I'm an expert in`,
 			subtitle: `I have ${posts.length} posts and counting!`
 		})}`,
 		description: `Personal website of Ben Hammond`
@@ -29,7 +29,7 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 		<>
 
 			<SEO
-				title={'Categories page'} description={'Every post on the website sorted by category'} slug={`/blog/category`} previewImage={previewImage}
+				title={'Categories of cool content'} description={'Every post on BensDen sorted by category. Look upon his works with great envy.'} slug={`/blog/category`} previewImage={previewImage}
 			/>
 			<div className={s.wrapper}>
 				<article className={s.content}>

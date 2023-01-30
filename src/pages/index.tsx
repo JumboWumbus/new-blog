@@ -26,13 +26,11 @@ export default function Home() {
     <>
 
       <Head>
-        <title>{'BensDen | The worst place to be!'}</title>
-        <meta name='description' content='Personal website of Ben Hammond' />
         <link rel='icon' href='/favicons/android-chrome-192x192.png' />
        
       </Head>
       <SEO
-          title={`Home page`} description={`Home page of the website`} slug={``} previewImage={previewImage}
+          title={`BensDen | The worst place to be!`} description={`This is my personal website where I put all of my ideas, work and sweat.`} slug={``} previewImage={previewImage}
         />
       <main className={styles.main}>
         <div className={styles.description}>

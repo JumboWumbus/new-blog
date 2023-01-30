@@ -23,12 +23,12 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 	return (
 		<>
 			<Head>
-				<title>{'BensDen | The worst place to be!'}</title>
+		
 				
 			</Head>
 			<SEO
-					title={`Blog page`} description={`Blog section of the website`} slug={`/blog`} previewImage={previewImage}
-				/>
+          title={`BensDen | The worst place to be!`} description={`This is my personal website where I put all of my ideas, work and sweat.`} slug={``} previewImage={previewImage}
+        />
 			<div className={s.wrapper}>
 				<div className={s.content}>
 					<div>

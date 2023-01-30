@@ -106,7 +106,6 @@ export default function Post({ post }: { post: MDXPost }) {
 	return (
 		<>
 			<Head>
-				<title>{post.meta.title}</title>
 
 			</Head>
 
