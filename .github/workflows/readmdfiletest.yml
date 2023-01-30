@@ -9,12 +9,16 @@ jobs:
   get-content:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
       - name: Get contents of latest MD file
         id: md-file
         uses: JumboWumbus/get-md-file-contents@master
         with:
           gh_token: ${{ github.token }}
           articles_folder: notes
+          
       - name: Take content and tweet it to twitter
         uses: dart-actions/tweet@v1.0.0
         with:
