@@ -1,9 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Articles from 'src/components/Articles/Articles';
+import { SEO } from 'src/components/SEO/SEO';
 import { getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
 import titleCaseString, { getOnlyUniqueValuesFromArray } from 'src/utils';
+import { mainUrl } from 'src/utils/constants';
+import { objToUrlParams } from 'src/utils/url';
 
 import s from 'styles/Blog.module.scss';
 
@@ -14,10 +17,23 @@ export default function TagPage({
   slug: string;
   posts: PostMeta[];
 }) {
+
+  const previewImage = {
+    url: `${mainUrl}/api/og?${objToUrlParams({
+      header: `Blog ⟶ ${slug}`,
+      title: `Posts about ${slug} in BensDen; Come take a look!`,
+      subtitle: `I have ${posts.length} posts about ${slug} and counting!`
+    })}`,
+    description: `Personal website of Ben Hammond`
+  }
+
   return (
     <>
       <Head>
-        <title>{`Tags: ${slug}`}</title>
+        <title>{`Category: ${slug}`}</title>
+        <SEO
+          title={`Posts about ${slug}`} description={`Posts under the topic of ${slug}`} slug={`/blog/category/${slug}`} previewImage={previewImage}
+        />
       </Head>
       <div className={s.wrapper}>
         <aside className={s.side}>A sidebar</aside>

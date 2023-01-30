@@ -1,13 +1,29 @@
+import Head from 'next/head';
 import Articles from 'src/components/Articles/Articles';
 import CategorySidebar from 'src/components/CategorySidebar/CategorySidebar';
+import { SEO } from 'src/components/SEO/SEO';
 import { getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
+import { mainUrl } from 'src/utils/constants';
+import { objToUrlParams } from 'src/utils/url';
 
 import s from 'styles/Blog.module.scss';
 
 export default function Blog({ posts }: { posts: PostMeta[] }) {
+
+	const previewImage = {
+		url: `${mainUrl}/api/og?blogpage`,
+		description: `Personal website of Ben Hammond`
+	}
+
 	return (
 		<>
+			<Head>
+				<title>{'BensDen | The worst place to be!'}</title>
+				<SEO
+					title={`Blog page`} description={`Blog section of the website`} slug={`/blog`} previewImage={previewImage}
+				/>
+			</Head>
 			<div className={s.wrapper}>
 				<div className={s.content}>
 					<div>
