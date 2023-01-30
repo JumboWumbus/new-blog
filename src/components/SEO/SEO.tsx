@@ -27,6 +27,8 @@ export function SEO({ title, description, slug, previewImage }: Props) {
             key="canonical"
          />
 
+<link rel='icon' href='/favicons/android-chrome-192x192.png' />
+
          <meta property="og:type" content="website" key="og:type" />
          <meta property="og:site_name" content={siteName} key="og:site_name" />
          <meta property="og:locale" content="en" key="og:locale" />

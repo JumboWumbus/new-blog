@@ -22,10 +22,7 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 
 	return (
 		<>
-			<Head>
-		
-				
-			</Head>
+			
 			<SEO
           title={`BensDen | The worst place to be!`} description={`This is my personal website where I put all of my ideas, work and sweat.`} slug={``} previewImage={previewImage}
         />

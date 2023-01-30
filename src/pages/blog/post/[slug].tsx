@@ -105,9 +105,7 @@ export default function Post({ post }: { post: MDXPost }) {
 
 	return (
 		<>
-			<Head>
-
-			</Head>
+			
 
 			<SEO
 					title={post.meta.title} description={post.meta.excerpt} slug={`/blog/${post.meta.slug}`} previewImage={previewImage}

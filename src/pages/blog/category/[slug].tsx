@@ -29,9 +29,7 @@ export default function TagPage({
 
   return (
     <>
-      <Head>
-        
-      </Head>
+      
       <SEO
           title={`Posts about ${slug} on BensDen`} description={`Posts under the topic of ${slug} on BensDen. Hopefully interesting and not bad.`} slug={`/blog/category/${slug}`} previewImage={previewImage}
         />

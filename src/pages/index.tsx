@@ -25,10 +25,7 @@ export default function Home() {
   return (
     <>
 
-      <Head>
-        <link rel='icon' href='/favicons/android-chrome-192x192.png' />
-       
-      </Head>
+    
       <SEO
           title={`BensDen | The worst place to be!`} description={`This is my personal website where I put all of my ideas, work and sweat.`} slug={``} previewImage={previewImage}
         />
