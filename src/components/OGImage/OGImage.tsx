@@ -79,7 +79,7 @@ export const OGImage = ({
                   fontSize: 30,
                   margin: 0,
                }}
-            >{header ? header : `BensDen ⟶ Ben Hammond's fat website`}</h2>
+            >{header ? header : `BensDen ⟶ My fat website`}</h2>
 
 
             <div
@@ -100,7 +100,7 @@ export const OGImage = ({
                   {title ? title : `Developing, Designing, screaming...\n                          all at a high level`}
                </h1>
                <p style={{
-                  fontSize: 40,
+                  fontSize: 30,
                   lineHeight: 1,
                   fontWeight: 500,
                   

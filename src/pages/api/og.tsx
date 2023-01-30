@@ -16,6 +16,9 @@ interface Props {
 }
 
 
+//TODO add type safety from previous versions of this code (check github history)
+
+
 // Make sure the font exists in the specified path:
 const regular = fetch(new URL('../../assets/fonts/Inter-Regular.woff', import.meta.url)).then(
   (res) => res.arrayBuffer(),

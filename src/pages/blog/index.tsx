@@ -13,7 +13,7 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 
 	const previewImage = {
 		url: `${mainUrl}/api/og?${objToUrlParams({
-		  header: `BensDen ⟶ Ben Hammond's website`,
+		  header: `BensDen ⟶ My website`,
 		  title: `Developing, Designing, screaming...\n                          all at a high level`,
 		  subtitle: `The most mediocre site in the world.`
 		})}`,
