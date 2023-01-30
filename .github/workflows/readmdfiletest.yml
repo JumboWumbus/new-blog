@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Get contents of latest MD file
         id: md-file
-        uses: JumboWumbus/get-md-file-contents@v1
+        uses: JumboWumbus/get-md-file-contents@main
         with:
           gh_token: ${{ github.token }}
           articles_folder: notes
