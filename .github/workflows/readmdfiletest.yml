@@ -5,7 +5,7 @@ on:
         branches:
         - 'main'
         paths: 
-        - 'content/notes/**'
+        - 'notes/**'
 
 jobs:
   get-content:
@@ -19,7 +19,7 @@ jobs:
         uses: JumboWumbus/get-md-file-contents@master
         with:
           gh_token: ${{ github.token }}
-          articles_folder: content/notes
+          articles_folder: notes
           
       - name: Take content and tweet it to twitter
         uses: dart-actions/tweet@v1.0.0
