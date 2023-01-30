@@ -13,7 +13,7 @@ jobs:
       uses: snow-actions/tweet@v1.4.0
       with:
         status: |
-          Testing sending a tweet via github actions to see if I can do something fancy!
+          Testing sending a tweet via github actions to see if I can do something fancy
     env:
       CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
       CONSUMER_API_SECRET_KEY: ${{ secrets.TWITTER_CONSUMER_API_SECRET_KEY }}
