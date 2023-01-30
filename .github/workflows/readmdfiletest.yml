@@ -2,8 +2,10 @@ name: Get content from most recent md file in folder
 
 on:
     push:
-        branches: ["main"]
-        paths: ["notes/*"]
+        branches:
+        - 'main'
+        paths: 
+        - 'notes/*'
 
 jobs:
   get-content:
