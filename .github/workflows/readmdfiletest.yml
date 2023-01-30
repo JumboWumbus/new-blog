@@ -13,7 +13,6 @@ jobs:
         id: md-file
         uses: JumboWumbus/get-md-file-contents@v1
         with:
-          version-type: patch
           gh_token: ${{secrets.REPO_ACCESS_TOKEN }}
           articles_folder: notes
       - name: Take content and tweet it to twitter
