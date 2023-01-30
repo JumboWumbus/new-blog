@@ -10,14 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get contents of latest MD file
-        uses: JumboWumbus/get-md-file-contents@main
+        id: md-file
+        uses: JumboWumbus/get-md-file-contents@v1
         with:
+          version-type: patch
           gh_token: ${{secrets.REPO_ACCESS_TOKEN }}
           articles_folder: notes
       - name: Take content and tweet it to twitter
         uses: dart-actions/tweet@v1.0.0
         with:
-          text: "Test generating a tweet from MD file in github actions: ${{steps.get-contents-of-latest-md-file.outputs.content}}"
+          text: "Test generating a tweet from MD file in github actions: ${{steps.md-file.outputs.content}}"
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET_KEY }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
