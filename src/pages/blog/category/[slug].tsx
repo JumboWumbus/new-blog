@@ -21,7 +21,7 @@ export default function TagPage({
   const previewImage = {
     url: `${mainUrl}/api/og?${objToUrlParams({
       header: `Blog ⟶ ${slug}`,
-      title: `Posts about ${slug} in BensDen: Come take a look!`,
+      title: `Posts about ${slug} on BensDen: Come take a look!`,
       subtitle: `I have ${posts.length} posts about ${slug} and counting!`
     })}`,
     description: `Personal website of Ben Hammond`
