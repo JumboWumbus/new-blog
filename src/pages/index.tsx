@@ -15,7 +15,9 @@ export default function Home() {
 
   //For default OG image leave all url params blank
   const previewImage = {
-    url: `${mainUrl}/api/og`,
+    url: `${mainUrl}/api/og?${objToUrlParams({
+			header: `BensDen ⟶ Ben Hammond's website`,
+		})}`,
     description: `Personal website of Ben Hammond`
   }
 
