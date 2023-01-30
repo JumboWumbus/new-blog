@@ -5,7 +5,7 @@ on:
         branches:
         - 'main'
         paths: 
-        - 'notes/*'
+        - 'content/notes/**'
 
 jobs:
   get-content:
@@ -14,12 +14,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         
-      - name: Get contents of latest MD file
+      - name: Get contents of the latest MD file
         id: md-file
         uses: JumboWumbus/get-md-file-contents@master
         with:
           gh_token: ${{ github.token }}
-          articles_folder: notes
+          articles_folder: content/notes
           
       - name: Take content and tweet it to twitter
         uses: dart-actions/tweet@v1.0.0
