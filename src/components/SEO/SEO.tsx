@@ -27,7 +27,7 @@ export function SEO({ title, description, slug, previewImage }: Props) {
             key="canonical"
          />
 
-<link rel='icon' href='/favicons/android-chrome-192x192.png' />
+         <link rel='icon' href='/favicons/android-chrome-192x192.png' />
 
          <meta property="og:type" content="website" key="og:type" />
          <meta property="og:site_name" content={siteName} key="og:site_name" />
@@ -43,7 +43,11 @@ export function SEO({ title, description, slug, previewImage }: Props) {
             content={description}
             key="og:description"
          />
+
+
+
          <meta property="og:image" content={previewImage?.url} key="og:image" />
+
          <meta
             property="og:image:alt"
             content={previewImage?.description}
@@ -52,12 +56,17 @@ export function SEO({ title, description, slug, previewImage }: Props) {
          <meta property="og:image:width" content="1200" key="og:image:width" />
          <meta property="og:image:height" content="630" key="og:image:height" />
 
+
+
+
          <meta
             name="twitter:card"
             content="summary_large_image"
             key="twitter:card"
          />
+         <meta name='twitter:image' content={previewImage?.url} key='twitter:image' />
          <meta name="twitter:title" content={title} key="twitter:title" />
+
          <meta
             name="twitter:description"
             content={description}
