@@ -1,0 +1,145 @@
+@import '~rfs/scss';
+@import 'styles/utility.scss';
+@import "/styles/colors.scss";
+
+.container {
+  position: relative;
+  font-family: 'Inter';
+  padding-top: 1rem;
+}
+
+.list {
+  display: flex;
+  list-style: none;
+}
+
+
+.button {
+  padding: 1rem;
+  --duration: 0.44s;
+  --move-hover: -4px;
+  --shadow: 0 0px 0px 0px black;
+  --shadow-hover:  4px 4px 0px black;
+
+  box-shadow: var(--shadow);
+
+  transform: translateY(var(--y)) translateZ(0) translateX(var(--x));
+  transition: transform var(--duration) ease,
+    box-shadow var(--duration) ease;
+
+    &:hover{
+      --y: var(--move-hover);
+      --x: var(--move-hover);
+      --shadow: var(--shadow-hover);
+    }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes enterFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes enterFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes exitToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+@keyframes exitToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+.content
+{
+  width: 100%;
+  position: absolute;
+  top:1rem;
+  background-color: aqua;
+  animation-duration: 400ms;
+  animation-timing-function: ease;
+
+  &[data-motion='from-start'] {
+    animation-name: enterFromLeft;
+  }
+  &[data-motion='from-end'] {
+    animation-name: enterFromRight;
+  }
+  &[data-motion='to-start'] {
+    animation-name: exitToLeft;
+  }
+  &[data-motion='to-end'] {
+    animation-name: exitToRight;
+  }
+ 
+}
+
+.test{
+  position:relative;
+  &[data-state='open']{
+    animation: fadeIn 0.44s ease;
+  }
+
+  &[data-state='closed']{
+    animation: fadeOut 0.44s ease;
+  }
+}
+
+
+
+
+
+
+.NavigationMenuIndicator {
+  background-color: rgb(176, 67, 67);
+}
+.NavigationMenuIndicator[data-orientation='horizontal'] {
+  height: 3px;
+  transition: width, transform, 250ms ease;
+}

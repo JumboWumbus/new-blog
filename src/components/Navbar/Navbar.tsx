@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
 import s from './Navbar.module.scss';
+import NavMenu from './NavMenu';
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -21,23 +22,7 @@ const Navbar = () => {
 								<h1 className={s.logo}>benSden</h1>
 							</Link>
 						</div>
-						<nav className={s.navLinks}>
-							<ul className={s.wrapper}>
-								<li className={s.link}>
-									<Link href={'#'}>One</Link>
-								</li>
-								<li className={s.link}>
-									<Link href={'#'}>Two</Link>
-								</li>
-
-								<li className={s.link}>
-									<Link href={'#'}>Three</Link>
-								</li>
-								<li className={s.link}>
-									<Link href={'#'}>Four</Link>
-								</li>
-							</ul>
-						</nav>
+						<NavMenu/>
 					</div>
 					<div className={s.rightNav}>
 						<p>Other stuff n icons</p>
