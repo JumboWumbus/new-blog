@@ -39,3 +39,7 @@ next-env.d.ts
 # sitemaps and seo
 /public/robots.txt
 /public/sitemap.xml
+
+#random
+
+stealinNav.tsx
