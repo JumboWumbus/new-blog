@@ -5,6 +5,15 @@ module.exports= {
    //Generate robots.txt
    generateRobotsTxt: true,
 
+   robotsTxtOptions:{
+      policies: [
+         {
+            userAgent: 'Twitterbot',
+            disallow: ''
+         }
+      ]
+   }
+
 
    /* Excluding specific pages or folder of pages from sitemap, google and other search engines will not index it.
 
