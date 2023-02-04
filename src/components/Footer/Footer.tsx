@@ -1,11 +1,11 @@
+
+
 import Link from "next/link";
 
 import s from "./Footer.module.scss";
 
 const Footer = () => {
-   const year = new Date().getFullYear();
 
-   const test = ["egg", "leg", "peg"];
    return (
       <footer className={s.footer}>
          <div className={s.container}>
@@ -133,7 +133,7 @@ const Footer = () => {
                         Ben Hammond
                      </Link>
 
-                     <div className={`p-role`}>
+                     <div className={`p-role ${s.roles}`}>
                         <span className={`p-category `}>
                            Developer
                         </span>

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Articles from 'src/components/Articles/Articles';
 import CategorySidebar from 'src/components/CategorySidebar/CategorySidebar';
+import Navbar from 'src/components/Navbar/Navbar';
 import { SEO } from 'src/components/SEO/SEO';
 import { getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
@@ -26,10 +27,11 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 			<SEO
           title={`BensDen | The worst place to be!`} description={`This is my personal website where I put all of my ideas, work and sweat.`} slug={``} previewImage={previewImage}
         />
+			<Navbar posts={posts}/>
 			<div className={s.wrapper}>
 				<div className={s.content}>
 					<div>
-						<Articles posts={posts} title={'Most recent Posts'} />
+						<Articles posts={posts.slice(0, 9)} title={'Most recent Posts'} />
 					</div>
 				</div>
 			</div>
@@ -39,7 +41,6 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 
 export async function getStaticProps() {
 	const posts = getAllPosts()
-		.slice(0, 9)
 		.map(post => post.meta);
 	return { props: { posts } };
 }

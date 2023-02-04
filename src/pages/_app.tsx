@@ -7,20 +7,7 @@ import Navbar from "src/components/Navbar/Navbar";
 import { Analytics } from '@vercel/analytics/react';
 
 
-const inter = Inter({
-	subsets: ["latin"],
-	weight: [
-		"100",
-		"200",
-		"300",
-		"400",
-		"500",
-		"600",
-		"700",
-		"800",
-		"900",
-	],
-});
+const inter = Inter({ subsets: ['latin'] })
 
 /*
 Next font import for non-variable fonts:
@@ -43,8 +30,8 @@ const myFont = localFont({src:'/fonts/my-font.woff2})
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<main className={`${inter.className}`}>
-				<Navbar />
+			<main className={inter.className}>
+		
 
 				<Component {...pageProps} />
 				<Analytics />

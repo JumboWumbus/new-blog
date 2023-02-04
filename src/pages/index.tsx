@@ -5,13 +5,16 @@ import styles from 'styles/Home.module.scss';
 import { SEO } from 'src/components/SEO/SEO';
 import { mainUrl } from 'src/utils/constants';
 import { objToUrlParams } from 'src/utils/url';
+import Navbar from 'src/components/Navbar/Navbar';
+import { getAllPosts } from 'src/lib/lib';
+import { PostMeta } from 'src/types';
 
 const inter = Inter({ subsets: ['latin'] });
 
 
 //TODO default SEO component for page titles and icon, etc...
 
-export default function Home() {
+export default function Home({ posts }: { posts: PostMeta[] }) {
 
   const previewImage = {
     url: `${mainUrl}/api/og?${objToUrlParams({
@@ -29,6 +32,7 @@ export default function Home() {
       <SEO
         title={`BensDen | The worst place to be!`} description={`This is my personal website where I put all of my ideas, work and sweat.`} slug={``} previewImage={previewImage}
       />
+      <Navbar posts={posts}/>
       <main className={styles.main}>
         <h1>THE MIGHTY EYE OBSERVES AND LOOKS UPON YOU WITHOUT JUDGMENT... HOWEVER THE BEAST ALSO LOOKS AT YE WITHOUT PITY. ALL WHO COME TO MEET THE BEAST KNOW NOT OF THEIR FUTURE, BUT ONLY OF THEIR PAST TRANSGRESSIONS.</h1>
 
@@ -43,4 +47,11 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+
+
+export async function getStaticProps() {
+	const posts = getAllPosts().map(post => post.meta);
+	return { props: { posts } };
 }

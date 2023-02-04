@@ -1,10 +1,14 @@
+
+
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { PostMeta } from 'src/types';
+
 
 import s from './Navbar.module.scss';
 import NavMenu from './NavMenu';
 
-const Navbar = () => {
+const Navbar = ({posts}:{posts: PostMeta[]}) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	function handleClick() {
@@ -12,6 +16,7 @@ const Navbar = () => {
 		console.log(isOpen);
 	}
 	// TODO Add Mobile Navigation (look at josh comeu's blog)
+	//TODO Fix navmenu getting metadata CANNOT get data from files at build time via getStaticProps, must find another way
 	return (
 		<div>
 			<div className={s.container}>
@@ -22,7 +27,7 @@ const Navbar = () => {
 								<h1 className={s.logo}>benSden</h1>
 							</Link>
 						</div>
-						<NavMenu/>
+						<NavMenu posts={posts}/>
 					</div>
 					<div className={s.rightNav}>
 						<p>Other stuff n icons</p>

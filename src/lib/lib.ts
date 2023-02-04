@@ -12,7 +12,7 @@ interface Post {
 	meta: PostMeta;
 }
 
-export const getSlugs = (): string[] => {
+export const getSlugs = ():string[] => {
 	const paths = fs.readdirSync(ARTICLES_DIRECTORY);
 
 	return paths.map((path) => {
@@ -51,7 +51,7 @@ export const getPostFromSlug = (slug: string): Post => {
 			title: data.title ?? slug,
 			author: data.author ?? "Ben Hammond",
 			tags: (data.tags ?? []).sort(),
-			category: data.category ?? "",
+			category: data.category ?? "needs category",
 			date: (data.date ?? new Date()).toString(),
 			imageURL: data.imageURL ?? "ArticleImages/default.webp",
 			readingTime: `${minutes} min read`,

@@ -6,15 +6,30 @@
   position: relative;
   font-family: 'Inter';
   padding-top: 1rem;
+  z-index:2;
+
 }
 
 .list {
   display: flex;
   list-style: none;
+
+
+}
+
+
+.buttonLink{
+ 
 }
 
 
 .button {
+  cursor: pointer;
+  text-transform: lowercase;
+border: none;
+font-size: 1rem;
+font-weight: 700;
+  background-color: $bg_gray;
   padding: 1rem;
   --duration: 0.44s;
   --move-hover: -4px;
@@ -30,8 +45,22 @@
     &:hover{
       --y: var(--move-hover);
       --x: var(--move-hover);
+      background-color: darken($color: $bg_gray, $amount: 5);
       --shadow: var(--shadow-hover);
+      
     }
+}
+
+.firstButton{
+  border-bottom-left-radius: 3rem;
+  border-top-left-radius: 3rem;
+
+}
+
+.lastButton{
+  border-bottom-right-radius: 3rem;
+    border-top-right-radius: 3rem;
+
 }
 
 @keyframes fadeIn {
@@ -96,12 +125,22 @@
   }
 }
 
+.horizontalLine{
+  border: none;
+  border-top: 2px solid $bg_black;
+
+  margin-block: 1rem;
+}
+
 .content
 {
   width: 100%;
   position: absolute;
   top:1rem;
-  background-color: aqua;
+  background-color: $bg_lightgray;
+  border: 2px solid black;
+  padding:1rem;
+  box-shadow: 6px 6px 0px $primary;
   animation-duration: 400ms;
   animation-timing-function: ease;
 
@@ -120,7 +159,147 @@
  
 }
 
-.test{
+.title{
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.header{
+  all: unset;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 800;
+  position: relative;
+  color: #141414;
+  transition: 0.3s ease;
+
+  &::after {
+		background: none repeat scroll 0 0 transparent;
+		bottom: -4px;
+		content: "";
+		display: block;
+		height: 4px;
+		left: 50%;
+		position: absolute;
+		background: $primary;
+		width: 0;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	}
+
+  &:hover {
+
+	&::after {
+			width: 100%;
+			left: 0;
+		}
+	}
+    
+}
+
+
+
+
+
+.tagHeader{
+  all: unset;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+
+
+.section{
+  
+  .list{
+  margin-block: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+  }
+
+  .sectionLink{
+    color:$type_primary;
+    font-size: 0.8rem;
+
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: $bg_gray;
+    //padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 2px solid black;
+
+    --duration: 0.44s;
+  --move-hover: -4px;
+
+
+  transform: translateY(var(--y)) translateZ(0) translateX(var(--x));
+  transition: transform var(--duration) ease;
+
+    &:hover{
+      --y: var(--move-hover);
+      --x: var(--move-hover);
+
+    }
+    
+
+    .linkTitle{
+      
+      padding: 0.25rem 0.5rem;
+      border-radius: 1rem;
+    }
+    .linkNumber{
+      
+      width: 100%;
+      height:100%;
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      font-weight: 700;
+      background-color: darken($color: $bg_gray, $amount: 10);
+    }
+  }
+
+
+  .tagLink{
+    font-size: 0.8rem;
+    border: none;
+  }
+}
+
+
+.recentPostList{
+  flex-direction: column !important;
+  gap: 0 !important;
+
+  .recentPostItem{
+    text-decoration: none;
+    color: $type_primary;
+    padding-block: 0.25rem;
+    transition: 0.3s ease ;
+    &:hover{
+      color: $type_important;
+    }
+
+    &:nth-child(even){
+      background-color: darken($color: $bg_gray, $amount: 10)
+    }
+    &:nth-child(odd){
+      background-color: $bg_gray;
+    }
+  }
+}
+
+.viewport{
   position:relative;
   &[data-state='open']{
     animation: fadeIn 0.44s ease;
