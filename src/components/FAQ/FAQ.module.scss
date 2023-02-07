@@ -40,17 +40,18 @@
 
 .AccordionTrigger {
   cursor: pointer;
-    text-transform: lowercase;
-    border: none;
-    font-size: 1rem;
-    font-weight: 700;
-    background-color: #e5e5e5;
-    padding: 1rem;
-    border-radius: 3rem;
+  text-transform: lowercase;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #e5e5e5;
+  padding: 1rem;
+  border-radius: 3rem;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-align: left;
 
 }
 
