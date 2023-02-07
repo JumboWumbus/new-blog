@@ -10,7 +10,7 @@ import titleCaseString, {
 import Author from '../Icons/Author';
 import Date from '../Icons/Date';
 import ReadTime from '../Icons/ReadTime';
-import WrapperLink from '../LinkedWrapper/LinkedWrapper';
+import WrapperLink from '../ArticleItemWrapper/ArticleLinkWrapper';
 
 import s from './ArticleItem.module.scss';
 
@@ -26,7 +26,6 @@ export default function ArticleItem({ post }: { post: PostMeta }) {
 		<WrapperLink
 			href={`/blog/post/${post.slug}`}
 			className={s.article}
-			tag={'article'}
 		>
 			{/* <Link className={s.img} href={`blog/post/${post.slug}`}>
         <img src={post.imageURL} alt='Image for article' />
