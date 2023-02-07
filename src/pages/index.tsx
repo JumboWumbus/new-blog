@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Inter } from '@next/font/google';
+
 import s from 'styles/Home.module.scss';
 import { SEO } from 'src/components/SEO/SEO';
 import { mainUrl } from 'src/utils/constants';
@@ -15,11 +15,13 @@ import BenBox from 'src/components/threeJS/BenBox';
 import { Suspense } from 'react';
 import * as THREE from 'three';
 import FAQ from 'src/components/FAQ/FAQ';
+import ProjectCard from 'src/components/ProjectCard/ProjectCard';
+import Articles from 'src/components/Articles/Articles';
 
 
 
 
-const inter = Inter({ subsets: ['latin'] });
+
 
 
 //TODO default SEO component for page titles and icon, etc...
@@ -43,14 +45,45 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
         title={`BensDen | The worst place to be!`} description={`This is my personal website where I put all of my ideas, work and sweat.`} slug={``} previewImage={previewImage}
       />
       <Navbar posts={posts}/>
-      <main className={s.main}>
 
+<div className={s.content}>
         <div className={s.hero}>
           <h1>Welcome to my personal site!</h1>
         {/*Insert cube here maybe */}
         </div>
 
         <div>
+          <h1>Check out these parts of my site!</h1>
+
+          <div className={s.webSection}>
+            <div className={s.title}>
+              <h1>Projects</h1>
+              <h4 className={s.subtitle}>Making things badly</h4>
+            </div>
+
+            <ProjectCard/>
+          </div>
+
+
+          <div className={s.webSection}>
+            <div className={s.title}>
+              <h1>Blog zone</h1>
+              <h4 className={s.subtitle}>Filled with ramblings!</h4>
+            </div>
+            <div>
+              <Articles posts={posts.slice(0, 4)} />
+
+              
+            </div>
+          </div>
+
+
+          <div className={s.webSection}>
+            <div className={s.title}>
+              <h1>Notes</h1>
+              <h4 className={s.subtitle}>Snippets of thinks</h4>
+            </div>
+          </div>
           
         </div>
 
@@ -77,7 +110,7 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
         
 
 
-      </main>
+        </div>
     </>
   );
 }

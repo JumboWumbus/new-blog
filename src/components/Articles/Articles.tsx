@@ -11,12 +11,12 @@ export default function Articles({
 	headingLink,
 }: {
 	posts: PostMeta[];
-	title: string;
+	title?: string;
 	headingLink?: string;
 }) {
 	return (
 		<div className={s.articles}>
-			<div className={s.headingSection}>
+			{title? <div className={s.headingSection}>
 				{typeof headingLink !== "undefined" ? (
 					<Link
 						className={s.link}
@@ -33,7 +33,7 @@ export default function Articles({
 						? `${posts.length} Article`
 						: `${posts.length} Articles`}
 				</h4>
-			</div>
+			</div> : <></>}
 
 			<ul className={s.articleList}>
 				{posts.map((post) => (

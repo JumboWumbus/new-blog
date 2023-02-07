@@ -1,0 +1,78 @@
+@import '~rfs/scss';
+@import 'styles/utility.scss';
+@import "/styles/colors.scss";
+
+.container{
+  border: 2px solid $primary;
+	padding: 1rem;
+
+	margin: auto;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	height: 100%;
+	width: 100%;
+
+	transition: 0.3s ease;
+
+	&:hover {
+		box-shadow: 6px 6px 0px $primary;
+		cursor: pointer;
+
+		.title::after {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+.title {
+	all: unset;
+	cursor: pointer;
+	@include font-size(1.8rem);
+	font-weight: 800;
+	margin-top: 2rem;
+	position: relative;
+
+	color: $primary;
+
+	&::after {
+		background: none repeat scroll 0 0 transparent;
+		bottom: -4px;
+		content: "";
+		display: block;
+		height: 4px;
+		left: 50%;
+		position: absolute;
+		background: $primary;
+		transition: width 0.3s ease 0s, left 0.3s ease 0s;
+		width: 0;
+	}
+}
+
+
+.description{
+	padding-top: 0.8rem;
+  display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+
+}
+
+
+.timeContainer{
+  margin-top: 1rem;
+
+  .timeTitle{
+
+  }
+
+  .timeframe{
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+}

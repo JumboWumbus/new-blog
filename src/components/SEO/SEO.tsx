@@ -16,7 +16,7 @@ interface Props {
 }
 
 export function SEO({ title, description, slug, previewImage }: Props) {
-   console.log(`og zone: ${previewImage?.url}`)
+   //console.log(`og zone: ${previewImage?.url}`)
    return (
       <Head>
          <title>{title}</title>

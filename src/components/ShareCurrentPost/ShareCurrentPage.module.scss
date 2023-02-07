@@ -1,0 +1,23 @@
+@import '~rfs/scss';
+@import 'styles/utility.scss';
+@import '/styles/colors.scss';
+
+
+.shareContainer{
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CTATitle{
+  color: $secondary;
+}
+
+.socialContainer{
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem 0.75rem;
+}

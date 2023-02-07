@@ -38,6 +38,12 @@ import { SEO } from "src/components/SEO/SEO";
 import { SEOBlogPost } from "src/components/SEO/BlogPost_SEO";
 import Navbar from "src/components/Navbar/Navbar";
 
+import {
+  TwitterShareButton,
+  TwitterIcon,
+} from 'next-share'
+import ShareCurrentPage from "src/components/ShareCurrentPost/ShareCurrentPost";
+
 //JSON.stringify;
 
 interface MDXPost {
@@ -137,20 +143,25 @@ export default function Post({ post }: { post: MDXPost }) {
 								)
 							)}
 						</ul>
+            
 						<PageViews slug={post.meta.slug} />
 					</div>
 				</div>
-				<div>
+				<div className={s.contentContainer}>
 					<div className={s.wrapper}>
 						<div className={s.blogContainer}>
+              
 							<MDXRemote
 								{...post.source}
 								//@ts-ignore
 								components={{ YouTube }}
 							/>
 						</div>
-
+            <div className={s.tableOfContentsContainer}>
 						<TableOfContents headings={post.headings} />
+
+            <ShareCurrentPage currentPageURL={`${mainUrl}/blog/${post.meta.slug}`} supportingText={`best man\n`}/>
+            </div>
 					</div>
 				</div>
 			</div>

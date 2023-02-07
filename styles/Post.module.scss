@@ -5,242 +5,254 @@
 //TODO Add all styling for markdown elements
 
 .wrapper {
-	display: flex;
-	align-items: flex-start;
-	flex-direction: row;
-	justify-content: space-between;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
 
-	@include parentBoiler;
+  // @include parentBoiler;
 }
 
 .headingContainer {
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 
-	width: 100%;
+  width: 100%;
+  @include parentBoiler;
 
-	@include margin-top(2rem);
-	@include margin-bottom(2rem);
+  @include margin-top(2rem);
+  @include margin-bottom(2rem);
 
-	.postHeading {
-		@include parentBoiler;
+  .postHeading {
+    // @include parentBoiler;
 
-		@include margin-top(2rem);
-		@include margin-bottom(2rem);
+    @include margin-top(2rem);
+    @include margin-bottom(2rem);
 
-		.postTitle {
-			@include margin-top(0.5rem);
-			@include margin-bottom(0.5rem);
-		}
+    .postTitle {
+      @include margin-top(0.5rem);
+      @include margin-bottom(0.5rem);
+    }
 
-		.postSummary {
-			@include margin-top(0.25rem);
-			@include margin-bottom(1.5rem);
-		}
-	}
+    .postSummary {
+      @include margin-top(0.25rem);
+      @include margin-bottom(1.5rem);
+    }
+  }
 }
 
-
 .tags {
-	list-style: none;
-	display: flex;
-	gap: 1rem 0.75rem;
-	flex-wrap: wrap;
-	text-transform: lowercase;
+  list-style: none;
+  display: flex;
+  gap: 1rem 0.75rem;
+  flex-wrap: wrap;
+  text-transform: lowercase;
 
-	@include margin-top(0.5rem);
-	@include margin-bottom(1.5rem);
+  @include margin-top(0.5rem);
+  @include margin-bottom(1.5rem);
 
-	.tagItem {
-		margin: 0;
+  .tagItem {
+    margin: 0;
 
-		@include font-size(0.8rem);
-		font-weight: 600;
-		font-style: italic;
-		//letter-spacing: 1px;
-		color: $primary;
-		text-decoration: none;
-		@include padding-top(0.3rem);
-		@include padding-bottom(0.3rem);
-		@include padding-left(0.5rem);
-		@include padding-right(0.5rem);
+    @include font-size(0.8rem);
+    font-weight: 600;
+    font-style: italic;
+    //letter-spacing: 1px;
+    color: $primary;
+    text-decoration: none;
+    @include padding-top(0.3rem);
+    @include padding-bottom(0.3rem);
+    @include padding-left(0.5rem);
+    @include padding-right(0.5rem);
 
-		border: 1px solid $primary;
+    border: 1px solid $primary;
 
-		transition: 0.3s ease;
+    transition: 0.3s ease;
 
-		&::before {
-			content: "#";
-		}
+    &::before {
+      content: "#";
+    }
 
-		&:hover {
-			border-color: $secondary;
-		}
-	}
+    &:hover {
+      border-color: $secondary;
+    }
+  }
+}
+
+.contentContainer{
+  @include parentBoiler;
+}
+
+.tableOfContentsContainer{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6rem;
 }
 
 .blogContainer {
-	max-width: min(70ch, 100%);
-	font-size: 1rem;
-	line-height: 1.5;
+  max-width: min(75ch, 100%);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-right: 2rem;
 
-	&:first-child>section>h1 {
-		margin-top: 0;
-	}
+  &:first-child > section > h1 {
+    margin-top: 0;
+  }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	p,
-	blockquote {
-		margin: 0;
-		padding: 0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote {
+    margin: 0;
+    padding: 0;
 
-		scroll-margin-top: 6rem;
-	}
+    scroll-margin-top: 6rem;
+  }
 
-	body {}
+  body {
+  }
 
-	table {
-		margin: 10px 0 15px 0;
-		border-collapse: collapse;
-	}
+  table {
+    margin: 10px 0 15px 0;
+    border-collapse: collapse;
+  }
 
-	ol {
-		li {
-			margin-left: 19px;
-		}
-	}
+  ol {
+    li {
+      margin-left: 19px;
+    }
+  }
 
-	td,
-	th {
-		border: 1px solid #ddd;
-		padding: 3px 10px;
-	}
+  td,
+  th {
+    border: 1px solid #ddd;
+    padding: 3px 10px;
+  }
 
-	th {
-		padding: 5px 10px;
-	}
+  th {
+    padding: 5px 10px;
+  }
 
-	a {
-		color: #e27c41;
-	}
+  a {
+    color: #e27c41;
+  }
 
-	a:hover {
-		color: darken($color: #e27c41, $amount: 20);
-		text-decoration: none;
-	}
+  a:hover {
+    color: darken($color: #e27c41, $amount: 20);
+    text-decoration: none;
+  }
 
-	a img {
-		border: none;
-	}
+  a img {
+    border: none;
+  }
 
-	p {
-		margin-bottom: 1.2em;
-	}
+  p {
+    margin-bottom: 1.2em;
+  }
 
-	strong {
-		font-weight: 700;
-	}
+  strong {
+    font-weight: 700;
+  }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: #000000;
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000000;
+  }
 
-	h1 {
-		margin-top: 2em;
-		margin-bottom: 1em;
-		font-weight: 900;
-		@include font-size(2em);
-	}
+  h1 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: 900;
+    @include font-size(2em);
+  }
 
-	h2 {
-		margin-top: 1.8em;
-		margin-bottom: 1.5em;
-		font-weight: 800;
-		@include font-size(1.8em);
-	}
+  h2 {
+    margin-top: 1.8em;
+    margin-bottom: 1.5em;
+    font-weight: 800;
+    @include font-size(1.8em);
+  }
 
-	h3 {
-		margin-top: 1.6em;
-		margin-bottom: 0.67em;
-		font-weight: 700;
-		@include font-size(1.6em);
-	}
+  h3 {
+    margin-top: 1.6em;
+    margin-bottom: 0.67em;
+    font-weight: 700;
+    @include font-size(1.6em);
+  }
 
-	h4 {
-		margin-top: 1.4em;
-		margin-bottom: 0.5em;
-		font-weight: 600;
-		@include font-size(1.3em);
-	}
+  h4 {
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    @include font-size(1.3em);
+  }
 
-	h5 {
-		margin-top: 1.4em;
-		margin-bottom: 0.5em;
-		font-weight: 600;
-		@include font-size(1em);
-	}
+  h5 {
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    @include font-size(1em);
+  }
 
-	h6 {
-		margin-top: 1.4em;
-		margin-bottom: 0.5em;
-		font-weight: 500;
-		@include font-size(1em);
-	}
+  h6 {
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    @include font-size(1em);
+  }
 
-	hr {
-		border: 0;
-		border-bottom: 1px solid #ccc;
-		margin-block: 4rem;
-	}
+  hr {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin-block: 4rem;
+  }
 
-	blockquote {
-		border-left: 0.5em solid #eee;
-		padding: 0 2em;
-		margin-left: 0;
-	}
+  blockquote {
+    border-left: 0.5em solid #eee;
+    padding: 0 2em;
+    margin-left: 0;
+  }
 
-	blockquote cite {
-		@include font-size(0.8em);
+  blockquote cite {
+    @include font-size(0.8em);
 
-		color: #bfbfbf;
-	}
+    color: #bfbfbf;
+  }
 
-	blockquote cite:before {
-		content: "\2014 \00A0";
-	}
+  blockquote cite:before {
+    content: "\2014 \00A0";
+  }
 
-	blockquote p {
-		color: #777777;
-	}
+  blockquote p {
+    color: #777777;
+  }
 
-	pre {
-		background-color: #f1f1f1;
+  pre {
+    background-color: #f1f1f1;
 
-		border-radius: 0.8rem;
-		margin-block: 1.5rem;
+    border-radius: 0.8rem;
+    margin-block: 1.5rem;
 
-		@include font-size(1em);
-		overflow-x: auto;
+    @include font-size(1em);
+    overflow-x: auto;
 
-		padding: 0.75rem 0;
+    padding: 0.75rem 0;
 
-		code {
-			display: grid;
-			counter-reset: line;
-		}
-	}
+    code {
+      display: grid;
+      counter-reset: line;
+    }
+  }
 
-	/*
+  /*
 
 .highlighted {
   background-color: #ffe84c80;
@@ -269,24 +281,24 @@
 
 	*/
 
-	div:has(pre) {
-		//Title Style
+  div:has(pre) {
+    //Title Style
 
-		div {
-			background-color: #f1f1f1;
-			position: relative;
-			padding: 0.5rem 2rem;
-			top: 30px;
-			left: 3rem;
-			width: fit-content;
-			border-radius: 0.5rem;
-			font-weight: 600;
-		}
-	}
+    div {
+      background-color: #f1f1f1;
+      position: relative;
+      padding: 0.5rem 2rem;
+      top: 30px;
+      left: 3rem;
+      width: fit-content;
+      border-radius: 0.5rem;
+      font-weight: 600;
+    }
+  }
 
-	sup {
-		@include font-size(0.83em);
-		vertical-align: super;
-		line-height: 0;
-	}
+  sup {
+    @include font-size(0.83em);
+    vertical-align: super;
+    line-height: 0;
+  }
 }

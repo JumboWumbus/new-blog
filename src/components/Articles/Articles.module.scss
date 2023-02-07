@@ -3,8 +3,9 @@
 @import "styles/utility.scss";
 
 .articles {
-	@include parentBoiler;
-	margin-block: 4rem;
+ width: 100%;
+  margin: auto;
+
 }
 
 .link {

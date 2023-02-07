@@ -4,7 +4,6 @@
 
 .container {
   position: relative;
-  font-family: 'Inter';
 
   z-index:2;
 
@@ -29,12 +28,18 @@
 border: none;
 font-size: 1rem;
 font-weight: 700;
-  background-color: $bg_gray;
+  background-color: white;
   padding: 1rem;
   --duration: 0.44s;
   --move-hover: -4px;
   --shadow: 0 0px 0px 0px black;
-  --shadow-hover:  4px 4px 0px black;
+  --shadow-hover:  2px 4px 0px black;
+  
+
+
+
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 
   box-shadow: var(--shadow);
 
@@ -43,6 +48,8 @@ font-weight: 700;
     box-shadow var(--duration) ease;
 
     &:hover{
+      border: 2px solid black;
+      margin-inline: -2px;
       --y: var(--move-hover);
       --x: var(--move-hover);
       background-color: darken($color: $bg_gray, $amount: 5);
@@ -54,12 +61,25 @@ font-weight: 700;
 .firstButton{
   border-bottom-left-radius: 3rem;
   border-top-left-radius: 3rem;
+  border-left: 2px solid black;
+
+  &:hover{
+    margin-inline: -1px;
+    box-shadow: 3px 4px 0px black;
+  }
+
+ 
+
 
 }
 
 .lastButton{
   border-bottom-right-radius: 3rem;
     border-top-right-radius: 3rem;
+    border-right: 2px solid black;
+    &:hover{
+      margin-inline: -1px;
+    }
 
 }
 

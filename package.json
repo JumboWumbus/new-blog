@@ -41,6 +41,7 @@
     "next-api-og-image": "^4.3.0",
     "next-mdx-remote": "^3.0.8",
     "next-seo": "^5.15.0",
+    "next-share": "^0.20.0",
     "next-sitemap": "^3.1.42",
     "node-html-parser": "^6.1.4",
     "preact": "^10.11.3",

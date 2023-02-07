@@ -37,10 +37,7 @@ $listItem_padding-right: 0.5rem;
 }
 
 .wrapper {
-	position: sticky;
-	top: 6rem;
-
-	max-height: calc(100vh - 8rem);
+	max-height: 50vh;
 	overflow: auto;
 
 	@include padding-left($wrapper_padding-left);

@@ -28,13 +28,15 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
           title={`BensDen | The worst place to be!`} description={`This is my personal website where I put all of my ideas, work and sweat.`} slug={``} previewImage={previewImage}
         />
 			<Navbar posts={posts}/>
-			<div className={s.wrapper}>
+
+
+
 				<div className={s.content}>
 					<div>
 						<Articles posts={posts.slice(0, 9)} title={'Most recent Posts'} />
 					</div>
 				</div>
-			</div>
+
 		</>
 	);
 }
