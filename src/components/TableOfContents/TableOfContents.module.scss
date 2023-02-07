@@ -20,11 +20,13 @@ $listItem_padding-right: 0.5rem;
 	left: -$currentPadding;
 	position: relative;
 	background: $primary;
+
 	transition: width 0.3s ease 0s, left 0.3s ease 0s;
 	width: 0;
 }
 
 @mixin animateBorder($currentPadding) {
+	transition-delay: 250ms;
 	width: calc(
 		100% + px($currentPadding) + px($listItem_padding-right)
 	);
@@ -59,14 +61,15 @@ $listItem_padding-right: 0.5rem;
 			@include padding-right($listItem_padding-right);
 			transition: color 0.3s, background-color 0.3s;
 
+
 			a {
 				text-decoration: none;
-				color: inherit;
+				color: $type_secondary;
 
 				transition: color 0.3s;
 
 				&:hover {
-					color: $secondary;
+					color: $type_primary;
 				}
 			}
 		}
@@ -77,10 +80,13 @@ $listItem_padding-right: 0.5rem;
 	font-weight: 600;
 	@include font-size(1.25rem);
 
-	color: $primary;
+
 
 	&:has(> a.active) {
 		background-color: darken($color: $tertiary, $amount: 10);
+		a{
+			color: $type_primary !important;
+		}		
 
 		&::after {
 			@include animateBorder(0);
@@ -95,10 +101,14 @@ $listItem_padding-right: 0.5rem;
 .depth-2 {
 	$padding: 1rem;
 	padding-left: $padding;
-	color: $primary;
+
 
 	&:has(> a.active) {
 		background-color: darken($color: $tertiary, $amount: 10);
+
+		a{
+			color: $type_primary !important;
+		}
 
 		&::after {
 			@include animateBorder($padding);
@@ -113,12 +123,14 @@ $listItem_padding-right: 0.5rem;
 .depth-3 {
 	$padding: 1.5rem;
 	padding-left: $padding;
-	color: $primary;
-	font-style: italic;
+
+	
 
 	&:has(> a.active) {
 		background-color: darken($color: $tertiary, $amount: 10);
-
+		a{
+			color: $type_primary !important;
+		}
 		&::after {
 			@include animateBorder($padding);
 		}
@@ -132,11 +144,14 @@ $listItem_padding-right: 0.5rem;
 .depth-4 {
 	$padding: 2rem;
 	padding-left: $padding;
-	color: $primary;
+
 
 	&:has(> a.active) {
 		background-color: darken($color: $tertiary, $amount: 10);
-
+		a{
+			color: $type_primary !important;
+			
+		}
 		&::after {
 			@include animateBorder($padding);
 		}

@@ -1,4 +1,18 @@
-.main{
+@import '~rfs/scss';
+@import 'styles/utility.scss';
+@import "/styles/colors.scss";
+
+.main {
    text-align: center;
    margin-top: 4rem;
+}
+
+
+.canvas{
+   width: 100%;
+   height: 100%;
+}
+
+.FAQ{
+   @include parentBoiler;
 }

@@ -1,6 +1,7 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
@@ -27,7 +28,7 @@ export default function NavMenu({posts}:{posts:PostMeta[]}) {
   const tags = posts.map(post => post.tags).flat();
 	const uniqueTags = getOnlyUniqueValuesFromArray(tags);
 
-  
+  const router = useRouter();
 
   return (
     <NavigationMenu.Root
@@ -35,9 +36,9 @@ export default function NavMenu({posts}:{posts:PostMeta[]}) {
       orientation="horizontal"
     >
       <NavigationMenu.List className={s.list}>
-      <Link href='/blog' className={s.buttonLink}>
+
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className={`${s.button} ${s.firstButton}`} >
+          <NavigationMenu.Trigger className={`${s.button} ${s.firstButton}`} onClick={()=>router.push('/blog')}>
             Blog
           </NavigationMenu.Trigger>
           
@@ -96,18 +97,26 @@ export default function NavMenu({posts}:{posts:PostMeta[]}) {
   
           
         </NavigationMenu.Item>
-        </Link>
+
         <NavigationMenu.Item>
           <NavigationMenu.Trigger className={s.button}>
-            Item two
+            ?????
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className={s.content}>
-            Item two content
+          Currently planning/crafting extra content and sections to go in here, check back later for some fat and cool stuff.
+          </NavigationMenu.Content>
+        </NavigationMenu.Item>
+        <NavigationMenu.Item>
+          <NavigationMenu.Trigger className={s.button}>
+            ?????
+          </NavigationMenu.Trigger>
+          <NavigationMenu.Content className={s.content}>
+            Currently planning/crafting extra content and sections to go in here, check back later for some fat and cool stuff. 
           </NavigationMenu.Content>
         </NavigationMenu.Item>
         <NavigationMenu.Item>
           <NavigationMenu.Trigger className={`${s.button} ${s.lastButton}`}>
-            Item two
+            About
           </NavigationMenu.Trigger>
         </NavigationMenu.Item>
 

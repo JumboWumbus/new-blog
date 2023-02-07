@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { getPostFromSlug, getSlugs } from "src/lib/lib";
+import { getAllPosts, getPostFromSlug, getSlugs } from "src/lib/lib";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { NextSeo } from 'next-seo';
@@ -36,6 +36,7 @@ import { mainUrl, oGImageHeight, oGImageWidth } from "src/utils/constants";
 import OGImageGeneration from "src/pages/api/og";
 import { SEO } from "src/components/SEO/SEO";
 import { SEOBlogPost } from "src/components/SEO/BlogPost_SEO";
+import Navbar from "src/components/Navbar/Navbar";
 
 //JSON.stringify;
 
@@ -44,6 +45,7 @@ interface MDXPost {
 	meta: PostMeta;
 
 	headings: Heading[];
+	posts: PostMeta[];
 }
 
 // TODO Add theme to codeblock
@@ -112,6 +114,7 @@ export default function Post({ post }: { post: MDXPost }) {
 				/>
 				<SEOBlogPost authorName={post.meta.author} readingTime={post.meta.readingTime} date={post.meta.date} slug={post.meta.slug} title={post.meta.title} description={post.meta.excerpt} previewImage={previewImage} />
 
+				<Navbar posts={post.posts}/>
 			<div>
 				<div className={s.headingContainer}>
 					<div className={s.postHeading}>
@@ -158,6 +161,10 @@ export default function Post({ post }: { post: MDXPost }) {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { slug } = params as { slug: string };
 	const { content, meta } = getPostFromSlug(slug);
+
+
+		const posts = getAllPosts().map(post => post.meta);
+
 
 	// let headings = Array.from(
 	// 	content.matchAll(/(?<flag>#{1,6})\s+(?<content>.+)/g)
@@ -208,8 +215,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 
 
-	return { props: { post: { source: mdxSource, meta, headings } } };
+	return { props: { post: { source: mdxSource, meta, headings, posts } } };
 };
+
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = getSlugs().map((slug) => ({ params: { slug } }));

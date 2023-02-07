@@ -151,32 +151,48 @@ $maxWidth: 1fr;
 	flex-wrap: wrap;
 	text-transform: lowercase;
 
-	.tagItem {
-		margin: 0;
+	li{
 
-		@include font-size(0.8rem);
-		font-weight: 600;
-		font-style: italic;
-		//letter-spacing: 1px;
-		color: $primary;
-		text-decoration: none;
-		@include padding-top(0.3rem);
-		@include padding-bottom(0.3rem);
-		@include padding-left(0.5rem);
-		@include padding-right(0.5rem);
+		display: flex;
 
-		border: 1px solid $primary;
-
-		transition: 0.3s ease;
-
-		&::before {
-			content: "#";
-		}
-
-		&:hover {
-			border-color: $secondary;
+		.tagItem {
+			margin: 0;
+	
+			font-size: 0.8rem;
+			font-weight: 500;
+			font-style: italic;
+			//letter-spacing: 1px;
+			color: $type_secondary;
+			text-decoration: none;
+		
+			padding: 0.25rem 0.5rem;
+			background-color: $bg_gray;
+			//padding: 0.25rem 0.5rem;
+			border-radius: 0.25rem;
+	
+				--duration: 0.44s;
+		--move-hover: -4px;
+	
+	
+		transform: translateY(var(--y)) translateZ(0) translateX(var(--x));
+		transition: transform var(--duration) ease;
+	
+			&:hover{
+				--y: var(--move-hover);
+				--x: var(--move-hover);
+				
+			}
+			
+	
+			&::before {
+				content: "#";
+			}
+	
+		
 		}
 	}
+
+	
 }
 
 .postDate {

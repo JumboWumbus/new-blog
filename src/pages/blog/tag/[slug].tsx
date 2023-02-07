@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Articles from 'src/components/Articles/Articles';
+import Navbar from 'src/components/Navbar/Navbar';
 import { SEO } from 'src/components/SEO/SEO';
 import { getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
@@ -32,12 +33,13 @@ export default function TagPage({
       <SEO
           title={`Posts with tag ${slug} on BensDen`} description={`Posts with the tag ${slug} on BensDen. Hopefully informative and not boring.`} slug={`/blog/tag/${slug}`} previewImage={previewImage}
         />
+        			<Navbar posts={posts}/>
       <div className={s.wrapper}>
         <aside className={s.side}>A sidebar</aside>
         <article className={s.content}>
           <div>
             <Articles
-              posts={posts}
+              posts={posts.filter(post => post.tags.includes(slug))}
               title={`Posts with tag ${titleCaseString(slug)}`}
             />
           </div>
@@ -50,7 +52,7 @@ export default function TagPage({
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as { slug: string };
 
-  const posts = getAllPosts().filter(post => post.meta.tags.includes(slug));
+  const posts = getAllPosts();
   return {
     props: {
       slug,

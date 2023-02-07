@@ -3,11 +3,14 @@
 
 .container {
     @include parentBoiler;
+    padding-top: 1rem;
 
 }
 
 .navBar {
     display: flex;
+    flex-direction: column;
+    gap:1.5rem;
     justify-content: space-between;
     align-items: center;
 }
@@ -25,6 +28,35 @@
 
     .logo {}
 }
+
+.sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+ }
+
+.iconContainer {
+    display: flex;
+    justify-content: center;
+    order: 2;
+
+    .icon {
+       width: 1.5rem;
+       height: 1.5rem;
+       color: $primary;
+       margin-left: 1.5rem;
+    }
+
+    .noMargin {
+       margin-left: 0;
+    }
+ }
 
 
 
@@ -67,62 +99,10 @@
 }
 
 
+@media screen and (min-width: 700px) {
 
-
-
-
-.mobileButton {
-    all: unset;
-    width: 3rem;
-
-    cursor: pointer;
-
-    @media (min-width: 640px) {
-        display: none;
-    }
-}
-
-.open {
-
-    display: block;
-}
-
-.closed {
-    display: none;
-}
-
-.mobileNavbar {
-
-    width: 100%;
-
-    @media (min-width: 640px) {
-        display: none;
-    }
-
-    .navbarContainerOuter {
-        margin-top: 2rem;
-        line-height: 1.25rem;
-    }
-
-    .navbarContainerInner {
-        margin-top: 0.5rem;
-
-        .list {
-            display: flex;
-            justify-content: space-evenly;
-
-            .listItem {
-                display: flex;
-
-                .link {
-                    display: flex;
-                    padding-left: 1rem;
-                    padding-right: 1rem;
-                    margin-bottom: -0.25rem;
-                    align-items: center;
-                    border-bottom-width: 2px;
-                }
-            }
-        }
+    .navBar{
+        flex-direction: row;
+        gap:0;
     }
 }

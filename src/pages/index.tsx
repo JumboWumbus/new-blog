@@ -1,13 +1,23 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from '@next/font/google';
-import styles from 'styles/Home.module.scss';
+import s from 'styles/Home.module.scss';
 import { SEO } from 'src/components/SEO/SEO';
 import { mainUrl } from 'src/utils/constants';
 import { objToUrlParams } from 'src/utils/url';
 import Navbar from 'src/components/Navbar/Navbar';
 import { getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
+import { Canvas, useFrame } from '@react-three/fiber'
+import Box from 'src/components/threeJS/Box';
+import {OrbitControls} from '@react-three/drei'
+import BenBox from 'src/components/threeJS/BenBox';
+import { Suspense } from 'react';
+import * as THREE from 'three';
+import FAQ from 'src/components/FAQ/FAQ';
+
+
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -33,16 +43,39 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
         title={`BensDen | The worst place to be!`} description={`This is my personal website where I put all of my ideas, work and sweat.`} slug={``} previewImage={previewImage}
       />
       <Navbar posts={posts}/>
-      <main className={styles.main}>
-        <h1>THE MIGHTY EYE OBSERVES AND LOOKS UPON YOU WITHOUT JUDGMENT... HOWEVER THE BEAST ALSO LOOKS AT YE WITHOUT PITY. ALL WHO COME TO MEET THE BEAST KNOW NOT OF THEIR FUTURE, BUT ONLY OF THEIR PAST TRANSGRESSIONS.</h1>
+      <main className={s.main}>
 
-        <img
+        <div className={s.hero}>
+          <h1>Welcome to my personal site!</h1>
+        {/*Insert cube here maybe */}
+        </div>
 
-          src="/webImages/Me.webp"
-          alt="The pretty creator"
-        />
+        <div>
+          
+        </div>
 
-        <h2>Site is under construction, pls await further cool features xoxo</h2>
+        <div className={s.FAQ}>
+        <FAQ/>
+        </div>
+       
+{/* 
+        <Canvas className={s.canvas} onCreated={({ gl }) => {
+          gl.toneMapping = THREE.ACESFilmicToneMapping;
+          gl.toneMappingExposure = 1.2;
+          gl.outputEncoding = THREE.sRGBEncoding;
+
+   
+        }}>
+       <OrbitControls enableZoom={false} enablePan={false}/>
+          <ambientLight intensity={1}/>
+          <directionalLight position={[-2,5,2]} intensity={1}/>
+          <Suspense fallback={null}>
+          <BenBox/>
+          </Suspense>
+      
+        </Canvas> */}
+        
+
 
       </main>
     </>

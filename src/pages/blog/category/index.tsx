@@ -34,19 +34,7 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 			<div className={s.wrapper}>
 				<article className={s.content}>
 					<div>
-						{uniqueCategories.map(singleCategory => {
-							let postBundle = posts.filter(post =>
-								post.category.includes(singleCategory)
-							);
-
-							return (
-								<Articles
-									posts={postBundle}
-									title={titleCaseString(singleCategory)}
-									headingLink={`/blog/category/${singleCategory}`}
-								/>
-							);
-						})}
+						<h1>Add Category index page you melon</h1>
 					</div>
 				</article>
 			</div>
