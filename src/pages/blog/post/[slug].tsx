@@ -25,7 +25,6 @@ import {
 	convertTime,
 	getOnlyUniqueValuesFromArray,
 	slugify,
-	useWebMentions,
 } from "src/utils";
 import Link from "next/link";
 import YouTube from "src/components/Youtube/Youtube";
@@ -38,17 +37,16 @@ import { SEO } from "src/components/SEO/SEO";
 import { SEOBlogPost } from "src/components/SEO/BlogPost_SEO";
 import Navbar from "src/components/Navbar/Navbar";
 
-import {
-  TwitterShareButton,
-  TwitterIcon,
-} from 'next-share'
 import ShareCurrentPage from "src/components/ShareCurrentPost/ShareCurrentPost";
+import { Webmention } from "src/webmentions/webmentions";
+import { WebmentionComment } from "src/components/WebmentionComment/WebmentionComment";
 
 //JSON.stringify;
 
 interface MDXPost {
 	source: MDXRemoteSerializeResult;
 	meta: PostMeta;
+  webmentions: Webmention[];
 
 	headings: Heading[];
 	posts: PostMeta[];
@@ -157,12 +155,26 @@ export default function Post({ post }: { post: MDXPost }) {
 								components={{ YouTube }}
 							/>
 						</div>
+            
             <div className={s.tableOfContentsContainer}>
 						<TableOfContents headings={post.headings} />
 
-            <ShareCurrentPage currentPageURL={`${mainUrl}/blog/${post.meta.slug}`} supportingText={`best man\n`}/>
+            <ShareCurrentPage currentPageURL={`${mainUrl}/blog/post/${post.meta.slug}`} supportingText={`best man\n`}/>
             </div>
 					</div>
+          <div className={s.webmentions}>
+            {post.webmentions ? (
+              <div className={s.webmentionWrapper}>
+                <h1>Webmentions</h1>
+                <div className={s.webmentionList}>
+                  {post.webmentions.slice().sort((a,b) =>b.data.published_ts - a.data.published_ts).map((webmention) =>(
+                    <WebmentionComment key={webmention.id} webmention={webmention}/>
+                  ))}
+                </div>
+              </div>
+            ): null}
+
+          </div>
 				</div>
 			</div>
 		</>

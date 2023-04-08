@@ -4,18 +4,19 @@ export default function Document() {
 	return (
 		<Html>
 			<Head>
-				<a
+				<link
+        
 					href="https://twitter.com/GrembloProjects"
 					rel="me"
-				></a>
-				<a
+				/>
+				<link
 					href="https://github.com/JumboWumbus"
 					rel="me"
-				></a>
-				<a
+				/>
+				<link
 					href="mailto:BenHammond404@gmail.com"
 					rel="me"
-				></a>
+				/>
 				<link
 					rel="webmention"
 					href="https://webmention.io/bensden.xyz/webmention"

@@ -9,9 +9,7 @@ import Navbar from 'src/components/Navbar/Navbar';
 import { getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
 import { Canvas, useFrame } from '@react-three/fiber'
-import Box from 'src/components/threeJS/Box';
 import {OrbitControls} from '@react-three/drei'
-import BenBox from 'src/components/threeJS/BenBox';
 import { Suspense } from 'react';
 import * as THREE from 'three';
 import FAQ from 'src/components/FAQ/FAQ';
@@ -50,6 +48,7 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
         <div className={s.hero}>
           <h1>Welcome to my personal site!</h1>
         {/*Insert cube here maybe */}
+
         </div>
 
         <div>

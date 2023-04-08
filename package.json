@@ -30,6 +30,7 @@
     "@vercel/og": "^0.0.27",
     "chrome-aws-lambda": "^10.1.0",
     "date-fns": "^2.29.3",
+    "dayjs": "^1.11.7",
     "dompurify": "^2.4.3",
     "dotenv": "^16.0.3",
     "glob": "^8.0.3",
@@ -82,7 +83,7 @@
     "typescript": "4.9.4",
     "unified": "^10.1.2",
     "wiki-pronunciation-dict": "^1.0.1",
-    "zod": "^3.20.2"
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/dompurify": "^2.4.0",
