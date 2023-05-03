@@ -1,7 +1,7 @@
 import "styles/globals.scss";
 
 import type { AppProps } from "next/app";
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import Footer from "src/components/Footer/Footer";
 import Navbar from "src/components/Navbar/Navbar";
 import { Analytics } from '@vercel/analytics/react';

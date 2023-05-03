@@ -12,7 +12,7 @@ import rehypeExternalLinks from "rehype-external-links";
 import rehypeSectionHeadings from "rehype-section-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 import PageViews from "src/components/PageViews/PageViews";
 
 import s from "styles/Post.module.scss";
@@ -38,16 +38,13 @@ import { SEOBlogPost } from "src/components/SEO/BlogPost_SEO";
 import Navbar from "src/components/Navbar/Navbar";
 
 import ShareCurrentPage from "src/components/ShareCurrentPost/ShareCurrentPost";
-import { Webmention } from "src/webmentions/webmentions";
-import { WebmentionComment } from "src/components/WebmentionComment/WebmentionComment";
+
 
 //JSON.stringify;
 
 interface MDXPost {
 	source: MDXRemoteSerializeResult;
 	meta: PostMeta;
-  webmentions: Webmention[];
-
 	headings: Heading[];
 	posts: PostMeta[];
 }
@@ -162,19 +159,7 @@ export default function Post({ post }: { post: MDXPost }) {
             <ShareCurrentPage currentPageURL={`${mainUrl}/blog/post/${post.meta.slug}`} supportingText={`best man\n`}/>
             </div>
 					</div>
-          <div className={s.webmentions}>
-            {post.webmentions ? (
-              <div className={s.webmentionWrapper}>
-                <h1>Webmentions</h1>
-                <div className={s.webmentionList}>
-                  {post.webmentions.slice().sort((a,b) =>b.data.published_ts - a.data.published_ts).map((webmention) =>(
-                    <WebmentionComment key={webmention.id} webmention={webmention}/>
-                  ))}
-                </div>
-              </div>
-            ): null}
 
-          </div>
 				</div>
 			</div>
 		</>

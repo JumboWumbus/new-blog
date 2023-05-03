@@ -18,7 +18,7 @@ export default function ShareCurrentPage({currentPageURL, supportingText}:ShareP
 
   return(
     <div className={s.shareContainer}>
-      <h5 className={s.CTATitle}>Share this thing!</h5>
+      <h5 className={s.CTATitle}>Share this page!</h5>
 
       <div className={s.socialContainer}>
         <TwitterShareButton url={currentPageURL} title={supportingText ? supportingText : undefined}><Twitter/></TwitterShareButton>
