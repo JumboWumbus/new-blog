@@ -40,17 +40,19 @@ $listItem_padding-right: 0.5rem;
 	max-height: 50vh;
 	overflow: auto;
 
-	@include padding-left($wrapper_padding-left);
-	@include padding-right($wrapper_padding-right);
+	// @include padding-left($wrapper_padding-left);
+	// @include padding-right($wrapper_padding-right);
 	@include padding-top($wrapper_padding-top);
 	@include padding-bottom($wrapper_padding-bottom);
 
-	border: 2px solid;
+	// border: 2px solid;
 
-	background-color: $tertiary;
+	// background-color: $tertiary;
 
 	ul {
 		list-style: none;
+
+		//max-width: 300px;
 
 		li {
 			@include margin-top($listItem_margin-top);
@@ -74,13 +76,13 @@ $listItem_padding-right: 0.5rem;
 }
 
 .depth-1 {
-	font-weight: 600;
-	@include font-size(1.25rem);
+	font-weight: 700;
+	@include font-size(1.2rem);
 
 
 
 	&:has(> a.active) {
-		background-color: darken($color: $tertiary, $amount: 10);
+		background-color: darken($color: $tertiary, $amount: 5);
 		a{
 			color: $type_primary !important;
 		}		
@@ -96,13 +98,17 @@ $listItem_padding-right: 0.5rem;
 }
 
 .depth-2 {
-	$padding: 1rem;
+	font-weight: 600;
+
+	$padding: 1.5rem;
 	padding-left: $padding;
+
+	@include font-size(1rem);
+
 
 
 	&:has(> a.active) {
-		background-color: darken($color: $tertiary, $amount: 10);
-
+		background-color: darken($color: $tertiary, $amount: 5);
 		a{
 			color: $type_primary !important;
 		}
@@ -118,13 +124,15 @@ $listItem_padding-right: 0.5rem;
 }
 
 .depth-3 {
-	$padding: 1.5rem;
+	font-weight: 500;
+
+	$padding: 3rem;
 	padding-left: $padding;
 
 	
 
 	&:has(> a.active) {
-		background-color: darken($color: $tertiary, $amount: 10);
+		background-color: darken($color: $tertiary, $amount: 5);
 		a{
 			color: $type_primary !important;
 		}
@@ -139,13 +147,15 @@ $listItem_padding-right: 0.5rem;
 }
 
 .depth-4 {
-	$padding: 2rem;
+	font-weight: 400;
+
+	$padding: 4rem;
 	padding-left: $padding;
 
 
 	&:has(> a.active) {
-		background-color: darken($color: $tertiary, $amount: 10);
-		a{
+		background-color: darken($color: $tertiary, $amount: 5);
+				a{
 			color: $type_primary !important;
 			
 		}

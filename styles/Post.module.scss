@@ -84,16 +84,28 @@
 }
 
 .tableOfContentsContainer{
+  display: none;
   position: -webkit-sticky;
   position: sticky;
   top: 6rem;
+  min-width: 20ch;
+  max-width: 350px;
+
+  @media screen and (min-width: 700px) {
+    display: block;
+  }
 }
 
 .blogContainer {
   max-width: min(75ch, 100%);
   font-size: 1rem;
-  line-height: 1.5;
-  margin-right: 2rem;
+  line-height: 1.6rem;
+  margin-right: 0;
+
+  @media screen and (min-width: 700px) {
+    margin-right: 2rem;
+
+  }
 
   &:first-child > section > h1 {
     margin-top: 0;
