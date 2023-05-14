@@ -30,10 +30,10 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 			<Navbar posts={posts}/>
 
 
-
+{/*TODO Add most popular section */}
 				<div className={s.content}>
 					<div>
-						<Articles posts={posts.slice(0, 9)} title={'Most recent Posts'} />
+						<Articles posts={posts.slice(0, 5)} postCount={posts.length} title={'Most recent Posts'} />
 					</div>
 				</div>
 

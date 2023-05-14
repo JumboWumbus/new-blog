@@ -3,40 +3,9 @@
 @import '/styles/colors.scss';
 
 
-.hero{
-  
-}
-
-.content {
-  margin-block: 4rem;
-}
-
-.canvas {
-  width: 100%;
-  height: 100%;
-}
-
-.webSection {
-
+.categorySection{
   @include margin-top(2rem);
   @include margin-bottom(4rem);
-  .title {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-
-    color: $primary;
-
-    .subtitle {
-      color: $type_secondary;
-    }
-    
-    @media screen and (max-width: 500px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
 }
 
 .seeMore{
@@ -50,15 +19,11 @@
   cursor: pointer;
   border: 3px solid #141414;
   font-weight: 700;
-  @include font-size(1.8rem);
+  @include font-size(1.25rem);
   transition: 0.3s ease;
   text-decoration: none;
 
   &:hover{
     border-color: $secondary;
   }
-}
-
-.FAQ {
-
 }

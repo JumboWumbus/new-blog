@@ -3,6 +3,7 @@ import "styles/globals.scss";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import Footer from "src/components/Footer/Footer";
+
 import Navbar from "src/components/Navbar/Navbar";
 import { Analytics } from '@vercel/analytics/react';
 
@@ -28,8 +29,11 @@ const myFont = localFont({src:'/fonts/my-font.woff2})
 */
 
 export default function App({ Component, pageProps }: AppProps) {
+
+
 	return (
 		<>
+
 			<main className={inter.className}>
 				<Component {...pageProps} />
 				<Analytics />

@@ -11,3 +11,13 @@ export interface PostMeta {
 	readingTime: string;
 }
 
+export interface BreadCrumb{
+
+		
+			displayName: string;
+			url: string;
+		
+	
+}
+  
+

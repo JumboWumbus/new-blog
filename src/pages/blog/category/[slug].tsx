@@ -36,7 +36,6 @@ export default function TagPage({
         />
         <Navbar posts={posts}/>
       <div className={s.wrapper}>
-        <aside className={s.side}>A sidebar</aside>
         <article className={s.content}>
           <div>
             <Articles posts={posts.filter(post => post.category.includes(slug))} title={titleCaseString(slug)} />

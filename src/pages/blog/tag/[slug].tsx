@@ -33,9 +33,9 @@ export default function TagPage({
       <SEO
           title={`Posts with tag ${slug} on BensDen`} description={`Posts with the tag ${slug} on BensDen. Hopefully informative and not boring.`} slug={`/blog/tag/${slug}`} previewImage={previewImage}
         />
-        			<Navbar posts={posts}/>
+      <Navbar posts={posts}/>
       <div className={s.wrapper}>
-        <aside className={s.side}>A sidebar</aside>
+
         <article className={s.content}>
           <div>
             <Articles

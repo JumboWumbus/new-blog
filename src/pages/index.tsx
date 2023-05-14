@@ -8,13 +8,14 @@ import { objToUrlParams } from 'src/utils/url';
 import Navbar from 'src/components/Navbar/Navbar';
 import { getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
-import { Canvas, useFrame } from '@react-three/fiber'
-import {OrbitControls} from '@react-three/drei'
+// import { Canvas, useFrame } from '@react-three/fiber'
+// import {OrbitControls} from '@react-three/drei'
 import { Suspense } from 'react';
 import * as THREE from 'three';
 import FAQ from 'src/components/FAQ/FAQ';
 import ProjectCard from 'src/components/ProjectCard/ProjectCard';
 import Articles from 'src/components/Articles/Articles';
+import Link from 'next/link';
 
 
 
@@ -45,44 +46,44 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
       <Navbar posts={posts}/>
 
 <div className={s.content}>
-        <div className={s.hero}>
+        {/* <div className={s.hero}>
           <h1>Welcome to my personal site!</h1>
-        {/*Insert cube here maybe */}
+          <p>{`I post stuff about everything I'm doing and what I think might help others. I'm planning to use this as a centralized archive of all of my works.`}</p>
 
-        </div>
+          </div> 
+        
+        */}
 
-        <div>
-          <h1>Check out these parts of my site!</h1>
+  <div>
 
-          <div className={s.webSection}>
+{/*TODO Manually add projects section to highlight cool things I've done */}
+          {/* <div className={s.webSection}>
             <div className={s.title}>
               <h1>Projects</h1>
               <h4 className={s.subtitle}>Making things badly</h4>
             </div>
 
             <ProjectCard/>
-          </div>
+          </div> */}
 
 
           <div className={s.webSection}>
-            <div className={s.title}>
-              <h1>Blog zone</h1>
-              <h4 className={s.subtitle}>Filled with ramblings!</h4>
-            </div>
+            
             <div>
-              <Articles posts={posts.slice(0, 4)} />
-
-              
+              <Articles posts={posts.slice(0, 5)}  title={"Blog zone"} titleCaption={"Filled with ramblings!"}/>
+              <Link className={s.seeMore} href={`/blog`}>See more posts</Link>
             </div>
           </div>
 
 
-          <div className={s.webSection}>
+
+{/*TODO add a notes section and hook up to twitter maybe */}
+          {/* <div className={s.webSection}>
             <div className={s.title}>
               <h1>Notes</h1>
               <h4 className={s.subtitle}>Snippets of thinks</h4>
             </div>
-          </div>
+          </div> */}
           
         </div>
 

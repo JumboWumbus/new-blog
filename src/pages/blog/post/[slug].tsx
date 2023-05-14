@@ -4,7 +4,7 @@ import { getAllPosts, getPostFromSlug, getSlugs } from "src/lib/lib";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { NextSeo } from 'next-seo';
-import { PostMeta } from "src/types";
+import { BreadCrumb, PostMeta } from "src/types";
 
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -88,6 +88,12 @@ const options = {
 export default function Post({ post }: { post: MDXPost }) {
 	const { setItem, getItem } = useStorage();
 
+  const crumbArray: BreadCrumb[] = [
+    {displayName: `Blog`, url:`/blog`},
+    {displayName: post.meta.category, url:`/blog/category/${post.meta.category}`},
+    {displayName: post.meta.title, url: `/blog/post/${post.meta.slug}`},
+  ]
+
 	useEffect(() => {
 		if (!getItem(`page:[${post.meta.title}]`)) {
 			fetch(`/api/views/${post.meta.slug}`, { method: "POST" });
@@ -119,7 +125,7 @@ export default function Post({ post }: { post: MDXPost }) {
 			<div>
 				<div className={s.headingContainer}>
 					<div className={s.postHeading}>
-						<Breadcrumbs currentCategory={post.meta.category} />
+						<Breadcrumbs breadcrumbArray={crumbArray}  />
 						<h1 className={s.postTitle}>{post.meta.title}</h1>
 						<p className={s.postSummary}>{post.meta.summary}</p>
 						<ul className={s.tags}>
