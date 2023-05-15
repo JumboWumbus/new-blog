@@ -19,7 +19,7 @@ export function slugify(title: string) {
 }
 
 export function convertTime(time: string | number | Date) {
-	return new Date(time).toLocaleDateString("en-GB", {
+	return new Date(time).toLocaleDateString("en-us", {
 		year: "numeric",
 		month: "short",
 		day: "numeric",
