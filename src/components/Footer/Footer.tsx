@@ -4,10 +4,14 @@ import Link from "next/link";
 
 import s from "./Footer.module.scss";
 
-const Footer = () => {
+interface FooterProps {
+   fontClass: string;
+ }
+
+const Footer: React.FC<FooterProps> = ({ fontClass }) => {
 
    return (
-      <footer className={s.footer}>
+      <footer className={`${s.footer} ${fontClass}`}>
          <div className={s.container}>
             <div className={s.rightContent}>
                <div className={s.iconContainer}>
