@@ -102,6 +102,8 @@
   line-height: 1.6rem;
   margin-right: 0;
 
+  margin-bottom: 6rem;
+
   @media screen and (min-width: 700px) {
     margin-right: 2rem;
 
@@ -121,8 +123,13 @@
   blockquote {
     margin: 0;
     padding: 0;
+    line-height: normal;
 
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 25vh;
+  }
+
+  p{
+    line-height: 1.5;
   }
 
   body {
@@ -134,6 +141,14 @@
   }
 
   ol {
+    margin-block:1rem;
+    li {
+      margin-left: 19px;
+    }
+  }
+
+  ul {
+    margin-bottom:1rem;
     li {
       margin-left: 19px;
     }

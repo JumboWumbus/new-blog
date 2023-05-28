@@ -14,6 +14,7 @@ export default function TableOfContents({
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			let currentActiveSection: string | null = null;
+      const root = document.querySelector("blogContainer");
 			const sections = document.querySelectorAll("section[data-id]");
 			const observer = new IntersectionObserver(
 				(entries) => {
@@ -34,7 +35,8 @@ export default function TableOfContents({
 						}
 					});
 				},
-				{ rootMargin: "-50% 0px -50% 0px", threshold: [0] }
+				{ root:root,
+          rootMargin: "-50% 0px -50% 0px", threshold: [0] }
 			);
 
 			sections.forEach((section) => {

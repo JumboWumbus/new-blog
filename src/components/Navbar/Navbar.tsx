@@ -12,8 +12,7 @@ const Navbar = ({ posts }: { posts: PostMeta[] }) => {
 		setIsOpen(!isOpen);
 		console.log(isOpen);
 	}
-	// TODO Add Mobile Navigation (look at josh comeu's blog)
-	//TODO Fix navmenu getting metadata CANNOT get data from files at build time via getStaticProps, must find another way
+
 	return (
 		<div>
 			<div className={s.container}>

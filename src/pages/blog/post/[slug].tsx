@@ -28,6 +28,7 @@ import {
 } from "src/utils";
 import Link from "next/link";
 import YouTube from "src/components/Youtube/Youtube";
+import WordPopup from "src/components/WordPopup/WordPopup";
 
 import * as fs from "fs";
 import { canonicalBlogPostUrl, objToUrlParams } from "src/utils/url";
@@ -155,7 +156,7 @@ export default function Post({ post }: { post: MDXPost }) {
 							<MDXRemote
 								{...post.source}
 								//@ts-ignore
-								components={{ YouTube }}
+								components={{ YouTube, WordPopup }}
 							/>
 						</div>
             

@@ -67,6 +67,7 @@ $maxWidth: 1fr;
 
 .title {
 	all: unset;
+  line-height: normal;
 	cursor: pointer;
 	@include font-size(1.8rem);
 	font-weight: 800;

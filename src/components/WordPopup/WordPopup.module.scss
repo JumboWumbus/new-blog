@@ -1,0 +1,28 @@
+@import '~rfs/scss';
+@import 'styles/utility.scss';
+@import "/styles/colors.scss";
+
+.word{
+  font-weight: bold;
+
+  &::after{
+    content: '?';
+    font-weight: lighter;
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+  }
+}
+
+.popper {
+  font-weight: 500;
+  border: 2px solid $primary;
+  background: white;
+  padding: 10px;
+  max-width: 40ch;
+  z-index: 10000;
+  
+  box-shadow: 6px 6px 0px $primary;
+
+}
+
