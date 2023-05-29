@@ -1,20 +1,24 @@
 ---
 author: Ben Hammond
-title: Dummies guide to creating a personal website
+title: Paths and approaches to website creation
 date: 2023-05-27
-description: If you've ever looked at making a website there only seems to be two ways... The hard route or the expensive route. I'm here to tell you there's a third way!
-excerpt: If you've ever looked at making a website there only seems to be two ways... The hard route or the expensive route. I'm here to tell you there's a third way!
-summary: Creating, hosting and updating your own website.
+description: Creating a website is hard when you don't know the methods or terms. I'm here to explain some paths you can take!
+excerpt: Creating a website is hard when you don't know the methods or terms. I'm here to explain some paths you can take!
+summary: Different ways you can build a website!
 
 tags: ['tutorial', 'dummy', 'webdev', 'website']
 category: webdev
 ---
 
-# Dummies guide to making a website
+This post doesn't *tell* you how to make a website, it is just here to show people different **approaches** and **methods** to creating one. I try my best to not get too technical as this article is not about the how; but instead on the what.
+
+*At the end of the day, all of the methods mentioned below get you to the same outcome, some may find one way easier than another. I never knew there were different ways to make websites until someone pointed them out to me, so this article aims to do that.*
+
+# The many ways to make websites
 
 So you've decided you want to make a website, but don't know where to start? Well I'm not here to hold your hand and dig through the weeds with you, but I might be able to give you some scissors.
 
-There are lots of ways you can go about creating a website, some ways let you build your website with little content blocks and you don't have to ever touch a piece of code. Other ways let you create templates for pages and fill those pages with content. And lastly there's ways that let you hand craft every single page without any abstraction.
+There are lots of ways you can go about creating a website, some ways let you build your website with little blocks and you don't have to ever touch a piece of code; other ways let you create page templates to fill with content.
 
 I'll be going over a few methods in this post along with what I personally think is the quickest and easiest, the most robust and the hardest.
 
@@ -22,7 +26,9 @@ I'll be going over a few methods in this post along with what I personally think
 
 So websites in essence are just documents with some extra steps. You go to a website via a <WordPopup word="URL" definition="Stands for Uniform Resource Locator, it is the address that denotes the location of a resource on the internet. Think of URLs like the location of files on your computer." />, the file or *document* is requested by your computer, a <WordPopup word="server" definition="A computer that provides services or resources to other computers. In this example the server would have a copy of the website on it and would serve you the pages as you request them."/> sends you the document you asked for and then your web browser displays it once it gets it.
 
-So websites are just piles of documents that anyone can request and look through. This is why lots of people create portfolio websites as they are much easier to distribute and show. Allowing anyone to view and see what you've created is a better system than having a employer or client have to go out of their way to find out who you are **and** ask you to send them a copy of your PDF portfolio.
+So websites are just piles of documents that anyone can request to look through.
+
+This is why you see alot of websites being used as portfolios! It's alot easier to show people what you do on a website than having to wait until someone requests a copy of your PDF portfolio!
 
 ### Static and dynamic
 
@@ -38,7 +44,7 @@ Understanding the difference between these two types of content will help you as
 
 ## Raw HTML and CSS, the hard way
 
-What I am going to explain below is not the hardest way to make a website, it's actually the most straight forward out of all the other options and is **in fact** the format that all of the other options will end up as when being served to the user. The real reason it is the hardest in *my opinion* is due to the increasing levels of confusion and complexity that can arise as the size of the website increases... There's lots of jumping around files that gets hard to keep track of.
+What I am going to explain below is not the hardest way to make a website, it's actually the most straight forward out of all the other options and is **in fact** the format that all of the other options will end up being when it is being served to the user. The real reason it is the hardest in *my opinion* is due to the increasing level complexity that can arise as the size of the website increases... There's lots of jumping around files that gets hard to keep track of.
 
 However, I feel that you should understand that **when a website is rendered and displayed on a browser, the file that is displayed is made up of HTML and CSS.** Even if you decide to use a website builder or site generator, it will always (in most cases) end up as HTML and CSS.
 
@@ -62,13 +68,20 @@ By using these tags you can build up a page that is structured and formatted pro
 <p>This is a paragraph under the subheading.</p>
 ```
 
-Lots of people use just pure HTML as a way to display their websites:
+The best part about raw HTML is the fact that you could open up a text editor right now, copy and paste that code above into the file, save it as a `.html` file and then open it and it will work without any extra setup.
+
+<ImageCaption src="/articleImages/paths-and-approaches-to-website-creation/raw_html_notepad" alt="An image of the basic HTML file in action" caption="Using notepad to slap out a fat webpage."/>
+
+<ImageCaption src="/articleImages/paths-and-approaches-to-website-creation/raw_html_notepad_website" alt="An image of the basic HTML file in action" caption="It just works!!!"/>
+
+
+Lots of people use just pure HTML as a way to display their websites so there's nothing wrong with going for it raw:
 
 - [http://www.nickh.org](http://www.nickh.org)
 - [http://www.leningrad.su](http://www.leningrad.su/museum/main.php?lang=1)
 - [http://www.daye1.com](http://www.daye1.com/bagpage/)
 
-There's nothing stopping you from going down this route, it's not the easiest to maintain if you start making lots of pages but if your website is small, it might be the quickest and easiest route to go down.
+**Be warned though**... it's not the easiest to maintain if you start making lots of pages but if your website is small, it might be the quickest and easiest route to go down.
 
 To start wrapping your head around HTML, I'd recommend this site: [W3Schools](https://www.w3schools.com/html/html_intro.asp), it has helped me understand the capabilities and uses of each type of HTML tag.
 
@@ -300,7 +313,7 @@ If you decide to not use a template, then you will be developing and programming
 
 Just like HTML/CSS, you aren't paying to use a service, therefor your website is free to create.
 
-I use [Vercel](https://vercel.com/) to host my website, they have a generous free tier that let's me do everything I need to do. The best part about vercel is that you can hook it up to a github repository and the website will automatically update whenever you make changes!
+I use [Vercel](https://vercel.com/) to host my website, they have a generous free tier that let's me do everything I need to do. The best part about vercel is that you can hook it up to a github repository and the website will automatically update whenever you make changes! The same kind of thing can be done with HUGO and Astro.
 
 
 #### 
