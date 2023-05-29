@@ -16,12 +16,14 @@ const PageViews: FC<PageViewsProps> = ({ slug }) => {
 	const { data } = useSWR(`/api/views/${slug}`, fetcher);
 
 	return (
-		<p className={s.views}>
-			{data?.total
-				? `${data.total} views`
-				: `you're the first viewer!!!`}
-		</p>
-	);
+    <p className={s.views}>
+      {data?.total === 0
+        ? "you're the first viewer!!!"
+        : data?.total === 1
+          ? "1 view"
+          : `${data?.total} views`}
+    </p>
+  );
 };
 
 export default PageViews;
