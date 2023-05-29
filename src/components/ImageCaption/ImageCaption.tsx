@@ -16,10 +16,7 @@ const ImageCaption: React.FC<ImageWithCaptionProps> = ({ src, alt, caption }) =>
   return (
   <figure className={s.imageFigure}>
   <picture>
-  <source srcSet={`${src}.webp`} type="image/webp" />
-  <source srcSet={`${src}.jpg`}  type="image/jpeg" />
-  <source srcSet={`${src}.png`}  type="image/png" />
-  <img src={`${src}.png`}  alt={alt} className={s.image}/>
+  <img src={src}  alt={alt} className={s.image}/>
 </picture>
       <figcaption>{caption}</figcaption>
     </figure>
