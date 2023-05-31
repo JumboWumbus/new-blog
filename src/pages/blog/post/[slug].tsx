@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { getAllPosts, getPostFromSlug, getSlugs } from "src/lib/lib";
+import { getAllPostMetadata, getAllPosts, getPostFromSlug, getSlugs } from "src/lib/lib";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { NextSeo } from 'next-seo';
@@ -179,7 +179,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { content, meta } = getPostFromSlug(slug);
 
 
-		const posts = getAllPosts().map(post => post.meta);
+	const posts = getAllPostMetadata();
 
 
 	// let headings = Array.from(

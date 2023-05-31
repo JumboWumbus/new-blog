@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Articles from 'src/components/Articles/Articles';
 import Navbar from 'src/components/Navbar/Navbar';
 import { SEO } from 'src/components/SEO/SEO';
-import { getAllPosts } from 'src/lib/lib';
+import { getAllPostMetadata, getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
 import titleCaseString, { getOnlyUniqueValuesFromArray } from 'src/utils';
 import { mainUrl } from 'src/utils/constants';
@@ -49,18 +49,18 @@ export default function TagPage({
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as { slug: string };
 
-  const posts = getAllPosts();
+  const posts = getAllPostMetadata();
   return {
     props: {
       slug,
-      posts: posts.map(post => post.meta)
+      posts: posts
     }
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts();
-  const categories = posts.map(post => post.meta.category).flat();
+  const posts = getAllPostMetadata();
+  const categories = posts.map(post => post.category).flat();
   const uniqueCategories = getOnlyUniqueValuesFromArray(categories);
   const paths = uniqueCategories.map(category => ({
     params: { slug: category }
