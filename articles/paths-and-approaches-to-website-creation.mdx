@@ -12,11 +12,11 @@ category: webdev
 
 This post doesn't *tell* you how to make a website, it is just here to show people different **approaches** and **methods** to creating one. I try my best to not get too technical as this article is not about the how; but instead on the what.
 
-*At the end of the day, all of the methods mentioned below get you to the same outcome, some may find one way easier than another. I never knew there were different ways to make websites until someone pointed them out to me, so this article aims to do that.*
+*At the end of the day, all of the methods mentioned below get you to the same outcome. Some may find one way easier than another. I never knew there were different ways to make websites until someone pointed them out to me, so this article aims to do that.*
 
 # The many ways to make websites
 
-So you've decided you want to make a website, but don't know where to start? Well I'm not here to hold your hand and dig through the weeds with you, but I might be able to give you some scissors.
+So you've decided you want to make a website, but don't know where to start? Well I'm not here to hold your hand and dig through the weeds with you, but I might be able to give you some scissors and maybe some gloves idk...
 
 There are lots of ways you can go about creating a website, some ways let you build your website with little blocks and you don't have to ever touch a piece of code; other ways let you create page templates to fill with content.
 
@@ -79,6 +79,7 @@ Lots of people use just pure HTML as a way to display their websites so there's 
 
 - [http://www.nickh.org](http://www.nickh.org)
 - [http://www.leningrad.su](http://www.leningrad.su/museum/main.php?lang=1)
+- [http://gunsandsand.com/](http://gunsandsand.com/)
 - [http://www.daye1.com](http://www.daye1.com/bagpage/)
 
 **Be warned though**... it's not the easiest to maintain if you start making lots of pages but if your website is small, it might be the quickest and easiest route to go down.
@@ -201,7 +202,6 @@ When using a site builder, there will not be a point in time where your website 
 
 This removes alot of the headache that coding your own website brings about, letting you get on with actually creating the content of the site.
 
-
 ### Cons
 
 #### Rigid templates
@@ -269,8 +269,9 @@ Each tag and category on each article has it's own page, you can see how if I we
 There are many different SSGs but I'll list a few so you can go and take a look at them:
 
 - [HUGO](https://gohugo.io/) | A fast SSG that has a plethora of themes and templates to ~~steal~~ use.
+- [Gatsby](https://www.gatsbyjs.com/) A well connected SSG that has lots of support as well as a bustling ecosystem. I'm actually looking into making some stuff with it myself.
 - [Astro](https://astro.build/) | A SSG that has lots of integrations as well as plugins to help with creation.
-- [NextJS](https://nextjs.org/) | A framework that has SSG built in as an *extra little feature*, can be used for alot more.
+- [NextJS](https://nextjs.org/) | A framework that has SSG built in as an *extra little feature*, can be used for alot more. This is what my site (as of 30/05/2023) is using.
 
 All of these options mentioned have pretty well built out templates that you can use and modify. You can also just use it out of the box which is what I've recommended to a few of my friends.
 
@@ -295,20 +296,6 @@ My navigation bar at the top is it's own separate component; if I change the nav
 
 Since SSGs are a relatively new way to create static sites, there's alot of support, plugins and templates that are being created around them. If you get stuck trying to do something, you'll be able to find an answer that isn't outdated.
 
-
-### Cons
-
-#### Different mindset
-
-It's hard to adjust your mindset when working with SSGs... you're no longer dealing with discrete, individual pages/documents. Instead you are coming up with components and collections of components that can be populated with content.
-
-This new way of thinking tripped me up quite a bit when starting, I ended up just building a static site instead of a system that would generate it for me.
-
-#### Code heavy
-
-If you decide to not use a template, then you will be developing and programming it yourself. Which is not too difficult since there's alot of resources and tutorials on how to do that, but you will be creating all of the components and page templates by hand.
-
-
 #### Free!
 
 Just like HTML/CSS, you aren't paying to use a service, therefor your website is free to create.
@@ -316,8 +303,23 @@ Just like HTML/CSS, you aren't paying to use a service, therefor your website is
 I use [Vercel](https://vercel.com/) to host my website, they have a generous free tier that let's me do everything I need to do. The best part about vercel is that you can hook it up to a github repository and the website will automatically update whenever you make changes! The same kind of thing can be done with HUGO and Astro.
 
 
-#### 
+### Cons
 
+#### Different mindset, learning curve
+
+It's hard to adjust your mindset when working with SSGs... you're no longer dealing with discrete, individual pages/documents. Instead you are coming up with components and collections of components that can be populated with content.
+
+This new way of thinking tripped me up quite a bit when starting, I ended up just building a static site instead of a system that would generate it for me.
+
+#### Code heavy
+
+If you decide to not use a template, then you will be developing and programming the website yourself. Which is not too difficult since there's alot of resources and tutorials on how to do that, but you will be creating all of the components and page templates by hand.
+
+#### Site regeneration
+
+Due to the nature of SSGs, if you modify some component or template that is used throughout many pages, then the entire website has to be rebuilt and uploaded to reflect those changes. Depending on the size of your website, this may become a problem.
+
+If you are using something that uploads and updates the site for you; then you don't need to worry about this con, but if you are using something like (neocities)[https://neocities.org/] to host your website then you will have to manually upload the new files.
 
 
 ## Closing
