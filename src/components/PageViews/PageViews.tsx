@@ -4,29 +4,39 @@ import { FC } from "react";
 import s from "./PageViews.module.scss";
 
 interface PageViewsProps {
-	slug: string;
+  slug: string;
 }
 
 const fetcher = async (input: RequestInfo) => {
-	const res: Response = await fetch(input);
-	return await res.json();
+  const res: Response = await fetch(input);
+  return await res.json();
 };
 
 const PageViews: FC<PageViewsProps> = ({ slug }) => {
-	const { data } = useSWR(`/api/views/${slug}`, fetcher);
+  const { data, error } = useSWR(`/api/views/${slug}`, fetcher);
 
-	return (
+  if (error) {
+    return <p>Error loading data</p>; // Render an error message if there's an error fetching data
+  }
+
+  if (!data) {
+    return <p className={s.views}>Loading...</p>; // Render a loading indicator while data is being fetched
+  }
+
+  return (
     <p className={s.views}>
-      {data?.total === 0
+      {data.total === 0 || null
         ? "you're the first viewer!!!"
-        : data?.total === 1
-          ? "1 view"
-          : `${data?.total} views`}
+        : data.total === 1
+        ? "1 view"
+        : `${data.total} views`}
     </p>
   );
 };
 
 export default PageViews;
+
+
 
 // export default function PageViews({ slug }: {st}) {
 // 	const { data, error } = useSWR(`/api/pageVisits/${slug}`, async (input) => {
