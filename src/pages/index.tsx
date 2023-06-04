@@ -11,7 +11,6 @@ import { PostMeta } from 'src/types';
 // import { Canvas, useFrame } from '@react-three/fiber'
 // import {OrbitControls} from '@react-three/drei'
 import { Suspense } from 'react';
-import * as THREE from 'three';
 import FAQ from 'src/components/FAQ/FAQ';
 import ProjectCard from 'src/components/ProjectCard/ProjectCard';
 import Articles from 'src/components/Articles/Articles';
