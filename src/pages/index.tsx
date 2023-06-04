@@ -6,7 +6,7 @@ import { SEO } from 'src/components/SEO/SEO';
 import { mainUrl } from 'src/utils/constants';
 import { objToUrlParams } from 'src/utils/url';
 import Navbar from 'src/components/Navbar/Navbar';
-import { getAllPosts } from 'src/lib/lib';
+import { getAllPostMetadata, getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
 // import { Canvas, useFrame } from '@react-three/fiber'
 // import {OrbitControls} from '@react-three/drei'
@@ -118,6 +118,6 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
 
 
 export async function getStaticProps() {
-	const posts = getAllPosts().map(post => post.meta);
+	const posts = getAllPostMetadata();
 	return { props: { posts } };
 }

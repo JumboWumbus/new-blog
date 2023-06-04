@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { getAllPosts, getPostFromSlug, getSlugs } from "src/lib/lib";
+import { getAllPostMetadata, getAllPosts, getPostFromSlug, getSlugs } from "src/lib/lib";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { NextSeo } from 'next-seo';
@@ -29,6 +29,7 @@ import {
 import Link from "next/link";
 import YouTube from "src/components/Youtube/Youtube";
 import WordPopup from "src/components/WordPopup/WordPopup";
+import ImageCaption from "src/components/ImageCaption/ImageCaption";
 
 import * as fs from "fs";
 import { canonicalBlogPostUrl, objToUrlParams } from "src/utils/url";
@@ -156,7 +157,7 @@ export default function Post({ post }: { post: MDXPost }) {
 							<MDXRemote
 								{...post.source}
 								//@ts-ignore
-								components={{ YouTube, WordPopup }}
+								components={{ YouTube, WordPopup, ImageCaption }}
 							/>
 						</div>
             
@@ -178,7 +179,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { content, meta } = getPostFromSlug(slug);
 
 
-		const posts = getAllPosts().map(post => post.meta);
+	const posts = getAllPostMetadata();
 
 
 	// let headings = Array.from(
@@ -191,21 +192,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	// 		.toLowerCase(),
 	// }));
 
-	let headings = Array.from(
-		(function* () {
-			const regex = /(#{1,6})\s+(.+)/g;
-			let match;
-			while ((match = regex.exec(content))) {
-				yield {
-					depth: match[1].length,
-					text: match[2]
-						.replace(/\s+/g, "-")
-						.replace(/[^a-zA-Z0-9-]/g, "")
-						.toLowerCase(),
-				};
-			}
-		})()
-	);
 
 	let tabWidth = "  ";
 
@@ -227,6 +213,33 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			],
 		},
 	});
+
+  let headings = Array.from(
+    (function* () {
+      const regex = /(#{1,6})\s+(.+)/g;
+      const headingCounts = new Map(); // Map to store the count of each heading
+      let match;
+      while ((match = regex.exec(content))) {
+        const depth = match[1].length;
+        const text = match[2]
+          .replace(/\s+/g, "-")
+          .replace(/[^a-zA-Z0-9-]/g, "")
+          .toLowerCase();
+        let dataID = text;
+        let count = headingCounts.get(dataID) || 0; // Get the current count for the heading
+        if (count > 0) {
+          dataID = `${text}-${count}`; // Append count to make heading unique
+        }
+        headingCounts.set(text, count + 1); // Update the count for the heading
+        yield {
+          depth: depth,
+          text: text,
+          dataId: dataID,
+        };
+      }
+    })()
+  );
+  
 
 
 

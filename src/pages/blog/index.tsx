@@ -3,7 +3,7 @@ import Articles from 'src/components/Articles/Articles';
 import CategorySidebar from 'src/components/CategorySidebar/CategorySidebar';
 import Navbar from 'src/components/Navbar/Navbar';
 import { SEO } from 'src/components/SEO/SEO';
-import { getAllPosts } from 'src/lib/lib';
+import { getAllPostMetadata, getAllPosts } from 'src/lib/lib';
 import { PostMeta } from 'src/types';
 import { mainUrl } from 'src/utils/constants';
 import { objToUrlParams } from 'src/utils/url';
@@ -42,7 +42,6 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 }
 
 export async function getStaticProps() {
-	const posts = getAllPosts()
-		.map(post => post.meta);
+	const posts = getAllPostMetadata();
 	return { props: { posts } };
 }
