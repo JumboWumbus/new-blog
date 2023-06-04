@@ -192,21 +192,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	// 		.toLowerCase(),
 	// }));
 
-	let headings = Array.from(
-		(function* () {
-			const regex = /(#{1,6})\s+(.+)/g;
-			let match;
-			while ((match = regex.exec(content))) {
-				yield {
-					depth: match[1].length,
-					text: match[2]
-						.replace(/\s+/g, "-")
-						.replace(/[^a-zA-Z0-9-]/g, "")
-						.toLowerCase(),
-				};
-			}
-		})()
-	);
 
 	let tabWidth = "  ";
 
@@ -228,6 +213,33 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			],
 		},
 	});
+
+  let headings = Array.from(
+    (function* () {
+      const regex = /(#{1,6})\s+(.+)/g;
+      const headingCounts = new Map(); // Map to store the count of each heading
+      let match;
+      while ((match = regex.exec(content))) {
+        const depth = match[1].length;
+        const text = match[2]
+          .replace(/\s+/g, "-")
+          .replace(/[^a-zA-Z0-9-]/g, "")
+          .toLowerCase();
+        let dataID = text;
+        let count = headingCounts.get(dataID) || 0; // Get the current count for the heading
+        if (count > 0) {
+          dataID = `${text}-${count}`; // Append count to make heading unique
+        }
+        headingCounts.set(text, count + 1); // Update the count for the heading
+        yield {
+          depth: depth,
+          text: text,
+          dataId: dataID,
+        };
+      }
+    })()
+  );
+  
 
 
 

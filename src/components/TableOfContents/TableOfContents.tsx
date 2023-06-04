@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import s from "./TableOfContents.module.scss";
 
 export interface Heading {
-	text: string;
+  text: string;
 	depth: number;
+	dataId: string;
 }
 
 export default function TableOfContents({
@@ -45,6 +46,7 @@ export default function TableOfContents({
 		}
 	}, []);
 
+
 	return (
 		<aside className={s.wrapper}>
 			<ul className={s.TOC}>
@@ -54,8 +56,8 @@ export default function TableOfContents({
 						className={s[`depth-${heading.depth}`]}
 					>
 						<a
-							id={`toc-${heading.text}`}
-							href={`#${heading.text}`}
+							id={`toc-${heading.dataId}`}
+							href={`#${heading.dataId}`}
 						>
 							{heading.text}
 						</a>
