@@ -40,6 +40,7 @@ import { SEOBlogPost } from "src/components/SEO/BlogPost_SEO";
 import Navbar from "src/components/Navbar/Navbar";
 
 import ShareCurrentPage from "src/components/ShareCurrentPost/ShareCurrentPost";
+import TestComment from "src/pages/test";
 
 
 //JSON.stringify;
@@ -168,7 +169,10 @@ export default function Post({ post }: { post: MDXPost }) {
             </div>
 					</div>
 
+          <TestComment/>
 				</div>
+
+        
 			</div>
 		</>
 	);

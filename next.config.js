@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+module.exports = {
   reactStrictMode: true,
-
+  env: {
+    SUPABASE_URL: process.env.SUPABASE_URL,
+    SUPABASE_API: process.env.SUPABASE_API,
+    SUPABASE_SERVICE: process.env.SUPABASE_SERVICE
+  },
 }
-
-module.exports = nextConfig
