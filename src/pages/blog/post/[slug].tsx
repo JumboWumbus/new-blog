@@ -27,10 +27,10 @@ import {
 	slugify,
 } from "src/utils";
 import Link from "next/link";
-import YouTube from "src/components/Youtube/Youtube";
+
 import WordPopup from "src/components/WordPopup/WordPopup";
 import ImageCaption from "src/components/ImageCaption/ImageCaption";
-
+import Video from "src/components/Video/VideoEmbed";
 import * as fs from "fs";
 import { canonicalBlogPostUrl, objToUrlParams } from "src/utils/url";
 import { mainUrl, oGImageHeight, oGImageWidth } from "src/utils/constants";
@@ -157,7 +157,7 @@ export default function Post({ post }: { post: MDXPost }) {
 							<MDXRemote
 								{...post.source}
 								//@ts-ignore
-								components={{ YouTube, WordPopup, ImageCaption }}
+								components={{ Video, WordPopup, ImageCaption }}
 							/>
 						</div>
             
@@ -168,6 +168,7 @@ export default function Post({ post }: { post: MDXPost }) {
             </div>
 					</div>
 
+          {/* <TestComment/> */}
 				</div>
 			</div>
 		</>
