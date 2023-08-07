@@ -73,6 +73,26 @@ $listItem_padding-right: 0.5rem;
 			}
 		}
 	}
+
+  scrollbar-width: thin;
+  scrollbar-color: #f1f1f1 #888;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+    
+    &:hover {
+      background-color: #555;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
 }
 
 .depth-1 {
@@ -168,3 +188,5 @@ $listItem_padding-right: 0.5rem;
 		@include selectedBorder($padding);
 	}
 }
+
+

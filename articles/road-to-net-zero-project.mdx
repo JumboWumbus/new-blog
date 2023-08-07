@@ -8,13 +8,14 @@ summary: Microsite web development project.
 
 tags: ['project', 'webdev', 'website', 'portfolio']
 category: portfolio
+headingDepth: 2
 ---
 
 This project was asked for by a client who wanted a microsite that they could send to other companies or potential clients to assist them in finding out if they are doing what is needed to reach net neutrality.
 
-The site is a simple questionnaire with multiple end points where the user is provided with a PDF and information on how they can get to the next step and keep on going for net zero.
+The site is a simple questionnaire with multiple end points where the user is provided with a PDF and information on how they can get to the next step and keep striving for net zero.
 
-The site was specifically requested to be highly animated and appealing to be on.
+The site was specifically requested to be highly animated and engaging to be on.
 
 
 # Project objectives
@@ -92,14 +93,6 @@ Designing the website started with taking what was already created by the compan
 
 As the sole designer and developer of the site, being able to layout and plan in such a way that worked best for me was something I looked forward to being able to do. This ideal however was quickly overshadowed by the fact that I was going to have to create style guides for future designers or developers that may add to the project in the future. This realization was an eye opener to the benefits of writing, developing and designing like the project will be worked on by other people in the future.
 
-### Requirement Gathering and Analysis
-
-Conducted discussions with the client to understand their business objectives, target audience, and specific requirements for the website. Gathered information about their branding, desired features, and design outcomes. Conducted research and analysis to identify opportunities and best practices.
-
-### Wireframe
-
-The wireframes for the site were pretty simple, there was to be a question on the page with a yes or no input for the user. The home page was asked to be a splash screen with the title of the project and an 'begin journey' button as the start. I do not have those wireframes to show as they were sketched during a meeting using Microsoft paint.
-
 ### Visual design
 
 The company is already well established, so they had a lot of assets and design choices already taken care of. They did however ask that the website felt friendly and modern. This website was to be a showcase of how up to date and involved the company was regarding carbon emissions.
@@ -147,67 +140,15 @@ I had created websites before this project, but this one felt much different. I 
 
 Taking each part of the preliminary designs and splitting them up into elements and components was the first step to creating the front-end. During this project I did not know of the concept of Atomic Design, so a lot of the components are not made up of smaller 'atoms'.
 
-#### Components
+#### React
 
-The difference between raw HTML development and ReactJS development was quite a difficult idea to wrap my head around. Creating a new file/document every time you want a page makes sense, much like how you add a new page to a essay or book. React however, takes this idea and skews it. You create new pages; but you can reuse previous components and structures without having to copy and paste anything. 
+At the time of taking on this project I didn't have a lot of experience when it came to component-based architecture. This was an eye opening experience. Once you change your mindset and start breaking down pages into layouts, features, components and elements; it's difficult to go back to doing it any other way. 
 
-Once that idea is rooted in your mind, it's difficult to go back. Component-based development makes sense when it comes to websites. 
+The amount of headaches caused by refactoring and updating are near zero since components that are used throughout the entire site only need to be modified once for the changes to take effect.
 
-I took the designs and broke up each page into components, I will use the question page as an example:
-- Question Icon
-- Questions subtext
-- Question text
-- Yes/No input
-- Animated map
+Since it was my first time using React, there was a learning period and alot of refactored code to get it to a place I was happy.
 
-I created these components and was able to reuse them throughout the website.
 
-```JSX
-<>
-  <motion.h1
-    initial="initial"
-    animate="animate"
-    exit="exit"
-    variants={headingAnimation}
-    className={styles.questionHeader}
-  >
-    {props.questionText}
-  </motion.h1>
-  <motion.div
-    initial="initial"
-    animate="animate"
-    exit="exit"
-    variants={yesNoAnimation}
-    className={styles.yesNoContainer}
-  >
-    <Link href={props.yesLink}>
-      <a
-        className={styles.yesBox}
-        style={{ backgroundColor: buttonStyleYes }}
-        onClick={() => {
-          handleYesClick();
-        }}
-      >
-        Yes
-      </a>
-    </Link>
-
-    <Link href={props.noLink}>
-      <a
-        className={styles.noBox}
-        style={{ backgroundColor: buttonStyleNo }}
-        onClick={() => {
-          handleNoClick();
-        }}
-      >
-        No
-      </a>
-    </Link>
-  </motion.div>
-</>;
-```
-
-The component code in this project is not very impressive, it was my first crack at component-based development. The ideas and skills I learned during this project however have helped me to improve my development workflow and coding practices.
 
 #### Animations
 
@@ -219,14 +160,11 @@ I decided to break the animations into two categories:
 - Pre created or 'baked' animations
 - Page layout animations
 
-The baked animations were the complex and detailed, lets take the 'Road To Net Zero' text as an example. The main icon is shown in the beginning, it then shrinks and falls into place as the main text comes into view. The subtext below comes in staggered as the animation finishes...
+The baked animations were complex and detailed, lets take the 'Road To Net Zero' text as an example. The main icon is shown in the beginning, it then shrinks and falls into place as the main text comes into view. The subtext below comes in staggered as the animation finishes...
 
 <Video src="/articleImages/road-to-net-zero-project/mUzDh5kMSn.mp4" fileType="MP4" />
-Animations can get big, especially if you decide to go with a format that isn't optimized. GIFs used to be a good option when it came to animations as it allowed you to have moving pictures on your website without too much overhead. However the requirements of websites have changed and user's want high quality interaction and visuals on websites. GIFs are still widely used as they are well supported and easy to make (a sequence of images). But if you want a high fidelity, complex animation, they aren't a very good option.
 
-MP4 is another format that is used for motion on websites, it is more space efficient than GIFs and you can over scale the output resolution more efficiently than GIFs to prevent worries of quality as the element gets bigger. However there are still downsides... At the end of the day, the output is a video file and without careful consideration of resolution, MP4s can look terrible on a website, and if you aren't keeping an eye on the codec you're using and the color depth, MP4s can quickly end up in the too big to load quickly category. And if that isn't bad enough you cannot make them transparent so your website better have a solid color background or the animation better take up the full width of the page.
-
-SVGs are the best when it comes to resolution and file size. Being able to create an infinitely scalable graphic that looks good on any screen is an amazing feat of engineering. However this file comes at a cost. Manipulating SVGs require you to edit the code that makes up the SVG. This can be a complex and confusing task. SVGs can be animated which is a big plus, it allows for clean, crisp and smooth animations without concern of resolution or screen size. However... Animating an SVG by hand is a hellish nightmare that is time consuming and brain squeezing. Lucky for us, there's alot of tools that help you with animating SVGs.
+Animations can get big, especially if you decide to go with a format that isn't optimized. GIFs used to be a good option when it came to animations as they were easy to create and use. However the requirements and expectations of web have changed. MP4 is a video file, it is pretty well optimized but for animations there's no transparent background. SVGs are my favorite format, they allow for scalable, crisp and optimized art and images without the large file sizes and workarounds.
 
 I decided to use LottieFiles. It is a file format that allows you to take SVG animations and package it into a JSON file. These extra steps seem unnecessary on the surface but it allows you to create animations with powerful tools like AfterEffects (AE) and then export them to Lottie format. 
 
@@ -236,22 +174,70 @@ This workflow is what I used for the 'baked' animations and let me tell you it w
 
 ---
 
-The next part of the animations is the page layout animations, alot of these baked animations actually show up on the page using a layout animation. 
+The next part of the animations is the page layout animations, a lot of these baked animations actually show up on the page using a layout animation. 
 
-Let's use the 'Road To Net Zero' text as an example again.
+*Let's use the 'Road To Net Zero' text as an example again.*
 
-![[VIDEOHERE]]
+Framer motion is an animation library that makes dealing with element animations a lot easier. I use it to set enter and exit animations for the components. In some cases, I setup a parent component that animates first before the children animate.
 
-Framer motion is an animation library that makes dealing with element animations alot easier. I use it to set enter and exit animations for the components. In some cases, I setup a parent component that animates first before the children animate.
-
-The text example uses an exit animation to fade out and move up. This is not part of the baked animation, it is separate. The separation of these animations allows for alot of variating animations. I'm not forced to only fade out the element, I can scale it out or rotate it in!
+The text example uses an exit animation to fade out and move up. This is not part of the baked animation, it is separate. The separation of these animations allows for a lot of variating animations. I'm not forced to only fade out the element, I can scale it out or rotate it in!
 
 
 #### Styling
 
-My favorited part of web development! This is where you get to take all of your wacky ideas and make them work on a page. Before mobile first development, it was quite easy to just slap down any old CSS and it would probably work for most users. However now alot of internet traffic is via mobile devices which means you have to make responsive and dynamic designs that will flow and fit on any screen size.
+My favorited part of web development! This is where you get to take all of your wacky ideas and make them work on a page. Before mobile first development, it was quite easy to just slap down any old CSS and it would probably work for most users. However now a lot of internet traffic is via mobile devices which means you have to make responsive and dynamic designs that will flow and fit on any screen size.
+
+Most of the styling is pretty basic, some flexboxes and breakpoints, the main styling is done with framer motion. 
+
+Framer motion allows you to create and set animations using a pretty intuitive object that lets you create keyframes. These keyframes can be used to modify almost any style aspect of the element and it's how I create the main interactivity on the site.
+
+Alot of learning went into framer motion and I know now that most of the processes and tricks I used are quite inefficient (not in a performance way but a developers sanity way), but the website does what I need it to do so all is well.
+
+There's a way to group elements and to stagger their animations, this would have been very good to utilize because there's not one point on the site where two animations start at the same time. When I was developing the site I didn't know this and instead I opted to manually set delays for each element which became a headache as soon as there were more than 3 elements present.
+
+##### SCSS
+
+This project was the first time I dipped my toe into SCSS, which I find is a much more natural and easier to understand version of CSS. I can nest classes and create styling for individual components. There's alot of CSS wrappers that let you do inline styling which is quicker to use and build upon but the time it takes to debug and find issues I feel is much longer. I like SCSS because you you can make functions and create reusable classes that save you alot of time in the long run. 
+
+A man much smarter than me created functions that allow you to create automatically resizing text that never goes below a readable size, **RFS** has opened up a whole new world for me, creating responsive blocks of text without too much thinking.
+
+Mixins and modules have helped me to standardize and clean up my styling, not just in this project but all of them since then.
+
+#### Extra stuff
+
+I did some things I wasn't very knowledgeable with during this project, but the client wanted solutions to issues and I suggested a few things. 
+
+---
+
+The client wanted analytics, mainly for charting what areas of the UK are actually interested in improving or benefiting from striving for net zero. There is many options when it comes to analytics but the client had a Google analytics guru so the decision was already made from the start.
+
+When I was developing this Google was discontinuing a version of their analytics and bringing in a new version, **GA4**. The documentation and resources for learning how to implement analytics were all out of date (even on googles documentation site) which made implementing analytics a pain.
+
+They wanted custom analytics to track users progress through the questions; where did users give up, did they complete the survey, did they sign up to the email service to get their informational PDFs. It was confusing to me for a long time, until it wasn't and then everything fell into place, there's not alot of code needed to implement these custom events, but it did require alot of trial and error and reading.
+
+---
+
+The next thing the client wanted which was mentioned above was an email service, something that they could use to send information to interested parties. I've never even thought of email campaigns before so it was very new to me. I found that MailChimp provided all of the things the client wanted:
+
+- Grouping users by what stage they are at implementing net zero strategies.
+- Sending emails to interested users.
+- Creating and sending different campaigns.
+
+Most of the setup was done outside of my development environment, MailChimp has alot of setup on the website as well as helpful documentation to help implement the service into your site. Once the account was created and the groups were made, all I had to do was setup a form input that would assign the email submitted to a specific group and that was it!
 
 
+## Lessons learned
 
+A surprising amount of research had to go into developing this small site, I've always aimed to learn everything needed to create things from top to bottom, it started when I wanted to be an independent games developer, I like being able to make things from scratch and get them to a working and usable state without needing to ask other people for help. Hopefully I can figure out backend and then I'll be able to do web development from the bottom up.
 
+I learned that one of the most important things that you can do when it comes to developing projects is research everything and find solutions to problems before you even encounter them. The client needed an email service and instead of pretending I knew what a good solution was, I went away and weighed all of the pros and cons before telling them my answer. Pretending to know what your talking about is much worse then admitting you don't have a clue.
 
+Another thing I learned is how important it is to keep notes about what you are doing. Stopping for even a few days and coming back to this project without notes to orientate myself was a big headache and flipping thorough code to find where I finished off could have been avoided.
+
+A difficult lesson I learned was that my first solution isn't always the best. When deadlines are closing in and you have an empty file it's easy to just throw something down and roll with it. Communicating with the client and letting them know that something is taking longer than expected is the best thing to do instead of pushing forward with something that the client might not want.
+
+## Conclusion
+
+This project was an eye opening experience for me as it showed that no matter how small a project may seem, it still requires structure and perseverance to get it to the finish line. Over the course of this project I've developed systems and practices to keep me on the straight and narrow. The end product is something that I'm proud of. There is room for improvement and I will see that future client projects are scoped, researched and executed with a little more preparation, planning and communication.
+
+Well this has already been long enough, if you who are reading this want more information on this project or how I done it, I would be happy to answer any questions, just contact me!

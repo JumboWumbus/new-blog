@@ -9,6 +9,7 @@ export interface PostMeta {
 	date: string;
 	imageURL: string;
 	readingTime: string;
+  headingDepth: number;
 }
 
 export interface BreadCrumb{

@@ -63,6 +63,7 @@ export const getPostMetadataFromSlug = (slug: string): PostMeta => {
 	  date: (data.date ?? new Date()).toString(),
 	  imageURL: data.imageURL ?? "ArticleImages/default.webp",
 	  readingTime: `${minutes} min read`,
+    headingDepth: data.headingDepth ?? 6,
 	};
   };
 
@@ -88,6 +89,7 @@ export const getPostFromSlug = (slug: string): Post => {
 			date: (data.date ?? new Date()).toString(),
 			imageURL: data.imageURL ?? "ArticleImages/default.webp",
 			readingTime: `${minutes} min read`,
+      headingDepth: data.headingDepth ?? 6,
 		},
 	};
 };
