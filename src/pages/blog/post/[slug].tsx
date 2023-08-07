@@ -27,10 +27,10 @@ import {
 	slugify,
 } from "src/utils";
 import Link from "next/link";
-import YouTube from "src/components/Youtube/Youtube";
+
 import WordPopup from "src/components/WordPopup/WordPopup";
 import ImageCaption from "src/components/ImageCaption/ImageCaption";
-
+import Video from "src/components/Video/VideoEmbed";
 import * as fs from "fs";
 import { canonicalBlogPostUrl, objToUrlParams } from "src/utils/url";
 import { mainUrl, oGImageHeight, oGImageWidth } from "src/utils/constants";
@@ -68,7 +68,8 @@ https://vscodethemes.com/e/mufanzaa.e-ink-theme-2/e-ink-2?language=javascript
 */
 
 const options = {
-	theme: "one-dark-pro",
+	theme: "rose-pine-dawn",
+  keepBackground: false,
 
 	onVisitLine(node: any) {
 		// Prevent lines from collapsing in `display: grid` mode, and
@@ -157,17 +158,18 @@ export default function Post({ post }: { post: MDXPost }) {
 							<MDXRemote
 								{...post.source}
 								//@ts-ignore
-								components={{ YouTube, WordPopup, ImageCaption }}
+								components={{ Video, WordPopup, ImageCaption }}
 							/>
 						</div>
             
             <div className={s.tableOfContentsContainer}>
-						<TableOfContents headings={post.headings} />
+						<TableOfContents headings={post.headings} headingDepth ={post.meta.headingDepth}/>
 
             <ShareCurrentPage currentPageURL={`${mainUrl}/blog/post/${post.meta.slug}`} supportingText={`best man\n`}/>
             </div>
 					</div>
 
+          {/* <TestComment/> */}
 				</div>
 			</div>
 		</>
@@ -213,6 +215,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			],
 		},
 	});
+
+
 
   let headings = Array.from(
     (function* () {
