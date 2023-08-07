@@ -23,6 +23,7 @@ const PageViews: FC<PageViewsProps> = ({ slug }) => {
     return <p className={s.views}>Loading...</p>; // Render a loading indicator while data is being fetched
   }
 
+
   return (
     <p className={s.views}>
       {data.total === 0 || null
