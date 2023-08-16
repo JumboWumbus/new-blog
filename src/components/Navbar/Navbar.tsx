@@ -20,7 +20,7 @@ const Navbar = ({ posts }: { posts: PostMeta[] }) => {
 				<header className={s.navBar}>
 					<div className={s.logoContainer}>
 						<Link href={"/"}>
-							<TypeLogo className={s.typeLogo} fill={"#252529"}/>
+							<TypeLogo className={s.typeLogo} fill={"#313131"}/>
 						</Link>
 					</div>
 					<NavMenu posts={posts} />

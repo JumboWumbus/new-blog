@@ -33,9 +33,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
 	return (
 		<>
-<div className={"layout"}>
+<div className={`${"layout"}`}>
 
-
+<div className={"overlay"}></div>
 			<main  className={`${inter.className} ${"content"}`}>
 				<Component {...pageProps} />
 				<Analytics />

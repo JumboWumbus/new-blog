@@ -102,9 +102,9 @@ $listItem_padding-right: 0.5rem;
 
 
 	&:has(> a.active) {
-		background-color: darken($color: $tertiary, $amount: 5);
+		background-color: darken($color: $white, $amount: 5);
 		a{
-			color: $type_primary !important;
+			color: $type_secondary !important;
 		}		
 
 		&::after {
@@ -128,7 +128,7 @@ $listItem_padding-right: 0.5rem;
 
 
 	&:has(> a.active) {
-		background-color: darken($color: $tertiary, $amount: 5);
+		background-color: darken($color: $white, $amount: 5);
 		a{
 			color: $type_primary !important;
 		}
@@ -152,7 +152,7 @@ $listItem_padding-right: 0.5rem;
 	
 
 	&:has(> a.active) {
-		background-color: darken($color: $tertiary, $amount: 5);
+		background-color: darken($color: $white, $amount: 5);
 		a{
 			color: $type_primary !important;
 		}
@@ -174,7 +174,7 @@ $listItem_padding-right: 0.5rem;
 
 
 	&:has(> a.active) {
-		background-color: darken($color: $tertiary, $amount: 5);
+		background-color: darken($color: $white, $amount: 5);
 				a{
 			color: $type_primary !important;
 			

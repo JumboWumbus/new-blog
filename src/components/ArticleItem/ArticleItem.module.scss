@@ -108,7 +108,7 @@ $maxWidth: 1fr;
 .readArticle {
 	button {
 		padding: 0.7rem;
-		background-color: #ffffff;
+		background-color: $bg_lightgray;
 		color: $primary;
 		cursor: pointer;
 		border: 2px solid $primary;

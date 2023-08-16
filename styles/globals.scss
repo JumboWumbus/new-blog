@@ -14,9 +14,27 @@ body {
 	max-width: 100vw;
 	scroll-behavior: smooth;
   line-height: normal;
+  background-color: #f7f5ec;
+  color: #313131;
+
+}
+
+.overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: overlay;
+  background-size: 157px;
+  opacity: 0.2;
+  background-image: url("/textures/noise.png");
 }
 
 .layout {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

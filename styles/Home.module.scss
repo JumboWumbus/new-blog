@@ -87,10 +87,10 @@
   align-items: center;
   height: 4rem;
   margin-top: 2rem;
-  background-color: #ffffff;
+  background-color: $bg_lightgray;
   color: #141414;
   cursor: pointer;
-  border: 3px solid #141414;
+  border: 3px solid #313131;
   font-weight: 700;
   @include font-size(1.8rem);
   transition: 0.3s ease;
