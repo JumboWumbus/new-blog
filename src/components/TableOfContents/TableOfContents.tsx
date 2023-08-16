@@ -59,7 +59,7 @@ export default function TableOfContents({
     (heading) => heading.depth <= (headingDepth)
   );
 
-  console.log("Da epic depth:" + headingDepth)
+
 
   return (
     <aside className={s.wrapper}>
