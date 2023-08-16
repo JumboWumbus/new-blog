@@ -4,6 +4,7 @@ export interface PostMeta {
 	slug: string;
 	title: string;
 	author: string;
+  section:string;
 	tags: string[];
 	category: string;
 	date: string;

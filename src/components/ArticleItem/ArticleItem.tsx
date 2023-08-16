@@ -7,9 +7,9 @@ import titleCaseString, {
 	getOnlyUniqueValuesFromArray,
 	slugify
 } from 'src/utils';
-import Author from '../Icons/Author';
-import Date from '../Icons/Date';
-import ReadTime from '../Icons/ReadTime';
+import Author from '../SVGs/Icons/Author';
+import Date from '../SVGs/Icons/Date';
+import ReadTime from '../SVGs/Icons/ReadTime';
 import WrapperLink from '../ArticleItemWrapper/ArticleLinkWrapper';
 
 import s from './ArticleItem.module.scss';

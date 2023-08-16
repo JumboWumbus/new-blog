@@ -3,189 +3,184 @@
 @import "/styles/colors.scss";
 
 .footer {
-   @include parentBoiler;
-   padding-top: 3rem;
-   padding-bottom: 3rem;
-   background-color: black;
-   color: $white;
+	@include parentBoiler;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	background-color: black;
+	color: $white;
+
+  flex-shrink: 0;
 }
 
 .container {
-   margin-left: auto;
-   margin-right: auto;
-   max-width: 1300px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1300px;
 
-   @media screen and (min-width: 1200px) {
-      padding-inline: 2rem;
-    }
-    
-   display: flex;
-   justify-items: center;
-   align-items: center;
-   flex-direction: column-reverse;
+	@media screen and (min-width: 1200px) {
+		padding-inline: 2rem;
+	}
+
+	display: flex;
+	justify-items: center;
+	align-items: center;
+	flex-direction: column-reverse;
 }
 
 .sr {
-   position: absolute;
-   width: 1px;
-   height: 1px;
-   padding: 0;
-   margin: -1px;
-   overflow: hidden;
-   clip: rect(0, 0, 0, 0);
-   white-space: nowrap;
-   border-width: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
 
 .rightContent {
-   order: 2;
+	order: 2;
 
-   .iconContainer {
-      display: flex;
-      justify-content: center;
-      order: 2;
+	.iconContainer {
+		display: flex;
+		justify-content: center;
+		order: 2;
 
-      .icon {
-         width: 1.5rem;
-         height: 1.5rem;
-         color: $bg_lightgray;
-         margin-left: 1.5rem;
-      }
+		.icon {
+			width: 1.5rem;
+			height: 1.5rem;
+			color: $bg_lightgray;
+			margin-left: 1.5rem;
+		}
 
-      .noMargin {
-         margin-left: 0;
-      }
-   }
+		.noMargin {
+			margin-left: 0;
+		}
+	}
 
-   .funny {
-      display: none;
-   }
+	.funny {
+		display: none;
+	}
 }
-
 
 .bottomText {
-   text-align:center;
+	text-align: center;
 
-   padding-top: 1rem;
+	padding-top: 1rem;
 
-   span {
-      font-size: 0.6rem;
-      font-weight: 700;
-   }
+	span {
+		font-size: 0.6rem;
+		font-weight: 700;
+	}
 }
 
-
 .bioContainer {
-   //margin-top: 2rem;
-   position: relative;
-   margin-top: 1.5rem;
+	//margin-top: 2rem;
+	position: relative;
+	margin-top: 1.5rem;
 
-   @include font-size(0.8rem);
+	@include font-size(0.8rem);
 
-   .bio {}
+	.bio {
+	}
 
-   .textContainer {
+	.textContainer {
+		width: 250px;
+	}
 
-      width: 250px;
-   }
+	.image {
+		width: 4.5rem;
+		height: 4.5rem;
+		border-radius: 3rem;
+		shape-outside: circle(32%);
+		float: left;
+		margin-right: 3rem;
+		filter: brightness(115%) contrast(120%);
+	}
 
-   .image {
-      width: 4.5rem;
-      height: 4.5rem;
-      border-radius: 3rem;
-      shape-outside: circle(32%);
-      float: left;
-      margin-right: 3rem;
+	.description {
+		font-weight: 400;
 
+		p {
+			display: block;
 
+			display: inline-block;
+		}
+	}
 
-   }
+	.name {
+		font-weight: 700;
+		font-size: 1rem;
+		text-decoration: none;
+		color: $secondary;
+		display: block;
+	}
 
-   .description {
-      font-weight: 400;
+	.roles {
+		font-weight: 600;
+	}
 
-      p {
-         display: block;
+	.email {
+		//@include font-size(1rem);
+		font-weight: 700;
+		text-decoration: none;
+		color: $primary;
+		display: block;
+		margin-block: 0.1rem;
+		display: none;
+	}
 
-         display: inline-block
-      }
-   }
+	.from {
+		display: block;
 
-   .name {
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      color: $secondary;
-      display: block;
-   }
+		.city {
+			//@include font-size(1rem);
+			font-weight: 400;
+			color: $white;
+		}
 
-   .roles{
-      font-weight: 600;
-   }
+		.country {
+			//@include font-size(1rem);
+			font-weight: 800; //
 
-   .email {
-      //@include font-size(1rem);
-      font-weight: 700;
-      text-decoration: none;
-      color: $primary;
-      display: block;
-      margin-block: 0.1rem;
-      display: none;
-   }
-
-   .from {
-      display: block;
-
-      .city {
-         //@include font-size(1rem);
-         font-weight: 400;
-         color: $white;
-      }
-
-      .country {
-         //@include font-size(1rem);
-         font-weight: 800; //
-
-         color: #005eb8;
-      }
-   }
-
-
-
+			color: #005eb8;
+		}
+	}
 }
 
 @media (min-width: 640px) {
-   .container {}
+	.container {
+	}
 }
 
 @media (min-width: 768px) {
+	.funny {
+		display: block !important;
+		float: right;
+		font-size: 0.6rem;
+		font-weight: 700;
+	}
 
-   .funny {
-      display: block !important;
-      float: right;
-      font-size: 0.6rem;
-      font-weight: 700;
-      
-   }
+	.bottomText {
+		display: none;
+	}
 
-   .bottomText {
-      display: none;
-   }
+	.trademarkContainer {
+		margin-top: 0;
+	}
 
-   .trademarkContainer {
-      margin-top: 0;
-   }
+	.container {
+		justify-content: space-between;
+		flex-direction: row;
+	}
 
-   .container {
-      justify-content: space-between;
-      flex-direction: row;
-   }
-
-   .bioContainer {
-      margin-top: 0;
-   }
+	.bioContainer {
+		margin-top: 0;
+	}
 }
 
 @media (min-width: 1024px) {
-   .container {}
+	.container {
+	}
 }

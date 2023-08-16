@@ -10,12 +10,12 @@ import { objToUrlParams } from "src/utils/url";
 
 import s from "styles/Blog.module.scss";
 
-export default function Blog({ posts }: { posts: PostMeta[] }) {
+export default function Projects({ posts }: { posts: PostMeta[] }) {
 	const previewImage = {
 		url: `${mainUrl}/api/og?${objToUrlParams({
-			header: `BensDen ⟶ My website`,
-			title: `Developing, Designing, screaming...\n                          all at a high level`,
-			subtitle: `The most mediocre site in the world.`,
+			header: `BensDen ⟶ Projects`,
+			title: `The projects I've done and information on them.`,
+			subtitle: `Come take a look and be impressed.`,
 		})}`,
 		description: `Personal website of Ben Hammond`,
 	};
@@ -23,9 +23,9 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 	return (
 		<>
 			<SEO
-				title={`BensDen | The worst place to be!`}
-				description={`This is my personal website where I put all of my ideas, work and sweat.`}
-				slug={``}
+				title={`BensDen | Projects`}
+				description={`The projects I've done and information on them.`}
+				slug={`/projects`}
 				previewImage={previewImage}
 			/>
 			<Navbar posts={posts} />
@@ -34,9 +34,11 @@ export default function Blog({ posts }: { posts: PostMeta[] }) {
 			<div className={s.content}>
 				<div>
 					<Articles
-						posts={posts.slice(0, 5)}
-						postCount={posts.length}
-						title={"Most recent Posts"}
+						posts={posts
+              .filter((post) => post.section.includes("project"))}
+						postCount={posts
+              .filter((post) => post.section.includes("project")).length}
+						title={"Projects"}
 					/>
 				</div>
 			</div>

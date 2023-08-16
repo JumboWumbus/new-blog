@@ -1,8 +1,8 @@
 import { TwitterShareButton, TwitterIcon, FacebookShareButton, LinkedinShareButton } from "next-share";
 import { mainUrl } from "src/utils/constants";
-import Facebook from "../Icons/Facebook";
-import LinkedIn from "../Icons/LinkedIn";
-import Twitter from "../Icons/Twitter";
+import Facebook from "../SVGs/Icons/Facebook";
+import LinkedIn from "../SVGs/Icons/LinkedIn";
+import Twitter from "../SVGs/Icons/Twitter";
 
 import s from "./ShareCurrentPage.module.scss"
 

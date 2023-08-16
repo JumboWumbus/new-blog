@@ -1,6 +1,6 @@
 import { BreadCrumb } from "src/types";
 import titleCaseString from "src/utils";
-import RightArrow from "../Icons/RightArrow";
+import RightArrow from "../SVGs/Icons/RightArrow";
 
 import s from "./Breadcrumbs.module.scss";
 

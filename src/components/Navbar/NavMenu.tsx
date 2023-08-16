@@ -99,11 +99,11 @@ export default function NavMenu({posts}:{posts:PostMeta[]}) {
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className={s.button}>
-            ?????
+          <NavigationMenu.Trigger className={`${s.button}`} onClick={()=>router.push('/projects')}>
+          Projects
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className={s.content}>
-          Currently planning/crafting extra content and sections to go in here, check back later for some fat and cool stuff.
+          Where all of my projects go, some are bad, some are good. Various interests means various posts about whatever, hopefully something catches your eye!
           </NavigationMenu.Content>
         </NavigationMenu.Item>
         <NavigationMenu.Item>
@@ -111,11 +111,11 @@ export default function NavMenu({posts}:{posts:PostMeta[]}) {
             ?????
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className={s.content}>
-            Currently planning/crafting extra content and sections to go in here, check back later for some fat and cool stuff. 
+            Figuring out what to put here... 
           </NavigationMenu.Content>
         </NavigationMenu.Item>
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className={`${s.button} ${s.lastButton}`}>
+          <NavigationMenu.Trigger className={`${s.button} ${s.lastButton}`} onClick={()=>router.push('/about')}>
             About
           </NavigationMenu.Trigger>
         </NavigationMenu.Item>

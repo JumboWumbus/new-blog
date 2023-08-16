@@ -4,6 +4,7 @@ import { PostMeta } from "src/types";
 
 import s from "./Navbar.module.scss";
 import NavMenu from "./NavMenu";
+import TypeLogo from "../SVGs/Logo/Logo";
 
 const Navbar = ({ posts }: { posts: PostMeta[] }) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,7 @@ const Navbar = ({ posts }: { posts: PostMeta[] }) => {
 				<header className={s.navBar}>
 					<div className={s.logoContainer}>
 						<Link href={"/"}>
-							<h1 className={s.logo}>benSden</h1>
+							<TypeLogo className={s.typeLogo} fill={"#252529"}/>
 						</Link>
 					</div>
 					<NavMenu posts={posts} />

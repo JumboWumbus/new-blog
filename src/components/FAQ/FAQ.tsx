@@ -45,7 +45,8 @@ export default function FAQ () {
         Why I decided to make a website was because I don't like the idea of relying on other platforms or services as places for me to post things. It's very messy and difficult to keep track of what you posted and where.</p> 
         <br/>
       <p>
-      I'm going for a middle-out approach: Post my stuff here and THEN post it elsewhere and link back to here. This means I OWN EVERYTHING I POST, even when I decided to put it on twitter or facebook. Also it's just cool to have your own place that people can randomly stumble upon.</p>
+      I think everyone should have a website, it's basically just an interactive resource of knowledge and personal experience that other people can benefit from.
+      </p>
   </Accordion.Content>
     </Accordion.Item>
 
