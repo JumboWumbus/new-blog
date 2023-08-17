@@ -8,6 +8,7 @@
   
   .image {
     z-index: 200;
+    position: relative;
     width: 100%; /* Ensure the image fills the width of the container */
     max-width: 100%; /* Prevent the image from exceeding its original size */
     height: auto; /* Maintain the image's aspect ratio */
