@@ -7,6 +7,7 @@
   padding-block: 2rem;
   
   .image {
+    z-index: 200;
     width: 100%; /* Ensure the image fills the width of the container */
     max-width: 100%; /* Prevent the image from exceeding its original size */
     height: auto; /* Maintain the image's aspect ratio */
