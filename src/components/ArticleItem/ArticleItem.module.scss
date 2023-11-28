@@ -121,8 +121,10 @@ $maxWidth: 1fr;
 		transition: 0.3s ease;
 
 		&:hover {
-			border-color: $secondary;
-		}
+   
+		@include font-size(1.25rem);
+
+    }
 	}
 }
 
